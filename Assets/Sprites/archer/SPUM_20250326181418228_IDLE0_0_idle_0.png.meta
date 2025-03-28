@@ -1,0 +1,326 @@
+fileFormatVersion: 2
+guid: f096d1ed0d75d3f4081e4b8472a60266
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6144547106572985271
+    second: SPUM_20250326181418228_IDLE0_0_idle_0_0
+  - first:
+      213: -6971256019209835430
+    second: SPUM_20250326181418228_IDLE0_0_idle_0_1
+  - first:
+      213: 288114574938684336
+    second: SPUM_20250326181418228_IDLE0_0_idle_0_2
+  - first:
+      213: 3729301675072730850
+    second: SPUM_20250326181418228_IDLE0_0_idle_0_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1815
+        width: 144
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.077419356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c101736fe2abaa0800000000000000
+      internalID: -6144547106572985271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_1
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1815
+        width: 144
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.077419356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ca1b8f59f114f90800000000000000
+      internalID: -6971256019209835430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_2
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1815
+        width: 146
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.077419356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb35ddeda69ff300800000000000000
+      internalID: 288114574938684336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_3
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1815
+        width: 151
+        height: 156
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e6baf26d1421c330800000000000000
+      internalID: 3729301675072730850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_4
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1815
+        width: 153
+        height: 156
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ba26f3342b5f34886ff6e436ff2dcd
+      internalID: -431172703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_5
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 1817
+        width: 151
+        height: 156
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474837cc7b67ff04cb1b28e32c046ffb
+      internalID: -1680814643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_6
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1815
+        width: 148
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.077419356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9926ac20b82b7409e4018f43ff78c0
+      internalID: -1428551886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPUM_20250326181418228_IDLE0_0_idle_0_7
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 1815
+        width: 146
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.077419356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3d65c054391d445b2b97467335fe6e
+      internalID: 438215359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 88bede9f8abd3fb49a932b33fc59f108
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPUM_20250326181418228_IDLE0_0_idle_0_0: -6144547106572985271
+      SPUM_20250326181418228_IDLE0_0_idle_0_1: -6971256019209835430
+      SPUM_20250326181418228_IDLE0_0_idle_0_2: 288114574938684336
+      SPUM_20250326181418228_IDLE0_0_idle_0_3: 3729301675072730850
+      SPUM_20250326181418228_IDLE0_0_idle_0_4: -431172703
+      SPUM_20250326181418228_IDLE0_0_idle_0_5: -1680814643
+      SPUM_20250326181418228_IDLE0_0_idle_0_6: -1428551886
+      SPUM_20250326181418228_IDLE0_0_idle_0_7: 438215359
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
