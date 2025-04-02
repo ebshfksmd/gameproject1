@@ -137,12 +137,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1792
-        width: 256
-        height: 256
+        x: 18
+        y: 1817
+        width: 185
+        height: 145
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6054054, y: 0.08275862}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1792
-        width: 256
-        height: 256
+        x: 274
+        y: 1815
+        width: 185
+        height: 145
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6054054, y: 0.08275862}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1792
-        width: 256
-        height: 256
+        x: 529
+        y: 1818
+        width: 187
+        height: 146
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6096257, y: 0.08219178}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_3
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1792
-        width: 256
-        height: 256
+        x: 782
+        y: 1815
+        width: 191
+        height: 146
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6178011, y: 0.08219178}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_4
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1792
-        width: 256
-        height: 256
+        x: 1038
+        y: 1815
+        width: 193
+        height: 147
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6217617, y: 0.08163265}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_5
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1792
-        width: 256
-        height: 256
+        x: 1294
+        y: 1815
+        width: 192
+        height: 147
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6197917, y: 0.08163265}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_6
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1792
-        width: 256
-        height: 256
+        x: 1552
+        y: 1816
+        width: 189
+        height: 146
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6137566, y: 0.08219178}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: SPUM_20250328151923781_IDLE0_0_idle_0_7
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 1792
-        width: 256
-        height: 256
+        x: 1809
+        y: 1815
+        width: 186
+        height: 145
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.1484375}
+      pivot: {x: 0.6075269, y: 0.08275862}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -331,6 +331,7 @@ TextureImporter:
       SPUM_20250328151923781_IDLE0_0_idle_0_5: -8034706294147924411
       SPUM_20250328151923781_IDLE0_0_idle_0_6: -4515280373252366929
       SPUM_20250328151923781_IDLE0_0_idle_0_7: -195601076500660906
+      SPUM_20250328151923781_IDLE0_0_idle_0_8: -2039568897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
