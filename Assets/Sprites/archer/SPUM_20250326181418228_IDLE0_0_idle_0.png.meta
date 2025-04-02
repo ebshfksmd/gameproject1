@@ -125,12 +125,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 1815
-        width: 144
-        height: 155
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.077419356}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_1
       rect:
         serializedVersion: 2
-        x: 319
-        y: 1815
-        width: 144
-        height: 155
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.077419356}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_2
       rect:
         serializedVersion: 2
-        x: 574
-        y: 1815
-        width: 146
-        height: 155
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.077419356}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_3
       rect:
         serializedVersion: 2
-        x: 827
-        y: 1815
-        width: 151
-        height: 156
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.07692308}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_4
       rect:
         serializedVersion: 2
-        x: 1082
-        y: 1815
-        width: 153
-        height: 156
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.07692308}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -235,12 +235,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_5
       rect:
         serializedVersion: 2
-        x: 1337
-        y: 1817
-        width: 151
-        height: 156
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.07692308}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_6
       rect:
         serializedVersion: 2
-        x: 1597
-        y: 1815
-        width: 148
-        height: 155
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.077419356}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -279,12 +279,12 @@ TextureImporter:
       name: SPUM_20250326181418228_IDLE0_0_idle_0_7
       rect:
         serializedVersion: 2
-        x: 1854
-        y: 1815
-        width: 146
-        height: 155
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.077419356}
+      pivot: {x: 0.5078125, y: 0.1484375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
