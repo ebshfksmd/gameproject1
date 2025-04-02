@@ -8,7 +8,7 @@ public class CharacterSwitcher : MonoBehaviour
     // 캐릭터 전환 쿨타임 (초)
     public float switchCooldown = 3f;
 
-    private int currentCharacterIndex = 0;
+    private static int currentCharacterIndex = 0;
     private float lastSwitchTime = 0f;
 
     void Start()
@@ -18,14 +18,6 @@ public class CharacterSwitcher : MonoBehaviour
         lastSwitchTime = Time.time; // 초기 전환 시간 설정
     }
 
-    IEnumerator SwitchAnim()
-    {
-        yield return new WaitForSeconds(0.1f);
-        
-        characters[currentCharacterIndex].GetComponent<Rigidbody2D>().AddForce(Vector3.up * 150);
-        characters[currentCharacterIndex].GetComponent<Rigidbody2D>().AddForce(Vector3.right * 100);
-        StopCoroutine(SwitchAnim());
-    }
 
 
 
@@ -47,12 +39,11 @@ public class CharacterSwitcher : MonoBehaviour
             ActivateCharacter(currentCharacterIndex);
 
             // 새 캐릭터의 위치를 이전 캐릭터의 위치로 설정
-            characters[currentCharacterIndex].transform.position = currentPosition+new Vector3(-5,5,0);
+            characters[currentCharacterIndex].transform.position = currentPosition;
 
             // 전환 후 쿨타임 시작을 위해 시간 기록
             lastSwitchTime = Time.time;
 
-            StartCoroutine(SwitchAnim());
         }
     }
 
