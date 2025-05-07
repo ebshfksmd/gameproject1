@@ -152,11 +152,11 @@ MonoBehaviour:
   cameraPos: {fileID: 519420032}
   mouse: {fileID: 6273787844029280370, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
   bat: {fileID: -4604417464326538952, guid: efab1284ec646664694d8f936b784a60, type: 3}
-  centipede: {fileID: 0}
-  mantis: {fileID: 0}
-  mongkey: {fileID: 0}
-  rabbit: {fileID: 0}
-  summoner: {fileID: 0}
+  centipede: {fileID: -1652205290157916316, guid: ca343d6a9f152be4c8f517594793f26e, type: 3}
+  mantis: {fileID: -1463075691433351687, guid: 86fc00d5199eed04eb9f80885e390648, type: 3}
+  mongkey: {fileID: 3858904071113469138, guid: e2ae513136a3ec740b89e8c6a332d6b5, type: 3}
+  rabbit: {fileID: 2775361722772880897, guid: be15bd504bba0d24f91ec9a2c4c5b954, type: 3}
+  summoner: {fileID: 7223201241310458725, guid: f863f88f8f7a7034ba695c74266b33fd, type: 3}
 --- !u!4 &224073096
 Transform:
   m_ObjectHideFlags: 0
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCapacity: 20
   maxPoolSize: 30
-  monster: {fileID: -4604417464326538952, guid: efab1284ec646664694d8f936b784a60, type: 3}
 --- !u!1 &313046862
 GameObject:
   m_ObjectHideFlags: 0

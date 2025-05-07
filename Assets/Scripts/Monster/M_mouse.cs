@@ -4,9 +4,10 @@ public class M_mouse : Monster
 {
     M_mouse()
     {
-        hp = 100;
-        atk = 15;
-        def = 0;
+        hp = 100f;
+        atk = 15f;
+        def = 0f;
         speed = 2f;
+        canFly = false;
     }
 }

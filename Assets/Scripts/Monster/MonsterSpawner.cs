@@ -33,12 +33,20 @@ public class MonsterSpawner : MonoBehaviour
     {
         //Instantiate(mon.GameObject,new Vector3(cameraPos.position.x+Random.Range(-8,8),1,0),new Quaternion(0,0,0,0));
         var monster = ObjectPoolManager.instance.Pool.Get();
-        monster.gameObject.transform.position = new Vector3(cameraPos.position.x + Random.Range(-8, 8), 1, 0);
+
+        if(mon.canFly)
+        {
+            monster.gameObject.transform.position = new Vector3(cameraPos.position.x + Random.Range(-8, 8), 6, 0);
+        }
+        else
+        {
+            monster.gameObject.transform.position = new Vector3(cameraPos.position.x + Random.Range(-8, 8), 1, 0);
+        }
     }
 
     void Start()
     {
-        StartCoroutine(SpawnCoroutine(mouse,1));
+        StartCoroutine(SpawnCoroutine(bat,1));
     }
 
 
