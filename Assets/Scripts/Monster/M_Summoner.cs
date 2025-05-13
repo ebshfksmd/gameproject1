@@ -8,5 +8,6 @@ public class M_Summoner : Monster
         hp = 150;
         def = 100;
         speed = 0f;
+        canFly = false;
     }
 }

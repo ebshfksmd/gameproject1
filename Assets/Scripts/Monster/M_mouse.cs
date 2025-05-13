@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class M_mouse : Monster
@@ -9,5 +10,7 @@ public class M_mouse : Monster
         def = 0f;
         speed = 2f;
         canFly = false;
+        moveDistance = 5000f;
     }
+
 }
