@@ -7,7 +7,5 @@ public class M_Mongkey : Monster
         atk = 18f;
         hp = 200f;
         def = 30f;
-        speed = 1.4f;
-        canFly = false;
     }
 }

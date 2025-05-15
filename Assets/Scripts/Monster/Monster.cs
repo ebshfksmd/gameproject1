@@ -6,6 +6,10 @@ using UnityEngine.UIElements;
 
 public class Monster : MonoBehaviour
 {
+    //게임 오프젝트
+    public GameObject GameObject;
+
+
     //체력
     protected float hp;
     //공격력
@@ -13,22 +17,41 @@ public class Monster : MonoBehaviour
     //방어력
     protected float def;
     //이동속도
-    protected float speed;
+    [SerializeField] float speed;
+
+
+    private Animator animator;
+
+
+
     //행동방식 반경범위
-    public float moveDistance=5f;
-
-    //게임 오프젝트
-    public GameObject GameObject;
-
-    //몬스터 타입 ( 걷는지 나는지 )
-    public bool canFly = false;
+    public float moveDistance;
 
     //오브젝트 생성지점
     private Vector3 startPos;
 
 
+    int direction = 1;
     //1: 오른쪽 -1: 왼쪽
-    private int moveDirection = 1;
+    private int moveDirection
+    {
+        get
+        {
+            return direction;
+        }
+        set
+        {
+            if(value == 1)
+            {
+                gameObject.transform.rotation=new Quaternion(0,180,0,0);
+            }
+            else if(value == -1)
+            {
+                gameObject.transform.rotation=new Quaternion(0,0,0,0);
+            }
+            direction = value;
+        }
+    }
 
     //플레이어 추적
     private Transform target;
@@ -52,10 +75,32 @@ public class Monster : MonoBehaviour
             if(!isTracking)
             {
                 moveDirection *= -1;
-            }   
-            yield return new WaitForSeconds(Random.Range(0f,(moveDistance/speed)));
+            }
+
+            //랜덤이동할때 방향이동 최대치 설정
+            if(moveDistance / speed < 5)
+            {
+                yield return new WaitForSeconds(Random.Range(0f,(moveDistance/speed)));
+            }
+            else
+            {
+                yield return new WaitForSeconds(Random.Range(0f,5f));
+            }
         }
     }
+
+    public virtual void BasicAttack()
+    {
+
+    }
+
+
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();    
+    }
+
 
 
     private void Start()
@@ -70,7 +115,11 @@ public class Monster : MonoBehaviour
         {
             moveDirection = -1;   
         }
-        StartCoroutine(RandomMove());
+
+        if(moveDistance!=0)
+        {
+            StartCoroutine(RandomMove());
+        }
         
     }
 
@@ -80,36 +129,56 @@ public class Monster : MonoBehaviour
     //더이상 따라가지않고 멈추게 되는 거리
     public float stopDistance;
 
+        
     
 
     private void Update()
     {
-        if (!canFly)
+
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+        // 플레이어가 추적 범위 안에 들어왔고, 아직 stopDistance 이상 떨어졌다면 따라감
+        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            isTracking = true;
+            Vector3 direction = (target.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+            startPos = transform.position;
 
-            // 플레이어가 추적 범위 안에 들어왔고, 아직 stopDistance 이상 떨어졌다면 따라감
-            if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
+            animator.SetTrigger("isWalk");
+            
+            if(transform.position.x> target.position.x)
             {
-                isTracking = true;
-                Vector3 direction = (target.position - transform.position).normalized;
-                transform.position += direction * speed * Time.deltaTime;
-                startPos = transform.position;
-
+                moveDirection = -1;
             }
             else
             {
-                isTracking=false;
-                transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
+                moveDirection = 1;
+            }
 
-                float distanceFromStart = transform.position.x - startPos.x;
 
-                if (Mathf.Abs(distanceFromStart) > moveDistance)
-                {
-                    moveDirection *= -1; // 방향 반전
-                }
+
+        }
+        else if(distanceToTarget <= stopDistance)
+        {
+
+        }
+        else
+        {
+            isTracking=false;
+            transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
+            //animator.SetTrigger("isWalk");
+
+            float distanceFromStart = transform.position.x - startPos.x;
+
+            if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance!=0)
+            {
+                moveDirection *= -1; // 방향 반전
             }
         }
+
+
+        
     }
 
     

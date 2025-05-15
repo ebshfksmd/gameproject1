@@ -7,7 +7,5 @@ public class M_Rabbit : Monster
         atk = 15f;
         hp = 100f;
         def = 30f;
-        speed = 1.6f;
-        canFly = false;
     }
 }

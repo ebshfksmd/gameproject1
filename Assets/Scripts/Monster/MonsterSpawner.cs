@@ -6,7 +6,6 @@ public class MonsterSpawner : MonoBehaviour
 {
     public Transform cameraPos;
     [SerializeField] M_mouse mouse;
-    [SerializeField] M_Bat bat;
     [SerializeField] M_Centipede centipede;
     [SerializeField] M_Mantis mantis;
     [SerializeField] M_Mongkey mongkey;
@@ -21,7 +20,7 @@ public class MonsterSpawner : MonoBehaviour
         ObjectPoolManager.monsterPrefab = m;
         ObjectPoolManager.instance.Init(m);
         while(true)
-        { 
+        {
             Spawn(m);
             yield return new WaitForSeconds(time);
         }
@@ -33,21 +32,15 @@ public class MonsterSpawner : MonoBehaviour
     {
         var monster = ObjectPoolManager.instance.Pool.Get();
 
-        if(mon.canFly)
-        {
-            monster.gameObject.transform.position = new Vector3(cameraPos.position.x + Random.Range(-8, 8), 6, 0);
-        }
-        else
-        {
             monster.gameObject.transform.position = new Vector3(cameraPos.position.x + Random.Range(-8, 8), 1, 0);
-        }
+        
     }
 
 
 
     void Start()
     {
-        StartCoroutine(SpawnCoroutine(mouse,5));
+        //StartCoroutine(SpawnCoroutine(mouse,5));
     }
 
 

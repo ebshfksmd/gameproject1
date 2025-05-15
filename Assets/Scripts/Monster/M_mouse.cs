@@ -8,9 +8,8 @@ public class M_mouse : Monster
         hp = 100f;
         atk = 15f;
         def = 0f;
-        speed = 2f;
-        canFly = false;
         moveDistance = 5000f;
     }
+
 
 }
