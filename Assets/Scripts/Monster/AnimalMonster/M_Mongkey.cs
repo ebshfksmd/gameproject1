@@ -4,8 +4,8 @@ public class M_Mongkey : Monster
 {
     M_Mongkey()
     {
-        atk = 18f;
-        hp = 200f;
-        def = 30f;
+        atk = 18;
+        hp = 200;
+        def = 30;
     }
 }

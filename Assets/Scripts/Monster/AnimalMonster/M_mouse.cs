@@ -1,15 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_mouse : Monster
+public class M_mouse : AnimalMonster
 {
     M_mouse()
     {
-        hp = 100f;
-        atk = 15f;
-        def = 0f;
+        hp = 100;
+        atk = 15;
+        def = 0;
         moveDistance = 5000f;
     }
+
+
+
 
 
 }

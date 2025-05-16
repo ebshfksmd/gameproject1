@@ -6,18 +6,26 @@ using UnityEngine.UIElements;
 
 public class Monster : MonoBehaviour
 {
+    //테스트용 플레이어
+    public PlayerTest player;
+
     //게임 오프젝트
     public GameObject GameObject;
 
 
     //체력
-    protected float hp;
+    protected int hp;
     //공격력
-    protected float atk;
+    protected int atk;
     //방어력
-    protected float def;
+    protected int def;
+
+    public int baseAttackPower; 
+
+
     //이동속도
     [SerializeField] float speed;
+
 
 
     private Animator animator;
@@ -30,6 +38,11 @@ public class Monster : MonoBehaviour
     //오브젝트 생성지점
     private Vector3 startPos;
 
+    //플레이어 추적범위
+    public float targetDistance;
+
+    //더이상 따라가지않고 멈추게 되는 거리
+    public float stopDistance;
 
     int direction = 1;
     //1: 오른쪽 -1: 왼쪽
@@ -54,16 +67,23 @@ public class Monster : MonoBehaviour
     }
 
     //플레이어 추적
-    private Transform target;
+    public Transform target;
 
 
 
 
     public IObjectPool<GameObject> Pool { get; set; }
-    public void GetAttacked(float dmg,float power)
+
+
+
+    //공격 받을 때
+    public void GetAttacked(int dmg,int power)
     {
         hp -= (dmg/(100+def))*power;
     }
+
+
+
     //몬스터가 플레이어를 따라가고있는지
     private bool isTracking=false;
     
@@ -89,10 +109,11 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public virtual void BasicAttack()
-    {
 
-    }
+
+
+
+
 
 
 
@@ -123,11 +144,7 @@ public class Monster : MonoBehaviour
         
     }
 
-    //플레이어 추적범위
-    public float targetDistance;
-
-    //더이상 따라가지않고 멈추게 되는 거리
-    public float stopDistance;
+    
 
         
     
@@ -176,10 +193,5 @@ public class Monster : MonoBehaviour
                 moveDirection *= -1; // 방향 반전
             }
         }
-
-
-        
     }
-
-    
 }

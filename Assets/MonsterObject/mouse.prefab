@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
+  baseAttackPower: 4
   speed: 2
   moveDistance: 5
   targetDistance: 3

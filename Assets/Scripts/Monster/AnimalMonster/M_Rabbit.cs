@@ -4,8 +4,8 @@ public class M_Rabbit : Monster
 {
     M_Rabbit()
     {
-        atk = 15f;
-        hp = 100f;
-        def = 30f;
+        atk = 15;
+        hp = 100;
+        def = 30;
     }
 }
