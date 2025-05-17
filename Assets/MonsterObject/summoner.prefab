@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7223201241310458725}
   - component: {fileID: 1835897666910365903}
   - component: {fileID: -3596106392993464268}
+  - component: {fileID: 3123795958393677485}
   m_Layer: 6
   m_Name: summoner
   m_TagString: Untagged
@@ -103,10 +104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
+  baseAttackPower: 0
   speed: 0
   moveDistance: 0
   targetDistance: 0
   stopDistance: 0
+  target: {fileID: 0}
+  type: 0
+  baseAtkDistance: 0
+  animalBaseAtkCoolTime: 0
+  humanBaseAtkCoolTime: 0
+  castingTime: 0
 --- !u!50 &1835897666910365903
 Rigidbody2D:
   serializedVersion: 5
@@ -180,3 +188,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.2395902, y: 2.3129694}
   m_EdgeRadius: 0
+--- !u!95 &3123795958393677485
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4063416820259693532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de7ecf8c76cc6ff489aebb4ea4e873df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

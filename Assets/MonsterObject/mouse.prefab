@@ -103,12 +103,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484d4f76e8ced824f9b174295fc69f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   GameObject: {fileID: 4063416820259693532}
   baseAttackPower: 4
   speed: 2
   moveDistance: 5
   targetDistance: 3
-  stopDistance: 1
+  stopDistance: 0.1
+  target: {fileID: 6062266104421901496, guid: 04b7092df3a496c48b0ed92fb1ac5435, type: 3}
+  type: 0
+  baseAtkDistance: 1
+  animalBaseAtkCoolTime: 2
+  humanBaseAtkCoolTime: 0
+  castingTime: 0
 --- !u!61 &-1018158656154260847
 BoxCollider2D:
   m_ObjectHideFlags: 0

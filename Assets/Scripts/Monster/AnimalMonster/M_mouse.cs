@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_mouse : AnimalMonster
+public class M_mouse : Monster
 {
     M_mouse()
     {
@@ -9,6 +9,7 @@ public class M_mouse : AnimalMonster
         atk = 15;
         def = 0;
         moveDistance = 5000f;
+        type = MonsterType.animal;
     }
 
 

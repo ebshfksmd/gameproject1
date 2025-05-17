@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1463075691433351687}
   - component: {fileID: 4075816236913008005}
   - component: {fileID: 2087717230783569454}
+  - component: {fileID: -7994017832298240381}
   m_Layer: 6
   m_Name: mantis
   m_TagString: Untagged
@@ -103,10 +104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
+  baseAttackPower: 0
   speed: 0.8
   moveDistance: 10000
   targetDistance: 3
   stopDistance: 0
+  target: {fileID: 0}
+  type: 0
+  baseAtkDistance: 0
+  animalBaseAtkCoolTime: 0
+  humanBaseAtkCoolTime: 0
+  castingTime: 0
 --- !u!50 &4075816236913008005
 Rigidbody2D:
   serializedVersion: 5
@@ -180,3 +188,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.769912, y: 2.8444107}
   m_EdgeRadius: 0
+--- !u!95 &-7994017832298240381
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4063416820259693532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcd4db3e4a1ad0b488d2b9b462c8e3ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
