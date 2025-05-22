@@ -2,8 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Ground
+  - Enemy
+  - Hitbox
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -11,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -41,3 +45,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ground shadow receiver
+    uniqueID: 806041471
+    locked: 0
+  - name: player
+    uniqueID: 1390385261
+    locked: 0
+  - name: upper ground
+    uniqueID: 2580390729
+    locked: 0
+  m_RenderingLayers:
+  - Default
