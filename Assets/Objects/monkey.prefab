@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7411021030593084945}
   - component: {fileID: -3042673473051639385}
   m_Layer: 6
-  m_Name: mongkey
+  m_Name: monkey
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,10 +105,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
   hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
-  hp: 0
-  atk: 0
+  hp: 100
+  atk: 1
   def: 0
   speed: 0.8
+  baseAtkAnimationTime: 1
+  skillAtkAnimationTime: 1
   target: {fileID: 0}
   type: 0
   moveDistance: 5
@@ -201,7 +203,7 @@ Animator:
   m_GameObject: {fileID: 4063416820259693532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2e72ceb3b1fe3a4dba387f2672d43be, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b47bf3956320c94fa5739712507b600, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

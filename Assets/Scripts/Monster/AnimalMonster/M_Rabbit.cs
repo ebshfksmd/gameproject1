@@ -26,7 +26,7 @@ public class M_Rabbit : Animal
     IEnumerator SkillAnimation()
     {
         animator.SetBool("isSkill",true );
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(skillAtkAnimationTime);
         animator.SetBool("isSkill",false);
     }
 
@@ -51,15 +51,16 @@ public class M_Rabbit : Animal
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         //물러난 시점에서 스킬범위 체크하고 스킬시전
-        if (distanceToTarget <= skillDistance)
+        // 물러난 시점에서 범위 여기서 고치면됨
+        if (distanceToTarget <= 5)
         {
             transform.position += Vector3.right * moveDirection * 0.8f;
             PlayerTest.instance.GetAttacked2(atk, skillPower);
         }
         isSKillPrepare = false;
         isSkillCasting = false;
-        StartCoroutine(SkillAnimation());
 
+        StartCoroutine(SkillAnimation());
         //스킬을 사용해준후에 몬스터의 스피드 원상복구
         speed = tempSpeed;
     }

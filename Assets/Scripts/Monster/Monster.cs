@@ -28,6 +28,12 @@ public class Monster : MonoBehaviour
     protected Animator animator;
 
 
+    //기본공격 애니메이션 시간
+    public float baseAtkAnimationTime;
+    //스킬 애니메이션 시간
+    public float skillAtkAnimationTime;
+
+
     public string PoolKey { get; set; }
 
 
@@ -79,19 +85,38 @@ public class Monster : MonoBehaviour
     IEnumerator HitAnimation()
     {
         animator.SetBool("isHit", true);
+        if (monsterRenderer != null)
+        {
+            monsterRenderer.material.color = Color.red;
+        }
+
         //HitAnimation 길이만큼 딜레이
         yield return new WaitForSeconds(1f);
+
+        if (monsterRenderer != null)
+        {
+            monsterRenderer.material.color = originalColor;
+        }
         animator.SetBool("isHit", false);
     }
 
-    //공격 받을 때
+
+
+    //넉백 파워
+    private float knockbackPower = 5f;
+
     public void GetAttacked(int dmg, int power)
     {
         hp -= (dmg / (100 + def)) * power;
         StartCoroutine(HitAnimation());
-        Debug.Log($"{gameObject.name} took {(dmg / (100 + def)) * power} damage, HP left: {hp}");
-    }
 
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            Vector2 knockbackDir = new Vector2(moveDirection, 1f).normalized;
+            rb.AddForce(knockbackDir * knockbackPower, ForceMode2D.Impulse);
+        }
+    }
 
 
 
@@ -105,7 +130,8 @@ public class Monster : MonoBehaviour
 
 
 
-
+    private Renderer monsterRenderer;
+    private Color originalColor;
 
 
     protected Slider hpBarInstance;
@@ -121,6 +147,15 @@ public class Monster : MonoBehaviour
         animator = GetComponent<Animator>();
         //플레이어를 타켓으로 설정
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        monsterRenderer = GetComponentInChildren<Renderer>();
+        if (monsterRenderer != null)
+        {
+            originalColor = monsterRenderer.material.color;
+        }
+
+
+        GetAttacked(1, 1);
     }
 
 

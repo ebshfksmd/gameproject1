@@ -109,6 +109,8 @@ MonoBehaviour:
   atk: 150
   def: 100
   speed: 0
+  baseAtkAnimationTime: 1
+  skillAtkAnimationTime: 1
   target: {fileID: 0}
   type: 0
   mousePrefab: {fileID: 6273787844029280370, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
@@ -199,7 +201,7 @@ Animator:
   m_GameObject: {fileID: 4063416820259693532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: de7ecf8c76cc6ff489aebb4ea4e873df, type: 2}
+  m_Controller: {fileID: 9100000, guid: a7dabab182427e84ba15e4db32bf1a80, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

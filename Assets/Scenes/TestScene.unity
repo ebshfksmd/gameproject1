@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &234792272
+--- !u!1001 &377460574
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -131,17 +131,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: mouse
       objectReference: {fileID: 0}
-    - target: {fileID: 6273787844029280370, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
-      propertyPath: hp
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8919281490191497672, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.58
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 8919281490191497672, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 8919281490191497672, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
       propertyPath: m_LocalPosition.z
@@ -791,4 +787,4 @@ SceneRoots:
   - {fileID: 2928059736698803445}
   - {fileID: 865506760}
   - {fileID: 823780671}
-  - {fileID: 234792272}
+  - {fileID: 377460574}

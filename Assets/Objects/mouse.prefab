@@ -109,6 +109,8 @@ MonoBehaviour:
   atk: 10
   def: 0
   speed: 2
+  baseAtkAnimationTime: 1
+  skillAtkAnimationTime: 1
   target: {fileID: 6062266104421901496, guid: 04b7092df3a496c48b0ed92fb1ac5435, type: 3}
   type: 0
   moveDistance: 5

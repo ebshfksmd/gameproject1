@@ -15,7 +15,8 @@ public class PlayerSkillController : MonoBehaviour
 
     private Animator anim;
 
-    private bool canAttack = true;
+    [HideInInspector]
+    public static bool canAttack = true;
 
     void Start()
     {
@@ -77,7 +78,7 @@ public class PlayerSkillController : MonoBehaviour
         return 0f;
     }
 
-    private IEnumerator DisableAttackRoutine(float duration)
+    public static IEnumerator DisableAttackRoutine(float duration)
     {
         canAttack = false;
         yield return new WaitForSeconds(duration);

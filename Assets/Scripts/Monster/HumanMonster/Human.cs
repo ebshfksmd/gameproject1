@@ -38,14 +38,23 @@ public class Human : Monster
         }
     }
 
-    public IEnumerator HumanBaseBasicAtk()
+
+    //기본공격 애니메이션 코루틴
+    IEnumerator BaseAttackAnimation()
     {
         animator.SetBool("isAttack", true);
+        yield return new WaitForSeconds(baseAtkAnimationTime);
+        animator.SetBool("isAttack", false);
+    }
+
+    public IEnumerator HumanBaseBasicAtk()
+    {
+        
         float tempSpeed = speed;
         speed = 0f;
         yield return new WaitForSeconds(castingTime);
+        StartCoroutine(BaseAttackAnimation());
         speed = tempSpeed;
-        animator.SetBool("isAttack", false);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < baseAtkDistance)
         {
@@ -127,7 +136,7 @@ public class Human : Monster
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
         // 플레이어가 추적 범위 안에 들어왔고, 아직 stopDistance 이상 떨어졌다면 따라감
-        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
+        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance && isCast == false)
         {
             isTracking = true;
             Vector3 direction = (target.position - transform.position).normalized;
@@ -149,7 +158,7 @@ public class Human : Monster
 
 
         }
-        else if ((distanceToTarget > stopDistance))
+        else if ((distanceToTarget > stopDistance) && isCast == false)
         {
             isTracking = false;
             transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;

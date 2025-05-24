@@ -105,15 +105,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
   hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
-  hp: 0
+  hp: 100
   atk: 0
   def: 0
   speed: 1.4
+  baseAtkAnimationTime: 1
+  skillAtkAnimationTime: 0.3
   target: {fileID: 0}
   type: 0
   moveDistance: 10000
-  targetDistance: 5
-  stopDistance: 0.2
+  targetDistance: 10
+  stopDistance: 2
   baseAttackPower: 0
   baseAtkDistance: 3
   humanBaseAtkCoolTime: 5
@@ -201,7 +203,7 @@ Animator:
   m_GameObject: {fileID: 4063416820259693532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 615e7c65da4216246b81996ddfa135bf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 993c5a5f12c870b4ea6908a7973a33f3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

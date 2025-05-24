@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_Mongkey : Animal
+public class M_Monkey : Animal
 {
     //스킬 쿨타임
     float skillCooltime = 9f;
@@ -23,13 +23,23 @@ public class M_Mongkey : Animal
     bool isSKillPrepare = true;
 
 
+    IEnumerator SkillAnimation()
+    {
+        animator.SetBool("isSkill", true);
+        yield return new WaitForSeconds(skillAtkAnimationTime);
+        animator.SetBool("isSkill", false);
+    }
+
+
+
     //스킬 시전
     IEnumerator SkillCast()
     {
         isSkillCasting = true;
-        animator.SetBool("isSkill", true);
+        animator.SetBool("isWalk", false);
         yield return new WaitForSeconds(skillCastingTime);
-        animator.SetBool("isSkill", false);
+        StartCoroutine(SkillAnimation());
+        animator.SetBool("isWalk", true);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < skillDistance)
         {

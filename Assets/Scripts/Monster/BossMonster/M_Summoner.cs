@@ -9,27 +9,34 @@ public class M_Summoner : Monster
 
     [SerializeField] M_mouse mousePrefab;
     [SerializeField] M_Rabbit rabbitPrefab;
-    [SerializeField] M_Mongkey mongkeyPrefab;
+    [SerializeField] M_Monkey mongkeyPrefab;
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
 
     //기본공격 쿨타임
-    float baseAttackCoolTime = 30;
-    float skillCoolTime = 60;
+    float baseAttackCoolTime = 4;
+    float skillCoolTime = 10;
 
     //다른 몬스터가 있는지 없는지 확인하는 변수
     Transform anyMonster = null;
 
     int baseAtkCount = 0;
 
-
+    //기본공격 애니메이션 코루틴
+    IEnumerator BaseAttackAnimation()
+    {
+        animator.SetBool("isAttack", true);
+        yield return new WaitForSeconds(baseAtkAnimationTime);
+        animator.SetBool("isAttack", false);
+    }
 
     //기본공격
     IEnumerator BaseAtk()
     {
         while (true)
         {
-            animator.SetBool("isAttack", true);
+            
+            StartCoroutine(BaseAttackAnimation());
             if (baseAtkCount < 8)
             {
                 // 쥐 스폰
@@ -61,9 +68,18 @@ public class M_Summoner : Monster
 
                 baseAtkCount++;
             }
-
             yield return new WaitForSeconds(baseAttackCoolTime);
+
         }
+    }
+
+
+
+    IEnumerator SkillAnimation()
+    {
+        animator.SetBool("isSkill", true);
+        yield return new WaitForSeconds(skillAtkAnimationTime);
+        animator.SetBool("isSkill", false);
     }
 
 
@@ -90,6 +106,7 @@ public class M_Summoner : Monster
                     break;
             }
 
+            StartCoroutine(SkillAnimation());
             yield return new WaitForSeconds(skillCoolTime);
         }
     }

@@ -39,15 +39,25 @@ public class Animal : Monster
         }
     }
 
+    
+
+    //기본공격 애니메이션 코루틴
+    IEnumerator BaseAttackAnimation()
+    {
+        animator.SetBool("isAttack", true);
+        yield return new WaitForSeconds(baseAtkAnimationTime);
+        animator.SetBool("isAttack", false);
+    }
+
 
     public IEnumerator AnimalBaseBasicAtk()
     {
-        animator.SetBool("isAttack", true);
+        
         float tempSpeed = speed;
         speed = 0f;
         yield return new WaitForSeconds(animalBaseAtkCoolTime);
+        StartCoroutine(BaseAttackAnimation());
         speed = tempSpeed;
-        animator.SetBool("isAttack", false);
         //플레이어로부터의 거리
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         //공격하는 시점에 기본공격 범위안에 플레이어가 없다면 공격하지않음
