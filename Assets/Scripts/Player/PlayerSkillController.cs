@@ -15,6 +15,8 @@ public class PlayerSkillController : MonoBehaviour
 
     private Animator anim;
 
+    private bool canAttack = true;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -25,6 +27,7 @@ public class PlayerSkillController : MonoBehaviour
 
     void Update()
     {
+        // 쿨다운 감소
         var keys = new List<SkillSO>(cooldownTimers.Keys);
         foreach (var so in keys)
             if (cooldownTimers[so] > 0f)
@@ -40,15 +43,13 @@ public class PlayerSkillController : MonoBehaviour
     private void TryCast(KeyCode key, SkillSO skill)
     {
         if (skill == null) return;
-
+        if (requireCanAttack && !canAttack) return;          // 공격 잠겨있으면 무시
         if (!cooldownTimers.ContainsKey(skill))
             cooldownTimers[skill] = 0f;
 
         if (Input.GetKeyDown(key) && cooldownTimers[skill] <= 0f)
-        {
-            // 코루틴으로 시전시간 적용
             StartCoroutine(CastRoutine(skill));
-        }
+
     }
 
     private IEnumerator CastRoutine(SkillSO skill)
@@ -74,5 +75,12 @@ public class PlayerSkillController : MonoBehaviour
         if (skill != null && cooldownTimers.TryGetValue(skill, out var t))
             return Mathf.Max(0f, t);
         return 0f;
+    }
+
+    private IEnumerator DisableAttackRoutine(float duration)
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(duration);
+        canAttack = true;
     }
 }
