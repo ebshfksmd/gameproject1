@@ -27,7 +27,12 @@ public class M_Mantis : Human
     IEnumerator SkillCast()
     {
         isSkillCasting = true;
+        animator.SetBool("isSkill", true);
+        float tempSpeed = speed;
+        speed = 0f;
         yield return new WaitForSeconds(skillCastingTime);
+        speed = tempSpeed;
+        animator.SetBool("isSkill", false);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < skillDistance)
         {

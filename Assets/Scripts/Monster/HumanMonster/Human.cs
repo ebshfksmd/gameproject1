@@ -40,7 +40,12 @@ public class Human : Monster
 
     public IEnumerator HumanBaseBasicAtk()
     {
+        animator.SetBool("isAttack", true);
+        float tempSpeed = speed;
+        speed = 0f;
         yield return new WaitForSeconds(castingTime);
+        speed = tempSpeed;
+        animator.SetBool("isAttack", false);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < baseAtkDistance)
         {
@@ -68,9 +73,23 @@ public class Human : Monster
             StartCoroutine(RandomMove());
         }
 
+
     }
 
+    private bool isDead = false;
 
+    //죽었을때 애니메이션 코루틴
+    IEnumerator DieAnimation()
+    {
+        speed = 0f;
+        animator.SetBool("isDie", true);
+        Destroy(hpBarInstance.gameObject);
+        hpBarInstance = null;
+        isDead = true;
+        yield return new WaitForSeconds(0.3f);
+        ObjectPoolManager.instance.ReturnToPool(this);
+        animator.SetBool("isDie", false);
+    }
 
     //*******************몬스터 기본공격 관련 변수 , 코루틴*************************
     //기본공격 범위
@@ -96,7 +115,13 @@ public class Human : Monster
     private void Update()
     {
 
+        if (isDead) return;
 
+        if (hpBarInstance != null)
+        {
+            hpBarInstance.value = hp;
+            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
+        }
         //**********************************몬스터 움직임********************************
         //플레이어로 부터의 거리
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -108,8 +133,9 @@ public class Human : Monster
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
             startPos = transform.position;
+            //걷기 애니메이션
+            animator.SetBool("isWalk", true);
 
-            //animator.SetTrigger("isWalk");
 
             if (transform.position.x > target.position.x)
             {
@@ -127,7 +153,9 @@ public class Human : Monster
         {
             isTracking = false;
             transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
-            //animator.SetTrigger("isWalk");
+
+            //걷기 애니메이션
+            animator.SetBool("isWalk", true);
 
             float distanceFromStart = transform.position.x - startPos.x;
 
@@ -135,6 +163,10 @@ public class Human : Monster
             {
                 moveDirection *= -1; // 방향 반전
             }
+        }
+        else
+        {
+            animator.SetBool("isWalk", false);
         }
         //*******************************************************************************************
 
@@ -168,7 +200,11 @@ public class Human : Monster
 
         }
 
+        //몬스터가 죽었을때
+        if (hp <= 0)
+        {
+            StartCoroutine(DieAnimation());
+        }
 
-        //*****************************************************
     }
 }

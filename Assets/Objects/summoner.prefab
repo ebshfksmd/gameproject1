@@ -103,9 +103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c0c54cc55f7a140951a5828c76531d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameObject: {fileID: 4063416820259693532}
+  hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
   hp: 120
   atk: 150
   def: 100
+  speed: 0
+  target: {fileID: 0}
+  type: 0
   mousePrefab: {fileID: 6273787844029280370, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
   rabbitPrefab: {fileID: 2775361722772880897, guid: be15bd504bba0d24f91ec9a2c4c5b954, type: 3}
   mongkeyPrefab: {fileID: 3858904071113469138, guid: e2ae513136a3ec740b89e8c6a332d6b5, type: 3}

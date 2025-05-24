@@ -9,26 +9,34 @@ public class M_mouse : Animal
     //스킬 시전시간
     float skillCastingTime = 3f;
     //스킬 범위
-    float skillDistance = 1f;
+    float skillDistance = 3f;
+
     //스킬 위력
     int skillPower = 4;
 
     //스킬 쿨타임 카운트
-    float skillCount=0;
+    float skillCount = 0;
 
     //스킬이 캐스팅되고있는지 확인
     bool isSkillCasting = false;
 
 
     //스킬이 준비되었는지
-    bool isSKillPrepare=true;
+    bool isSKillPrepare = true;
 
 
     //스킬 시전
     IEnumerator SkillCast()
     {
-        isSkillCasting=true;
+
+        Debug.Log("SkillCast start");
+        isSkillCasting = true;
+        animator.SetBool("isSkill", true);
+        float tempSpeed = speed;
+        speed = 0f;
         yield return new WaitForSeconds(skillCastingTime);
+        speed = tempSpeed;
+        animator.SetBool("isSkill", false);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < skillDistance)
         {
@@ -65,11 +73,11 @@ public class M_mouse : Animal
             }
 
             //플레이어가 범위안에 들어왔을때
-            if (distanceToTarget < skillDistance && isSKillPrepare == true && isSkillCasting==false)
+            if (distanceToTarget < skillDistance && isSKillPrepare == true && isSkillCasting == false)
             {
 
                 StartCoroutine(SkillCast());
-                
+
             }
 
 
@@ -81,7 +89,7 @@ public class M_mouse : Animal
 
     public override void Skill()
     {
-        StartCoroutine(SkillCheck());   
+        StartCoroutine(SkillCheck());
 
     }
 
@@ -91,6 +99,7 @@ public class M_mouse : Animal
 #pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     {
         base.Awake();
+
         hp = 100;
         atk = 15;
         def = 0;

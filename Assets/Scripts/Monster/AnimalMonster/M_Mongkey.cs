@@ -27,7 +27,9 @@ public class M_Mongkey : Animal
     IEnumerator SkillCast()
     {
         isSkillCasting = true;
+        animator.SetBool("isSkill", true);
         yield return new WaitForSeconds(skillCastingTime);
+        animator.SetBool("isSkill", false);
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < skillDistance)
         {

@@ -104,16 +104,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
-  baseAttackPower: 1
+  hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
+  hp: 100
+  atk: 10
+  def: 0
   speed: 2
-  moveDistance: 5
-  targetDistance: 3
-  stopDistance: 0.1
   target: {fileID: 6062266104421901496, guid: 04b7092df3a496c48b0ed92fb1ac5435, type: 3}
   type: 0
-  baseAtkDistance: 1
+  moveDistance: 5
+  targetDistance: 5
+  stopDistance: 2
+  baseAttackPower: 1
+  baseAtkDistance: 3
   animalBaseAtkCoolTime: 2
-  humanBaseAtkCoolTime: 0
   castingTime: 0
 --- !u!61 &-1018158656154260847
 BoxCollider2D:
@@ -198,7 +201,7 @@ Animator:
   m_GameObject: {fileID: 4063416820259693532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8e666cd8f4ae944499dc1ed3f875ef3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 89143ec677dfe4b4c839afcdd900c678, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -104,16 +104,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
-  baseAttackPower: 1
+  hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
+  hp: 0
+  atk: 0
+  def: 0
   speed: 0.8
+  target: {fileID: 0}
+  type: 0
   moveDistance: 5
   targetDistance: 3
   stopDistance: 0.3
-  target: {fileID: 0}
-  type: 0
+  baseAttackPower: 1
   baseAtkDistance: 1.5
   animalBaseAtkCoolTime: 3
-  humanBaseAtkCoolTime: 0
   castingTime: 0
 --- !u!50 &-618225722819766470
 Rigidbody2D:

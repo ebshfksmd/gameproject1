@@ -3,57 +3,33 @@ using System.Threading;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class M_Summoner : MonoBehaviour
+public class M_Summoner : Monster
 {
-    [HideInInspector]
-    public int hp = 120;
-    [HideInInspector]
-    public int atk = 150;
-    [HideInInspector]
-    public int def = 100;
+
+
     [SerializeField] M_mouse mousePrefab;
     [SerializeField] M_Rabbit rabbitPrefab;
     [SerializeField] M_Mongkey mongkeyPrefab;
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
-    Transform target;
+
     //기본공격 쿨타임
     float baseAttackCoolTime = 30;
     float skillCoolTime = 60;
-
-    //방향
-    //1: 왼쪽 -1: 오른쪽
-    int direction = 1;
-    public int moveDirection
-    {
-        get
-        {
-            return direction;
-        }
-        set
-        {
-            if (value == 1)
-            {
-                gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
-            }
-            else if (value == -1)
-            {
-                gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-            }
-            direction = value;
-        }
-    }
-
 
     //다른 몬스터가 있는지 없는지 확인하는 변수
     Transform anyMonster = null;
 
     int baseAtkCount = 0;
+
+
+
     //기본공격
     IEnumerator BaseAtk()
     {
         while (true)
         {
+            animator.SetBool("isAttack", true);
             if (baseAtkCount < 8)
             {
                 // 쥐 스폰
@@ -91,7 +67,7 @@ public class M_Summoner : MonoBehaviour
     }
 
 
-    IEnumerator Skill()
+    IEnumerator BossSkill()
     {
         while (true)
         {
@@ -119,7 +95,7 @@ public class M_Summoner : MonoBehaviour
     }
 
     SpriteRenderer spr;
-    bool canAtk = false;
+
 
 
     //매프레임마다 몬스터가 있는지 없는지 확인하는 코루틴
@@ -149,7 +125,6 @@ public class M_Summoner : MonoBehaviour
             }
             else
             {
-                Debug.Log(spr.color.a);
                 SpriteRenderer tempSpr = GetComponent<SpriteRenderer>();
                 spr.color = new Color(tempSpr.color.r, tempSpr.color.g, tempSpr.color.b, 0.5f);
                 canAtk = true;
@@ -174,12 +149,24 @@ public class M_Summoner : MonoBehaviour
             yield return null;
         }
     }
-    private void Awake()
+
+    private bool isDead = false;
+    //죽었을때 애니메이션 코루틴
+    IEnumerator DieAnimation()
     {
-        spr = GetComponent<SpriteRenderer>();
+        speed = 0f;
+        animator.SetBool("isDie", true);
+        yield return new WaitForSeconds(0.3f);
+        Destroy(hpBarInstance.gameObject);
+        hpBarInstance = null;
+        isDead = true;
+        ObjectPoolManager.instance.ReturnToPool(this);
+        animator.SetBool("isDie", false);
     }
+
     private void Start()
     {
+        spr = GetComponent<SpriteRenderer>();
         ObjectPoolManager.instance.Init(mousePrefab, 24, 24);
         ObjectPoolManager.instance.Init(rabbitPrefab, 16, 16);
         ObjectPoolManager.instance.Init(mongkeyPrefab, 8, 8);
@@ -187,6 +174,23 @@ public class M_Summoner : MonoBehaviour
         ObjectPoolManager.instance.Init(mantisPrefab, 3, 3);
         StartCoroutine(CheckAnyMonster());
         StartCoroutine(BaseAtk());
-        StartCoroutine(Skill());
+        StartCoroutine(BossSkill());
+    }
+
+    private void Update()
+    {
+        if (isDead) return;
+        if (hpBarInstance != null)
+        {
+            hpBarInstance.value = hp;
+            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
+        }
+
+
+        //몬스터가 죽었을때
+        if (hp <= 0)
+        {
+            StartCoroutine(DieAnimation());
+        }
     }
 }

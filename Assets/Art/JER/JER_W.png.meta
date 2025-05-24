@@ -163,6 +163,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -597,7 +610,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      JER_W_0: 7191939085577672497
+      JER_W_1: 8443801050846795227
+      JER_W_10: -5827057785968515855
+      JER_W_11: -6103123495943412318
+      JER_W_12: -6909104490493741694
+      JER_W_13: -5400950650952403905
+      JER_W_14: 6709200448823179867
+      JER_W_15: 5483875418348825537
+      JER_W_16: 8675501212773203731
+      JER_W_17: 4542917495327718650
+      JER_W_18: 1747332855391426526
+      JER_W_2: -30294952806839534
+      JER_W_3: 8932313630907662791
+      JER_W_4: -2418077939890855055
+      JER_W_5: -6230175318944316598
+      JER_W_6: -5966304921929520959
+      JER_W_7: -6646426213886266105
+      JER_W_8: 735831856794759800
+      JER_W_9: 8547035729079242790
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

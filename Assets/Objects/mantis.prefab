@@ -104,15 +104,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
-  baseAttackPower: 0
+  hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
+  hp: 0
+  atk: 0
+  def: 0
   speed: 0.8
+  target: {fileID: 0}
+  type: 0
   moveDistance: 10000
   targetDistance: 3
   stopDistance: 2
-  target: {fileID: 0}
-  type: 0
+  baseAttackPower: 0
   baseAtkDistance: 5
-  animalBaseAtkCoolTime: 0
   humanBaseAtkCoolTime: 3
   castingTime: 5
 --- !u!50 &4075816236913008005

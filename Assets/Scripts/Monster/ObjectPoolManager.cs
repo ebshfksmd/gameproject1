@@ -6,16 +6,14 @@ public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager instance;
 
-    // 몬스터 풀 데이터를 담는 내부 클래스
     private class PoolData
     {
         public IObjectPool<Monster> pool;
         public Monster prefab;
-        public int activeCount = 0; // 현재 활성화된 수
+        public int activeCount = 0;
         public int maxSize;
     }
 
-    // 몬스터 이름(Key)별 풀 저장소
     private Dictionary<string, PoolData> monsterPools = new();
 
     private void Awake()
@@ -33,7 +31,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     int defaultCapacity;
     int maxPoolSize;
-    // 몬스터 풀 초기화
+
     public void Init(Monster prefab, int _defaultCapacity, int _maxPoolSize)
     {
         defaultCapacity = _defaultCapacity;
@@ -48,6 +46,7 @@ public class ObjectPoolManager : MonoBehaviour
             () => {
                 Monster mon = Instantiate(prefab);
                 mon.PoolKey = key;
+                mon.IsPooled = true; // ← 새로 생성된 몬스터는 풀에서 나온 것
                 return mon;
             },
             mon => mon.gameObject.SetActive(true),
@@ -64,7 +63,6 @@ public class ObjectPoolManager : MonoBehaviour
             activeCount = 0
         };
 
-        // 미리 풀 채워놓기
         for (int i = 0; i < defaultCapacity; i++)
         {
             var mon = pool.Get();
@@ -72,8 +70,6 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
 
-
-    // 몬스터 꺼내기
     public Monster GetFromPool(Monster prefab)
     {
         string key = prefab.name;
@@ -86,7 +82,6 @@ public class ObjectPoolManager : MonoBehaviour
 
         var data = monsterPools[key];
 
-        // 최대치 초과 시 null 반환 (혹은 로그만 찍고 넘어갈 수 있음)
         if (data.activeCount >= data.maxSize)
         {
             Debug.LogWarning($"{key} 풀의 최대 수({data.maxSize})를 초과하여 생성 차단됨");
@@ -94,13 +89,19 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         var mon = data.pool.Get();
+        mon.IsPooled = true; // 반드시 설정
         data.activeCount++;
         return mon;
     }
 
-    // 몬스터 반환
     public void ReturnToPool(Monster monster)
     {
+        if (!monster.IsPooled)
+        {
+            Destroy(monster.gameObject);
+            return;
+        }
+
         string key = monster.PoolKey;
 
         if (monsterPools.ContainsKey(key))
@@ -114,6 +115,4 @@ public class ObjectPoolManager : MonoBehaviour
             Destroy(monster.gameObject);
         }
     }
-
-
 }

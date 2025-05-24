@@ -39,9 +39,15 @@ public class Animal : Monster
         }
     }
 
+
     public IEnumerator AnimalBaseBasicAtk()
     {
+        animator.SetBool("isAttack", true);
+        float tempSpeed = speed;
+        speed = 0f;
         yield return new WaitForSeconds(animalBaseAtkCoolTime);
+        speed = tempSpeed;
+        animator.SetBool("isAttack", false);
         //플레이어로부터의 거리
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         //공격하는 시점에 기본공격 범위안에 플레이어가 없다면 공격하지않음
@@ -71,10 +77,23 @@ public class Animal : Monster
         {
             StartCoroutine(RandomMove());
         }
-
     }
 
 
+    private bool isDead = false;
+    //죽었을때 애니메이션 코루틴
+    IEnumerator DieAnimation()
+    {
+        isDead = true;
+        speed = 0f;
+        animator.SetBool("isDie", true);
+        Destroy(hpBarInstance.gameObject);
+        hpBarInstance = null;
+
+        yield return new WaitForSeconds(0.3f);
+        ObjectPoolManager.instance.ReturnToPool(this);
+        animator.SetBool("isDie", false);
+    }
 
     //*******************몬스터 기본공격 관련 변수 , 코루틴*************************
     //기본공격 범위
@@ -98,8 +117,13 @@ public class Animal : Monster
 
     private void Update()
     {
+        if (isDead) return;
 
-
+        if (hpBarInstance != null)
+        {
+            hpBarInstance.value = hp;
+            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
+        }
         //**********************************몬스터 움직임********************************
         //플레이어로 부터의 거리
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -110,10 +134,11 @@ public class Animal : Monster
             isTracking = true;
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
+
+            //걷기 애니메이션
+            animator.SetBool("isWalk", true);
+
             startPos = transform.position;
-
-            //animator.SetTrigger("isWalk");
-
             if (transform.position.x > target.position.x)
             {
                 moveDirection = -1;
@@ -130,7 +155,9 @@ public class Animal : Monster
         {
             isTracking = false;
             transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
-            //animator.SetTrigger("isWalk");
+
+            //걷기 애니메이션
+            animator.SetBool("isWalk", true);
 
             float distanceFromStart = transform.position.x - startPos.x;
 
@@ -138,6 +165,10 @@ public class Animal : Monster
             {
                 moveDirection *= -1; // 방향 반전
             }
+        }
+        else
+        {
+            animator.SetBool("isWalk", false);
         }
         //*******************************************************************************************
 
@@ -155,8 +186,11 @@ public class Animal : Monster
             StartCoroutine(AnimalBaseBasicAtk());
         }
 
-
-        //*****************************************************
+        //몬스터가 죽었을때
+        if (hp <= 0)
+        {
+            StartCoroutine(DieAnimation());
+        }
 
     }
 }
