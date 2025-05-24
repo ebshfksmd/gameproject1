@@ -14,6 +14,7 @@ public class PlayerSkillController : MonoBehaviour
     private Dictionary<SkillSO, float> cooldownTimers = new Dictionary<SkillSO, float>();
 
     private Animator anim;
+    private Player player;
 
     [HideInInspector]
     public static bool canAttack = true;
@@ -21,6 +22,7 @@ public class PlayerSkillController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        player = GetComponent<Player>();
         foreach (var so in new[] { qSkill, wSkill, eSkill, rSkill })
             if (so != null)
                 cooldownTimers[so] = 0f;
@@ -55,6 +57,7 @@ public class PlayerSkillController : MonoBehaviour
 
     private IEnumerator CastRoutine(SkillSO skill)
     {
+        if (player != null) player.canControl = false;
 
         // 1) 시전 애니 재생
         if (!string.IsNullOrEmpty(skill.animationName))
@@ -68,6 +71,9 @@ public class PlayerSkillController : MonoBehaviour
 
         // 4) 쿨타임 초기화
         cooldownTimers[skill] = skill.cooldown;
+
+        // 5) 시전 후 이동 허용
+        if (player != null) player.canControl = true;
     }
 
 

@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private float speedMultiplier = 1f;
     private Coroutine buffRoutine;
 
+    public bool canControl = true;
 
     void Awake()
     {
@@ -34,7 +35,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        PlayerMovement();
+        if (canControl)
+        {
+            PlayerMovement();
+        }
+            
     }
 
 
@@ -55,6 +60,11 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Hitbox"))
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        }
+        else
+        {
+            anim.SetBool("isRun", false);
+            anim.SetBool("isWalking", false);
         }
     }
 

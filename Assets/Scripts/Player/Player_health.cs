@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class Player_health : MonoBehaviour
@@ -9,9 +10,6 @@ public class Player_health : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private int defense = 0;
 
-    [Header("UI References")]
-    [SerializeField] private Slider healthSlider;
-    [SerializeField] private TMP_Text healthText;
 
 
     private Animator anim;
@@ -20,6 +18,7 @@ public class Player_health : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     void Start()
@@ -27,36 +26,43 @@ public class Player_health : MonoBehaviour
         originalMaxHealth = maxHealth;
         currentHealth = maxHealth;
 
-        // HealthSlider 초기화
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
-        healthSlider.interactable = false;
-
-        UpdateHealthUI();
     }
 
-    /// <summary>
-    /// 데미지 처리: 방어력 → 쉴드 우선 소모 → 체력 깎기
-    /// </summary>
-    public void TakeDamage(int damage,int power)
-    {
-        anim.Play("hit");
-        int afterDefense = damage / (100 + defense)*power;
+    private bool isDead = false;
 
+    public void TakeDamage(int damage, int power)
+    {
+        if (isDead) return;
+
+        anim.Play("hit");
+        int afterDefense = damage / (100 + defense) * power;
         currentHealth = Mathf.Clamp(currentHealth - afterDefense, 0, maxHealth);
+
         if (currentHealth <= 0)
         {
-            anim.Play("die");
+            StartCoroutine(DieAndSwitch());
         }
-        UpdateHealthUI();
     }
 
-    private void UpdateHealthUI()
+    private IEnumerator DieAndSwitch()
     {
-        // 체력 표시
-        healthSlider.value = currentHealth;
-        healthText.text = $"{currentHealth} / {maxHealth}";
+        isDead = true;
 
+        // 1) 죽는 애니메이션 재생
+        anim.Play("die");
+
+        // 2) 애니메이션 길이만큼 대기
+        //    (Layer 0, 현재 재생 중인 State 길이를 가져옵니다)
+        var state = anim.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(state.length);
+
+        // 3) 다음 캐릭터로 전환 요청
+        var switcher = FindObjectOfType<PlayerSwitcher>();
+        if (switcher != null)
+            switcher.SwitchToNextPublic();
+
+        // 4) (옵션) 이 오브젝트 비활성화
+        gameObject.SetActive(false);
     }
 
     public void BuffMaxHealth(float percent)
@@ -66,8 +72,6 @@ public class Player_health : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth + added, 0, maxHealth);
 
-        healthSlider.maxValue = maxHealth;
-        UpdateHealthUI();
     }
 
     public void BuffDefense(int amount)
@@ -79,8 +83,10 @@ public class Player_health : MonoBehaviour
     {
         anim.Play("retreat");
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        UpdateHealthUI();
     }
 
-    public int CurrentHealth { get { return currentHealth; } }
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
+
+    public bool IsDead => isDead;
 }
