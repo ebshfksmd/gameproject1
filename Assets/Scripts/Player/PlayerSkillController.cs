@@ -43,7 +43,7 @@ public class PlayerSkillController : MonoBehaviour
     private void TryCast(KeyCode key, SkillSO skill)
     {
         if (skill == null) return;
-        if (requireCanAttack && !canAttack) return;          // 공격 잠겨있으면 무시
+        if (!canAttack) return;          // 공격 잠겨있으면 무시
         if (!cooldownTimers.ContainsKey(skill))
             cooldownTimers[skill] = 0f;
 
