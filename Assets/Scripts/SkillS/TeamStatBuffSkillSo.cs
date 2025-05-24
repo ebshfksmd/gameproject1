@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-[CreateAssetMenu(menuName = "Skill/TeamStatBuff")]
+[CreateAssetMenu(menuName = "Skills/TeamStatBuff")]
 public class TeamStatBuffSkillSO : SkillSO
 {
     [Header("Buff Settings")]

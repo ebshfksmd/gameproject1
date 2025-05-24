@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class M_Rabbit : Monster
+public class M_Rabbit : Animal
 {
     //스킬 쿨타임
     float skillCooltime = 15f;

@@ -38,10 +38,10 @@ public class Player_health : MonoBehaviour
     /// <summary>
     /// 데미지 처리: 방어력 → 쉴드 우선 소모 → 체력 깎기
     /// </summary>
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,int power)
     {
         anim.Play("hit");
-        int afterDefense = damage / (100 + defense);
+        int afterDefense = damage / (100 + defense)*power;
 
         currentHealth = Mathf.Clamp(currentHealth - afterDefense, 0, maxHealth);
         if (currentHealth <= 0)

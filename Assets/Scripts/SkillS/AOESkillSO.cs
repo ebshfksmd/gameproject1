@@ -5,6 +5,7 @@ public class AOESkillSO : SkillSO
 {
     [Header("AOE Settings")]                // 범위 반경
     public int damage = 30;                   // 데미지
+    public int power = 3;
     public LayerMask enemyLayer;              // 적 레이어 마스크
     public GameObject effectPrefab;           // 시전 이펙트(옵션)
 
@@ -18,10 +19,10 @@ public class AOESkillSO : SkillSO
         foreach (var col in hits)
         {
             Debug.Log($" Hit: {col.gameObject.name}");
-            var enemy = col.GetComponent<EnemyHealth>();
+            var enemy = col.GetComponent<Monster>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.GetAttacked(damage, power);
                 Debug.Log($"  → {col.name} 에게 {damage} 데미지");
             }
         }

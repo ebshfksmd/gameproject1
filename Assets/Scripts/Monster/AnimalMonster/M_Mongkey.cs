@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_Mongkey : Monster
+public class M_Mongkey : Animal
 {
     //스킬 쿨타임
     float skillCooltime = 9f;

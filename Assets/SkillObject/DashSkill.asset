@@ -19,3 +19,10 @@ MonoBehaviour:
   castTime: 1
   cooldown: 0
   dashDuration: 0.2
+  dashDamage: 20
+  power: 3
+  hitRadius: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  effectPrefab: {fileID: 0}

@@ -14,6 +14,7 @@ public class DashSkillSO : SkillSO
     [Header("Damage Settings")]
     [Tooltip("대시 중 적에게 입힐 데미지")]
     public int dashDamage = 20;
+    public int power = 3;
     [Tooltip("데미지 판정을 위한 반경")]
     public float hitRadius = 0.5f;
     [Tooltip("데미지 판정에 사용할 레이어 마스크")]
@@ -63,11 +64,11 @@ public class DashSkillSO : SkillSO
                 if (!hitSet.Contains(hit))
                 {
                     hitSet.Add(hit);
-                    var enemy = hit.GetComponent<EnemyHealth>();
+                    var enemy = hit.GetComponent<Monster>();
                     if (enemy != null)
                     {
                         Debug.Log($"  → Damaging {hit.name} for {dashDamage}");
-                        enemy.TakeDamage(dashDamage);
+                        enemy.GetAttacked(dashDamage, power);
                     }
                 }
             }

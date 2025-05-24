@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 337d2473b490132429f4cba20973d90b, type: 3}
-  m_Name: LH_attack
+  m_Name: JER_attack
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
-  range: 2
+  range: 5
   animationName: attack
   castTime: 0
-  cooldown: 0
-  damage: 200
+  cooldown: 5
+  damage: 20
   power: 3
   enemyLayer:
     serializedVersion: 2

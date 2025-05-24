@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337d2473b490132429f4cba20973d90b, type: 3}
-  m_Name: LH_attack
+  m_Script: {fileID: 11500000, guid: 3af71c22e9f3de4499d1ecc200cdb87c, type: 3}
+  m_Name: WeakenSkill
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
-  range: 2
-  animationName: attack
+  range: 0
+  animationName: 
   castTime: 0
-  cooldown: 0
-  damage: 200
-  power: 3
+  cooldown: 80
+  radius: 5
+  reducePercent: 0.3
+  duration: 30
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

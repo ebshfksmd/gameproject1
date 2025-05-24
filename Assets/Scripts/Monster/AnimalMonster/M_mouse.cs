@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_mouse : Monster
+public class M_mouse : Animal
 {
 
     //스킬 쿨타임

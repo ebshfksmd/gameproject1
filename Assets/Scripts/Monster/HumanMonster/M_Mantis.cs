@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_Mantis : Monster
+public class M_Mantis : Human
 {
     ///스킬 쿨타임
     float skillCooltime = 20f;

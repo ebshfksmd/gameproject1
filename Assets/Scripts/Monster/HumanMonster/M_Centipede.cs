@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class M_Centipede : Monster
+public class M_Centipede : Human
 {
     //스킬 쿨타임
     float skillCooltime = 20f;
