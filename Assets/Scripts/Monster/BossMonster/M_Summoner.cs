@@ -9,7 +9,7 @@ public class M_Summoner : Monster
 
     [SerializeField] M_mouse mousePrefab;
     [SerializeField] M_Rabbit rabbitPrefab;
-    [SerializeField] M_Monkey mongkeyPrefab;
+    [SerializeField] M_Monkey monkeyPrefab;
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
 
@@ -60,7 +60,7 @@ public class M_Summoner : Monster
                 }
 
                 // ¿ø¼þÀÌ ½ºÆù
-                Monster mongkey = ObjectPoolManager.instance.GetFromPool(mongkeyPrefab);
+                Monster mongkey = ObjectPoolManager.instance.GetFromPool(monkeyPrefab);
                 if (mongkey != null)
                 {
                     mongkey.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
@@ -186,7 +186,7 @@ public class M_Summoner : Monster
         spr = GetComponent<SpriteRenderer>();
         ObjectPoolManager.instance.Init(mousePrefab, 24, 24);
         ObjectPoolManager.instance.Init(rabbitPrefab, 16, 16);
-        ObjectPoolManager.instance.Init(mongkeyPrefab, 8, 8);
+        ObjectPoolManager.instance.Init(monkeyPrefab, 8, 8);
         ObjectPoolManager.instance.Init(centipedePrefab, 3, 3);
         ObjectPoolManager.instance.Init(mantisPrefab, 3, 3);
         StartCoroutine(CheckAnyMonster());

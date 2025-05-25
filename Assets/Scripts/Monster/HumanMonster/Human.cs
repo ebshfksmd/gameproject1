@@ -21,7 +21,8 @@ public class Human : Monster
     {
         while (true)
         {
-            if (!isTracking)
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            if (distanceToTarget>targetDistance)
             {
                 moveDirection *= -1;
             }
@@ -42,9 +43,15 @@ public class Human : Monster
     //기본공격 애니메이션 코루틴
     IEnumerator BaseAttackAnimation()
     {
+        
         animator.SetBool("isAttack", true);
         yield return new WaitForSeconds(baseAtkAnimationTime);
         animator.SetBool("isAttack", false);
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (distanceToTarget < baseAtkDistance)
+        {
+            PlayerTest.instance.GetAttacked(atk, baseAttackPower);
+        }
     }
 
     public IEnumerator HumanBaseBasicAtk()
@@ -55,14 +62,11 @@ public class Human : Monster
         yield return new WaitForSeconds(castingTime);
         StartCoroutine(BaseAttackAnimation());
         speed = tempSpeed;
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if (distanceToTarget < baseAtkDistance)
-        {
-            PlayerTest.instance.GetAttacked(atk, baseAttackPower);
-        }
+       
         count = 0;
         isCast = false;
     }
+
 
 
     private void Start()
@@ -84,6 +88,9 @@ public class Human : Monster
 
 
     }
+
+
+
 
     private bool isDead = false;
 
@@ -121,9 +128,10 @@ public class Human : Monster
     //몬스터가 플레이어를 따라가고있는지
     private bool isTracking = false;
 
+    [HideInInspector]
+    public bool inStopDistance = false;
     private void Update()
     {
-
         if (isDead) return;
 
         if (hpBarInstance != null)
@@ -131,64 +139,53 @@ public class Human : Monster
             hpBarInstance.value = hp;
             hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
         }
-        //**********************************몬스터 움직임********************************
-        //플레이어로 부터의 거리
+
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-        // 플레이어가 추적 범위 안에 들어왔고, 아직 stopDistance 이상 떨어졌다면 따라감
-        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance && isCast == false)
+        // inStopDistance 플래그를 거리 기준으로 명확하게 설정
+        inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
+
+        // isTracking과 이동 상태 분기
+        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
         {
             isTracking = true;
+            // 플레이어를 따라감
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
-            startPos = transform.position;
-            //걷기 애니메이션
+
             animator.SetBool("isWalk", true);
 
+            // 플레이어 위치에 따라 moveDirection 설정 (추적 시)
+            moveDirection = (transform.position.x > target.position.x) ? -1 : 1;
 
-            if (transform.position.x > target.position.x)
-            {
-                moveDirection = -1;
-            }
-            else
-            {
-                moveDirection = 1;
-            }
-
-
-
+            // 추적 중에는 startPos 갱신하지 않음
         }
-        else if ((distanceToTarget > stopDistance) && isCast == false)
+        else if (distanceToTarget > targetDistance)
         {
+            // 플레이어가 범위 밖 -> 기본 이동
             isTracking = false;
+            animator.SetBool("isWalk", true);
+
             transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
 
-            //걷기 애니메이션
-            animator.SetBool("isWalk", true);
-
+            // 이동 거리 계산 (startPos는 Start() 또는 방향 전환 시 갱신)
             float distanceFromStart = transform.position.x - startPos.x;
-
             if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance != 0)
             {
-                moveDirection *= -1; // 방향 반전
+                moveDirection *= -1;           // 방향 반전
+                startPos = transform.position; // 방향 전환 시점에 기준 위치 갱신
             }
         }
         else
         {
+            // 멈춤 상태
+            isTracking = false;
             animator.SetBool("isWalk", false);
         }
-        //*******************************************************************************************
 
-
-
-
-
-
-
-        //기본공격 범위안에 들어왔을때
+        // 공격 쿨다운 관련 처리
         if (distanceToTarget < baseAtkDistance)
         {
-            //캐스팅중이 아닐때 범위안에 얼마만큼 있었는지 카운트
             if (!isCast)
             {
                 count += Time.deltaTime;
@@ -196,24 +193,21 @@ public class Human : Monster
         }
         else
         {
-            //공격범위를 벗어나면 머무는 시간을 다시 잼
             count = 0;
         }
 
-        // 기본공격 범위안에 ~초동안 머물렀을때
         if (count >= humanBaseAtkCoolTime)
         {
             StartCoroutine(HumanBaseBasicAtk());
             isCast = true;
             count = 0;
-
         }
 
-        //몬스터가 죽었을때
+        // 죽음 처리
         if (hp <= 0)
         {
             StartCoroutine(DieAnimation());
         }
-
     }
+
 }

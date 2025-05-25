@@ -8,7 +8,7 @@ public class M_Monkey : Animal
     //스킬 시전시간
     float skillCastingTime = 4f;
     //스킬 범위
-    float skillDistance = 1.5f;
+    float skillDistance = 3f;
     //스킬 위력
     int skillPower = 8;
 

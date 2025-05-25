@@ -28,6 +28,14 @@ public class M_Rabbit : Animal
         animator.SetBool("isSkill",true );
         yield return new WaitForSeconds(skillAtkAnimationTime);
         animator.SetBool("isSkill",false);
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        //물러난 시점에서 스킬범위 체크하고 스킬시전
+        // 물러난 시점에서 범위 여기서 고치면됨
+        if (distanceToTarget <= 5)
+        {
+            transform.position += Vector3.right * moveDirection * 0.8f;
+            PlayerTest.instance.GetAttacked2(atk, skillPower);
+        }
     }
 
     //스킬 시전
@@ -49,14 +57,7 @@ public class M_Rabbit : Animal
         }
 
 
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //물러난 시점에서 스킬범위 체크하고 스킬시전
-        // 물러난 시점에서 범위 여기서 고치면됨
-        if (distanceToTarget <= 5)
-        {
-            transform.position += Vector3.right * moveDirection * 0.8f;
-            PlayerTest.instance.GetAttacked2(atk, skillPower);
-        }
+       
         isSKillPrepare = false;
         isSkillCasting = false;
 

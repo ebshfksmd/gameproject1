@@ -115,7 +115,7 @@ MonoBehaviour:
   type: 0
   mousePrefab: {fileID: 6273787844029280370, guid: 0f5872ddb54b3c24a9e2be71e04aa657, type: 3}
   rabbitPrefab: {fileID: 2775361722772880897, guid: be15bd504bba0d24f91ec9a2c4c5b954, type: 3}
-  mongkeyPrefab: {fileID: 3858904071113469138, guid: e2ae513136a3ec740b89e8c6a332d6b5, type: 3}
+  monkeyPrefab: {fileID: 3858904071113469138, guid: 31600236f75c0704eb34e1a9f2946a42, type: 3}
   centipedePrefab: {fileID: -1652205290157916316, guid: ca343d6a9f152be4c8f517594793f26e, type: 3}
   mantisPrefab: {fileID: -1463075691433351687, guid: 86fc00d5199eed04eb9f80885e390648, type: 3}
 --- !u!50 &1835897666910365903

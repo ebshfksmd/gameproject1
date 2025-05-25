@@ -109,17 +109,18 @@ MonoBehaviour:
   atk: 0
   def: 0
   speed: 1.4
-  baseAtkAnimationTime: 1
-  skillAtkAnimationTime: 0.3
+  baseAtkAnimationTime: 0.5
+  skillAtkAnimationTime: 0.5
   target: {fileID: 0}
   type: 0
-  moveDistance: 10000
+  moveDistance: 5
   targetDistance: 10
   stopDistance: 2
   baseAttackPower: 0
   baseAtkDistance: 3
   humanBaseAtkCoolTime: 5
   castingTime: 2
+  inStopDistance: 0
 --- !u!50 &-1763669699405185410
 Rigidbody2D:
   serializedVersion: 5

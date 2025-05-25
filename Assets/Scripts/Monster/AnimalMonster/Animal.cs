@@ -22,7 +22,8 @@ public class Animal : Monster
     {
         while (true)
         {
-            if (!isTracking)
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            if (distanceToTarget > targetDistance)
             {
                 moveDirection *= -1;
             }
@@ -46,6 +47,15 @@ public class Animal : Monster
     {
         animator.SetBool("isAttack", true);
         yield return new WaitForSeconds(baseAtkAnimationTime);
+
+
+        //플레이어로부터의 거리
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        //공격하는 시점에 기본공격 범위안에 플레이어가 없다면 공격하지않음
+        if (distanceToTarget < baseAtkDistance)
+        {
+            PlayerTest.instance.GetAttacked(atk, baseAttackPower);
+        }
         animator.SetBool("isAttack", false);
     }
 
@@ -55,24 +65,23 @@ public class Animal : Monster
         
         float tempSpeed = speed;
         speed = 0f;
+
         yield return new WaitForSeconds(animalBaseAtkCoolTime);
-        StartCoroutine(BaseAttackAnimation());
-        speed = tempSpeed;
-        //플레이어로부터의 거리
+
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //공격하는 시점에 기본공격 범위안에 플레이어가 없다면 공격하지않음
         if (distanceToTarget < baseAtkDistance)
         {
-            PlayerTest.instance.GetAttacked(atk, baseAttackPower);
+            StartCoroutine(BaseAttackAnimation());
         }
+
+        speed = tempSpeed;
         prepareAtk = false;
     }
 
 
+
     private void Start()
     {
-        type = MonsterType.animal;
-
         startPos = transform.position;
         //몬스터의 랜덤 움직임 방향 초기 설정
         if (Random.Range(0, 2) == 0)
@@ -87,7 +96,10 @@ public class Animal : Monster
         {
             StartCoroutine(RandomMove());
         }
+
+
     }
+
 
 
     private bool isDead = false;
@@ -123,84 +135,74 @@ public class Animal : Monster
     //몬스터가 플레이어를 따라가고있는지
     private bool isTracking = false;
 
+    [HideInInspector]
+    public bool inStopDistance = false;
+   private void Update()
+{
+    if (isDead) return;
 
-
-    private void Update()
+    // HP바 위치 및 값 갱신
+    if (hpBarInstance != null)
     {
-        if (isDead) return;
-
-        if (hpBarInstance != null)
-        {
-            hpBarInstance.value = hp;
-            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
-        }
-        //**********************************몬스터 움직임********************************
-        //플레이어로 부터의 거리
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-        // 플레이어가 추적 범위 안에 들어왔고, 아직 stopDistance 이상 떨어졌다면 따라감
-        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
-        {
-            isTracking = true;
-            Vector3 direction = (target.position - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
-
-            //걷기 애니메이션
-            animator.SetBool("isWalk", true);
-
-            startPos = transform.position;
-            if (transform.position.x > target.position.x)
-            {
-                moveDirection = -1;
-            }
-            else
-            {
-                moveDirection = 1;
-            }
-
-
-
-        }
-        else if ((distanceToTarget > stopDistance))
-        {
-            isTracking = false;
-            transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
-
-            //걷기 애니메이션
-            animator.SetBool("isWalk", true);
-
-            float distanceFromStart = transform.position.x - startPos.x;
-
-            if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance != 0)
-            {
-                moveDirection *= -1; // 방향 반전
-            }
-        }
-        else
-        {
-            animator.SetBool("isWalk", false);
-        }
-        //*******************************************************************************************
-
-
-
-
-        //*****************몬스터 기본공격*********************
-
-        //플레이어로부터의 거리
-        //기본공격범위 안으로 들어왔을때
-        if (distanceToTarget < baseAtkDistance && prepareAtk == false)
-        {
-            prepareAtk = true;
-
-            StartCoroutine(AnimalBaseBasicAtk());
-        }
-
-        //몬스터가 죽었을때
-        if (hp <= 0)
-        {
-            StartCoroutine(DieAnimation());
-        }
-
+        hpBarInstance.value = hp;
+        hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
     }
+
+    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+    // inStopDistance를 명확히 거리 기준으로만 판단
+    inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
+
+    if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
+    {
+        // 플레이어를 추적 중
+        isTracking = true;
+
+        Vector3 direction = (target.position - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
+
+        animator.SetBool("isWalk", true);
+
+        // 플레이어 위치에 따라 moveDirection 설정
+        moveDirection = (transform.position.x > target.position.x) ? -1 : 1;
+
+        // 추적 중일 땐 startPos 갱신하지 않음 (이동 거리 기준 유지 위해)
+    }
+    else if (distanceToTarget > targetDistance)
+    {
+        // 플레이어가 범위 밖, 기본 랜덤 이동 또는 좌우 이동
+        isTracking = false;
+
+        animator.SetBool("isWalk", true);
+
+        transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
+
+        float distanceFromStart = transform.position.x - startPos.x;
+        if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance != 0)
+        {
+            moveDirection *= -1;           // 방향 반전
+            startPos = transform.position; // 방향 바뀔 때 기준 위치 갱신
+        }
+    }
+    else
+    {
+        // 멈춤 상태
+        isTracking = false;
+        animator.SetBool("isWalk", false);
+    }
+
+    // 기본 공격 처리
+    if (distanceToTarget < baseAtkDistance && !prepareAtk)
+    {
+        prepareAtk = true;
+        StartCoroutine(AnimalBaseBasicAtk());
+    }
+
+    // 죽음 처리
+    if (hp <= 0 && !isDead)
+    {
+        StartCoroutine(DieAnimation());
+    }
+}
+
 }

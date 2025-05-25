@@ -30,26 +30,31 @@ public class M_mouse : Animal
         animator.SetBool("isSkill", true);
         yield return new WaitForSeconds(skillAtkAnimationTime);
         animator.SetBool("isSkill", false);
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (distanceToTarget < skillDistance)
+        {
+            PlayerTest.instance.GetAttacked2(atk, skillPower);
+        }
     }
 
 
     //스킬 시전
     IEnumerator SkillCast()
     {
-
         isSkillCasting = true;
         float tempSpeed = speed;
         speed = 0f;
         animator.SetBool("isWalk", false);
         yield return new WaitForSeconds(skillCastingTime);
-        StartCoroutine(SkillAnimation());
-        animator.SetBool("isWalk", true);
-        speed = tempSpeed;
+
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < skillDistance)
         {
-            PlayerTest.instance.GetAttacked2(atk, skillPower);
+            StartCoroutine(SkillAnimation());
         }
+        animator.SetBool("isWalk", true);
+        speed = tempSpeed;
+      
 
 
         isSKillPrepare = false;

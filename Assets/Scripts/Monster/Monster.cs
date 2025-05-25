@@ -118,7 +118,11 @@ public class Monster : MonoBehaviour
         }
     }
 
-
+    IEnumerator ApplyHpBar()
+    {
+        hpBarInstance.value = hp;
+        yield return null;
+    }
 
 
 
@@ -144,6 +148,7 @@ public class Monster : MonoBehaviour
         hpBarInstance.maxValue = hp;
         hpBarInstance.minValue = 0;
         hpBarInstance.value = hp;
+        StartCoroutine(ApplyHpBar());
         animator = GetComponent<Animator>();
         //플레이어를 타켓으로 설정
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -153,9 +158,6 @@ public class Monster : MonoBehaviour
         {
             originalColor = monsterRenderer.material.color;
         }
-
-
-        GetAttacked(1, 1);
     }
 
 

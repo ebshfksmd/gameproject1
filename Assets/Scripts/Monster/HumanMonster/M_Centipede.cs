@@ -7,8 +7,6 @@ public class M_Centipede : Human
     float skillCooltime = 20f;
     //스킬 시전시간
     float skillCastingTime = 6f;
-    //스킬 범위
-    float skillDistance = 10f;
     //스킬 위력
     int skillPower = 2;
 
@@ -22,7 +20,8 @@ public class M_Centipede : Human
     //스킬이 준비되었는지
     bool isSKillPrepare = true;
 
-
+    //스킬 범위
+    float skillDistance = 3f;
 
     //독 데미지
     IEnumerator PoisonDmg()
@@ -45,6 +44,14 @@ public class M_Centipede : Human
         animator.SetBool("isSkill", true);
         yield return new WaitForSeconds(skillAtkAnimationTime);
         animator.SetBool("isSkill", false);
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+        if (distanceToTarget < skillDistance)
+        {
+            StartCoroutine(PoisonDmg());
+            StartCoroutine(PlayerSkillController.DisableAttackRoutine(6f));
+        }
+        animator.SetBool("isWalk", true);
     }
 
 
@@ -56,21 +63,14 @@ public class M_Centipede : Human
         speed = 0f;
         animator.SetBool("isWalk", false);
         yield return new WaitForSeconds(skillCastingTime);
+
         StartCoroutine(SkillAnimation());
+
         speed = tempSpeed;
-
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-        if (distanceToTarget < skillDistance)
-        {
-            StartCoroutine(PoisonDmg());
-            StartCoroutine(PlayerSkillController.DisableAttackRoutine(6f));
-        }
-
-        animator.SetBool("isWalk", true);
         isSKillPrepare = false;
         isSkillCasting = false;
     }
+
 
 
 
@@ -97,11 +97,11 @@ public class M_Centipede : Human
             }
 
             //플레이어가 범위안에 들어왔을때
-            if (distanceToTarget < skillDistance && isSKillPrepare == true && isSkillCasting == false)
+            if (distanceToTarget < skillDistance && isSKillPrepare && !isSkillCasting)
             {
-
+                // 혹시라도 중복 진입할 수 있으므로 여기서도 한번 더 차단
+                isSkillCasting = true;
                 StartCoroutine(SkillCast());
-
             }
 
 
@@ -111,10 +111,15 @@ public class M_Centipede : Human
 
     }
 
+    private bool isSkillCheckRunning = false;
+
     public override void Skill()
     {
-        StartCoroutine(SkillCheck());
-
+        if (!isSkillCheckRunning)
+        {
+            isSkillCheckRunning = true;
+            StartCoroutine(SkillCheck());
+        }
     }
 
 
@@ -127,6 +132,7 @@ public class M_Centipede : Human
         atk = 150;
         def = 100;
         type = MonsterType.human;
+        
         Skill();
     }
 }
