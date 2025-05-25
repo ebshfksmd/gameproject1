@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class PlayerSwitcher : MonoBehaviour
 {
     [Header("Players (order matters)")]
@@ -12,6 +13,10 @@ public class PlayerSwitcher : MonoBehaviour
     [Header("Walk-in Settings")]
     public float switchOffset = 1f;
     public float walkInSpeed = 3f;
+
+    [Header("Player Icon Setting")]
+    public SpriteRenderer playerIcon;
+    public Sprite[] playerIconImage;
 
     void Awake()
     {
@@ -48,6 +53,9 @@ public class PlayerSwitcher : MonoBehaviour
 
         var prev = players[prevIndex];
         var next = players[nextIndex];
+
+        playerIcon.sprite = playerIconImage[nextIndex];
+
         currentIndex = nextIndex;
 
         prev.canControl = false;
