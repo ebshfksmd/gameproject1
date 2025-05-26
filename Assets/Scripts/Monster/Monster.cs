@@ -113,7 +113,7 @@ public class Monster : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Vector2 knockbackDir = new Vector2(moveDirection, 1f).normalized;
+            Vector2 knockbackDir = new Vector2(moveDirection*-1, 1f).normalized;
             rb.AddForce(knockbackDir * knockbackPower, ForceMode2D.Impulse);
         }
     }
