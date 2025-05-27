@@ -9,7 +9,7 @@ public class SingleTargetSkillSO : SkillSO
     public LayerMask enemyLayer;             // Enemy 레이어 마스크
     public GameObject effectPrefab;          // (선택) 타격 이펙트 프리팹
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         Vector2 origin = caster.position;
         // localScale.x 의 부호(+1/-1)로 전방 방향 결정

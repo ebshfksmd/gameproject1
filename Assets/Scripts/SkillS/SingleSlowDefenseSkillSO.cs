@@ -22,7 +22,7 @@ public class SingleSlowDefenseSkillSO : SkillSO
     [Tooltip("이펙트 프리팹 (생략 가능)")]
     public GameObject effectPrefab;
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         // 1) 이펙트
         if (effectPrefab != null)

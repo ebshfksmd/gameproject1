@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI; // UI Image 사용을 위해 필요
 
 public class PlayerSwitcher : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class PlayerSwitcher : MonoBehaviour
     public float walkInSpeed = 3f;
 
     [Header("Player Icon Setting")]
-    public SpriteRenderer playerIcon;
+    public Image playerIcon; // UI용 Image 컴포넌트
     public Sprite[] playerIconImage;
 
     void Awake()
@@ -33,6 +33,12 @@ public class PlayerSwitcher : MonoBehaviour
             bool isThis = (i == currentIndex);
             players[i].gameObject.SetActive(isThis);
             players[i].canControl = isThis;
+        }
+
+        // 초기 아이콘 설정
+        if (playerIcon != null && playerIconImage.Length > currentIndex)
+        {
+            playerIcon.sprite = playerIconImage[currentIndex];
         }
     }
 
@@ -54,7 +60,11 @@ public class PlayerSwitcher : MonoBehaviour
         var prev = players[prevIndex];
         var next = players[nextIndex];
 
-        playerIcon.sprite = playerIconImage[nextIndex];
+        //  UI 아이콘 갱신
+        if (playerIcon != null && playerIconImage.Length > nextIndex)
+        {
+            playerIcon.sprite = playerIconImage[nextIndex];
+        }
 
         currentIndex = nextIndex;
 

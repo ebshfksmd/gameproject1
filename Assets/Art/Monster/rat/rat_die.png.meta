@@ -105,32 +105,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -138,20 +112,20 @@ TextureImporter:
       name: rat_die_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 240
-        height: 240
+        x: 69
+        y: 9
+        width: 117
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6668378113b355f49ac822d16262a584
-      internalID: -1558680236
+      spriteID: 9b647a253986cd800800000000000000
+      internalID: 638500229135943353
       vertices: []
       indices: 
       edges: []
@@ -160,20 +134,20 @@ TextureImporter:
       name: rat_die_1
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 240
-        height: 240
+        x: 309
+        y: 4
+        width: 117
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9c8d94a1e1e751942a4f7040ce2e1888
-      internalID: -592124347
+      spriteID: 44c3f3e4dc66fbb70800000000000000
+      internalID: 8916958819183967300
       vertices: []
       indices: 
       edges: []
@@ -182,20 +156,20 @@ TextureImporter:
       name: rat_die_2
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 240
-        height: 240
+        x: 549
+        y: 9
+        width: 117
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5052081e4c02fcc41a76d9362e4a7013
-      internalID: -1688135678
+      spriteID: e881c138d2a7a6750800000000000000
+      internalID: 6298981364722833550
       vertices: []
       indices: 
       edges: []
@@ -204,20 +178,20 @@ TextureImporter:
       name: rat_die_3
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 240
-        height: 240
+        x: 789
+        y: 9
+        width: 117
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 13cc48f7b142d354e8ac20fcb8844760
-      internalID: 173782571
+      spriteID: c6bd0a5c3efc72650800000000000000
+      internalID: 6208159188533697388
       vertices: []
       indices: 
       edges: []
@@ -226,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b7107149b0828bf41baacf60770b7e9c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +209,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rat_die_0: -1558680236
-      rat_die_1: -592124347
-      rat_die_2: -1688135678
-      rat_die_3: 173782571
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,7 +8,7 @@ public class TeamSpeedBuffSkillSO : SkillSO
     public float duration = 30f;   // 지속 시간
     public GameObject effectPrefab;  // 시전 이펙트 (옵션)
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         if (effectPrefab != null)
             Instantiate(effectPrefab, caster.position, Quaternion.identity);

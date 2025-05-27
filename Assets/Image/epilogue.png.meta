@@ -1,0 +1,4641 @@
+fileFormatVersion: 2
+guid: 381c243cb4f427147bd3ba32d0bc6666
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5993948452961440632
+    second: epilogue_0
+  - first:
+      213: 2251397663833972446
+    second: epilogue_1
+  - first:
+      213: -9137775566373004326
+    second: epilogue_2
+  - first:
+      213: -1758316193064367707
+    second: epilogue_3
+  - first:
+      213: -2934226074465980674
+    second: epilogue_4
+  - first:
+      213: -1685398805952025880
+    second: epilogue_5
+  - first:
+      213: -7030206512282236443
+    second: epilogue_6
+  - first:
+      213: -8263953914324663321
+    second: epilogue_7
+  - first:
+      213: -4005833141324500637
+    second: epilogue_8
+  - first:
+      213: 4504597650964354280
+    second: epilogue_9
+  - first:
+      213: -808194438257693817
+    second: epilogue_10
+  - first:
+      213: -4519317028051465536
+    second: epilogue_11
+  - first:
+      213: -9121445016275235024
+    second: epilogue_12
+  - first:
+      213: -1276946671562264290
+    second: epilogue_13
+  - first:
+      213: 5268174596365490287
+    second: epilogue_14
+  - first:
+      213: -6561713954139381312
+    second: epilogue_15
+  - first:
+      213: -4186520069929546427
+    second: epilogue_16
+  - first:
+      213: 3924812232249292078
+    second: epilogue_17
+  - first:
+      213: 2767305584761019153
+    second: epilogue_18
+  - first:
+      213: -1577769259670749357
+    second: epilogue_19
+  - first:
+      213: 8474102732849067071
+    second: epilogue_20
+  - first:
+      213: -352775132620783418
+    second: epilogue_21
+  - first:
+      213: -8500035690254270348
+    second: epilogue_22
+  - first:
+      213: -861980373360954559
+    second: epilogue_23
+  - first:
+      213: 5884937079683100092
+    second: epilogue_24
+  - first:
+      213: 723499608753164957
+    second: epilogue_25
+  - first:
+      213: 6619186250661711451
+    second: epilogue_26
+  - first:
+      213: -8286995046079148878
+    second: epilogue_27
+  - first:
+      213: 6680513004787094349
+    second: epilogue_28
+  - first:
+      213: 8837243435720880556
+    second: epilogue_29
+  - first:
+      213: 6766863343176102857
+    second: epilogue_30
+  - first:
+      213: -5281825585001921661
+    second: epilogue_31
+  - first:
+      213: -5746851990218457836
+    second: epilogue_32
+  - first:
+      213: -6552307497605758831
+    second: epilogue_33
+  - first:
+      213: 3722116464558255776
+    second: epilogue_34
+  - first:
+      213: 8912947358045973042
+    second: epilogue_35
+  - first:
+      213: 5616893331189322461
+    second: epilogue_36
+  - first:
+      213: -3051633053115255495
+    second: epilogue_37
+  - first:
+      213: -8480270713779046100
+    second: epilogue_38
+  - first:
+      213: -4517772371976755306
+    second: epilogue_39
+  - first:
+      213: -3011611401468287596
+    second: epilogue_40
+  - first:
+      213: 3610802820166112015
+    second: epilogue_41
+  - first:
+      213: -4641031281808234086
+    second: epilogue_42
+  - first:
+      213: 8856791332445360326
+    second: epilogue_43
+  - first:
+      213: 6484865460083743640
+    second: epilogue_44
+  - first:
+      213: -8179864774106013390
+    second: epilogue_45
+  - first:
+      213: -4080807866489632399
+    second: epilogue_46
+  - first:
+      213: -1552199994306492378
+    second: epilogue_47
+  - first:
+      213: -8617699524049202917
+    second: epilogue_48
+  - first:
+      213: 6103011364817248298
+    second: epilogue_49
+  - first:
+      213: -6652469896988138968
+    second: epilogue_50
+  - first:
+      213: 7524796560949785875
+    second: epilogue_51
+  - first:
+      213: 1663463104330573126
+    second: epilogue_52
+  - first:
+      213: -1208494989175566482
+    second: epilogue_53
+  - first:
+      213: 2878812312300080234
+    second: epilogue_54
+  - first:
+      213: 4514309428909296456
+    second: epilogue_55
+  - first:
+      213: -7444791944301713103
+    second: epilogue_56
+  - first:
+      213: -6867841967861194238
+    second: epilogue_57
+  - first:
+      213: -7707008339192272783
+    second: epilogue_58
+  - first:
+      213: -3218050964529724025
+    second: epilogue_59
+  - first:
+      213: -5752432804860729273
+    second: epilogue_60
+  - first:
+      213: 4375036507356462910
+    second: epilogue_61
+  - first:
+      213: -5265623720016599925
+    second: epilogue_62
+  - first:
+      213: -5711535653787938162
+    second: epilogue_63
+  - first:
+      213: 1962798867941029364
+    second: epilogue_64
+  - first:
+      213: 3463799564525794113
+    second: epilogue_65
+  - first:
+      213: 6967643646482338124
+    second: epilogue_66
+  - first:
+      213: -1107108357954813366
+    second: epilogue_67
+  - first:
+      213: 212929436944873648
+    second: epilogue_68
+  - first:
+      213: -6323884192333805719
+    second: epilogue_69
+  - first:
+      213: -6919779868813260158
+    second: epilogue_70
+  - first:
+      213: -6439693912307469954
+    second: epilogue_71
+  - first:
+      213: -4896477722468735146
+    second: epilogue_72
+  - first:
+      213: 6218545134709015472
+    second: epilogue_73
+  - first:
+      213: 3638436971263655055
+    second: epilogue_74
+  - first:
+      213: -1253295559225412960
+    second: epilogue_75
+  - first:
+      213: -5630908085012608028
+    second: epilogue_76
+  - first:
+      213: 4267925237647970854
+    second: epilogue_77
+  - first:
+      213: -5444735836345317391
+    second: epilogue_78
+  - first:
+      213: 8486502886590152239
+    second: epilogue_79
+  - first:
+      213: 445640153847028566
+    second: epilogue_80
+  - first:
+      213: -2591892739465752637
+    second: epilogue_81
+  - first:
+      213: -2799080853834959236
+    second: epilogue_82
+  - first:
+      213: -7761818975097781256
+    second: epilogue_83
+  - first:
+      213: -346382045223356416
+    second: epilogue_84
+  - first:
+      213: 3702440224719370792
+    second: epilogue_85
+  - first:
+      213: -2667979949039195380
+    second: epilogue_86
+  - first:
+      213: -1885641418172142164
+    second: epilogue_87
+  - first:
+      213: -9070709511425871831
+    second: epilogue_88
+  - first:
+      213: 91264527308389482
+    second: epilogue_89
+  - first:
+      213: 5558783341826278260
+    second: epilogue_90
+  - first:
+      213: 7367341183512720468
+    second: epilogue_91
+  - first:
+      213: 5408769228775557088
+    second: epilogue_92
+  - first:
+      213: -3990246786727745666
+    second: epilogue_93
+  - first:
+      213: 1680261148239694603
+    second: epilogue_94
+  - first:
+      213: 854265845175508052
+    second: epilogue_95
+  - first:
+      213: 2394792567560675824
+    second: epilogue_96
+  - first:
+      213: -8713638086350004430
+    second: epilogue_97
+  - first:
+      213: -6067404455124378252
+    second: epilogue_98
+  - first:
+      213: -5443972842417357598
+    second: epilogue_99
+  - first:
+      213: -7338927217483413125
+    second: epilogue_100
+  - first:
+      213: -1230521863311074144
+    second: epilogue_101
+  - first:
+      213: 1674071981676043290
+    second: epilogue_102
+  - first:
+      213: 7644273070979576546
+    second: epilogue_103
+  - first:
+      213: 4841345294886109137
+    second: epilogue_104
+  - first:
+      213: 7046918079348471056
+    second: epilogue_105
+  - first:
+      213: 4314927216986483284
+    second: epilogue_106
+  - first:
+      213: 1424614188162548967
+    second: epilogue_107
+  - first:
+      213: -8756351953804577392
+    second: epilogue_108
+  - first:
+      213: -635239335057572313
+    second: epilogue_109
+  - first:
+      213: 1221773503796638804
+    second: epilogue_110
+  - first:
+      213: -6390824253713534945
+    second: epilogue_111
+  - first:
+      213: 2778846067100368648
+    second: epilogue_112
+  - first:
+      213: 4340546401193500384
+    second: epilogue_113
+  - first:
+      213: 4971333083826559071
+    second: epilogue_114
+  - first:
+      213: -8437075921781044771
+    second: epilogue_115
+  - first:
+      213: 3065748000269022269
+    second: epilogue_116
+  - first:
+      213: -6039880401705784933
+    second: epilogue_117
+  - first:
+      213: -4059964711458772541
+    second: epilogue_118
+  - first:
+      213: -5257461419823498281
+    second: epilogue_119
+  - first:
+      213: -3850358347305382631
+    second: epilogue_120
+  - first:
+      213: 3476800449541698387
+    second: epilogue_121
+  - first:
+      213: -91877444702507782
+    second: epilogue_122
+  - first:
+      213: -949983314169087042
+    second: epilogue_123
+  - first:
+      213: -1798467256723805788
+    second: epilogue_124
+  - first:
+      213: 2057199411898217521
+    second: epilogue_125
+  - first:
+      213: 7617918293143321696
+    second: epilogue_126
+  - first:
+      213: 7307554046674683256
+    second: epilogue_127
+  - first:
+      213: -4350576095795004520
+    second: epilogue_128
+  - first:
+      213: 2255262976684484813
+    second: epilogue_129
+  - first:
+      213: -761468129309212954
+    second: epilogue_130
+  - first:
+      213: -8412323759523507459
+    second: epilogue_131
+  - first:
+      213: -5166990427726057102
+    second: epilogue_132
+  - first:
+      213: 7001305902640346273
+    second: epilogue_133
+  - first:
+      213: -5304200751804016666
+    second: epilogue_134
+  - first:
+      213: 913640158971173534
+    second: epilogue_135
+  - first:
+      213: 3132775826796161860
+    second: epilogue_136
+  - first:
+      213: 4778606521377218892
+    second: epilogue_137
+  - first:
+      213: -1075041675277567779
+    second: epilogue_138
+  - first:
+      213: -8162644991095354411
+    second: epilogue_139
+  - first:
+      213: -1577935469357649650
+    second: epilogue_140
+  - first:
+      213: -1953139570350440639
+    second: epilogue_141
+  - first:
+      213: -2342885647974331359
+    second: epilogue_142
+  - first:
+      213: -7667607764229288611
+    second: epilogue_143
+  - first:
+      213: -2866813418829529042
+    second: epilogue_144
+  - first:
+      213: -972984333701718722
+    second: epilogue_145
+  - first:
+      213: 4255506805806087511
+    second: epilogue_146
+  - first:
+      213: 8210377763596839385
+    second: epilogue_147
+  - first:
+      213: 5541912269661655277
+    second: epilogue_148
+  - first:
+      213: 1245002121979214907
+    second: epilogue_149
+  - first:
+      213: 8095033549323667401
+    second: epilogue_150
+  - first:
+      213: -6960642810215570110
+    second: epilogue_151
+  - first:
+      213: 7949740229790438117
+    second: epilogue_152
+  - first:
+      213: 7829765767019257845
+    second: epilogue_153
+  - first:
+      213: 1859180499364884305
+    second: epilogue_154
+  - first:
+      213: -4703277905203400024
+    second: epilogue_155
+  - first:
+      213: 7422594026331116526
+    second: epilogue_156
+  - first:
+      213: -8796922816272709213
+    second: epilogue_157
+  - first:
+      213: 6295288201238323765
+    second: epilogue_158
+  - first:
+      213: -4192538318653187558
+    second: epilogue_159
+  - first:
+      213: -1537288884652517079
+    second: epilogue_160
+  - first:
+      213: 7720164431623848187
+    second: epilogue_161
+  - first:
+      213: -5627075322922529573
+    second: epilogue_162
+  - first:
+      213: 7894667712639275650
+    second: epilogue_163
+  - first:
+      213: -8959601404899953541
+    second: epilogue_164
+  - first:
+      213: -2739517540194117220
+    second: epilogue_165
+  - first:
+      213: 7279050276531004846
+    second: epilogue_166
+  - first:
+      213: -4779870956218467502
+    second: epilogue_167
+  - first:
+      213: -8227277866147306999
+    second: epilogue_168
+  - first:
+      213: 1217869785933728190
+    second: epilogue_169
+  - first:
+      213: 986907939187976646
+    second: epilogue_170
+  - first:
+      213: -7448166610876857435
+    second: epilogue_171
+  - first:
+      213: -6568601066934988348
+    second: epilogue_172
+  - first:
+      213: 7375122373187337977
+    second: epilogue_173
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: epilogue_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 602
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873d4c45c58ce2350800000000000000
+      internalID: 5993948452961440632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 602
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eded7f03f329e3f10800000000000000
+      internalID: 2251397663833972446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 602
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adbd7115989103180800000000000000
+      internalID: -9137775566373004326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 602
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9c4950db43997e0800000000000000
+      internalID: -1758316193064367707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 602
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe24c47ee88747d0800000000000000
+      internalID: -2934226074465980674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 602
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eaac5237b24c98e0800000000000000
+      internalID: -1685398805952025880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_6
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 602
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e987c9bc60bf6e90800000000000000
+      internalID: -7030206512282236443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 602
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3ca7003b9805d80800000000000000
+      internalID: -8263953914324663321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_8
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 602
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361bdd55bfb6868c0800000000000000
+      internalID: -4005833141324500637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_9
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 602
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e41ac972bb838e30800000000000000
+      internalID: 4504597650964354280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_10
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 613
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b243eb077b8c4f0800000000000000
+      internalID: -808194438257693817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_11
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 602
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca4e9b7b192841c0800000000000000
+      internalID: -4519317028051465536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_12
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 609
+        width: 7
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f48aec51e1a6180800000000000000
+      internalID: -9121445016275235024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_13
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 602
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11f96c84cf574ee0800000000000000
+      internalID: -1276946671562264290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_14
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 602
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f681a1722e05c1940800000000000000
+      internalID: 5268174596365490287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_15
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 602
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c16cc59ceb10f4a0800000000000000
+      internalID: -6561713954139381312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_16
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 602
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54d4ec27d2e76e5c0800000000000000
+      internalID: -4186520069929546427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_17
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 602
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e25b3514eebb77630800000000000000
+      internalID: 3924812232249292078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_18
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 605
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b92ac74c1776620800000000000000
+      internalID: 2767305584761019153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_19
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 552
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f3bcbb733aa1ae0800000000000000
+      internalID: -1577769259670749357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_20
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 555
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34b2ada98f0a9570800000000000000
+      internalID: 8474102732849067071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_21
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 561
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c00c8ec2e0ba1bf0800000000000000
+      internalID: -352775132620783418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_22
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 570
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4708048239ec90a80800000000000000
+      internalID: -8500035690254270348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_23
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 552
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 143367ada61a904f0800000000000000
+      internalID: -861980373360954559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_24
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 555
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd2900281f7ba150800000000000000
+      internalID: 5884937079683100092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 552
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92ddd69f036a0a00800000000000000
+      internalID: 723499608753164957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_26
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 552
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e47d433d21cdb50800000000000000
+      internalID: 6619186250661711451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_27
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 552
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bcc70779edaefc80800000000000000
+      internalID: -8286995046079148878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_28
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 561
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4356b7de23f5bc50800000000000000
+      internalID: 6680513004787094349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 570
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1bbc3451234aa70800000000000000
+      internalID: 8837243435720880556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_30
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 557
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3bf95bb5ab8ed50800000000000000
+      internalID: 6766863343176102857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_31
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 552
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38304606d9f23b6b0800000000000000
+      internalID: -5281825585001921661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_32
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 552
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d384220941f30b0800000000000000
+      internalID: -5746851990218457836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_33
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 552
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190841aeb078115a0800000000000000
+      internalID: -6552307497605758831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_34
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 552
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aea0a2343d97a330800000000000000
+      internalID: 3722116464558255776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_35
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 552
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a261a366621bb70800000000000000
+      internalID: 8912947358045973042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_36
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 552
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2dcc2a9b633fd40800000000000000
+      internalID: 5616893331189322461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_37
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 555
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935793c08eb66a5d0800000000000000
+      internalID: -3051633053115255495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_38
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 555
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c293d0a57b6005a80800000000000000
+      internalID: -8480270713779046100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_39
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 552
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6976040c6f5ad41c0800000000000000
+      internalID: -4517772371976755306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_40
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 502
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49567f5f26b9436d0800000000000000
+      internalID: -3011611401468287596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_41
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 518
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03daf9b8062c1230800000000000000
+      internalID: 3610802820166112015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_42
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 502
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99285073aeb79fb0800000000000000
+      internalID: -4641031281808234086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_43
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 507
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c01a24aac4a9ea70800000000000000
+      internalID: 8856791332445360326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_44
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 502
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89bdd7417cedef950800000000000000
+      internalID: 6484865460083743640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_45
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 502
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2312ea4a3584b7e80800000000000000
+      internalID: -8179864774106013390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_46
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 518
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1790441ddde0e57c0800000000000000
+      internalID: -4080807866489632399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_47
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 502
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6288ffe345a757ae0800000000000000
+      internalID: -1552199994306492378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_48
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 507
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b119efff0f7c76880800000000000000
+      internalID: -8617699524049202917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_49
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 502
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20aa1c408042b450800000000000000
+      internalID: 6103011364817248298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_50
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 502
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 822ea0fffddada3a0800000000000000
+      internalID: -6652469896988138968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_51
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 505
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3153e76aa927d6860800000000000000
+      internalID: 7524796560949785875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_52
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 511
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 645a79641eec51710800000000000000
+      internalID: 1663463104330573126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_53
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 502
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6fc951d5309a3fe0800000000000000
+      internalID: -1208494989175566482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_54
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 502
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ccaa1ab8893f720800000000000000
+      internalID: 2878812312300080234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_55
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 505
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84bc55cf18c06ae30800000000000000
+      internalID: 4514309428909296456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_56
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 502
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139e43dbb29cea890800000000000000
+      internalID: -7444791944301713103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_57
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 502
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2022d1c1e1680b0a0800000000000000
+      internalID: -6867841967861194238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_58
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 505
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178a87dbfb43b0590800000000000000
+      internalID: -7707008339192272783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_59
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 511
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7854a1e92bf2753d0800000000000000
+      internalID: -3218050964529724025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_60
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 505
+        width: 27
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748e8f777d04b20b0800000000000000
+      internalID: -5752432804860729273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_61
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 452
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ff854068047bc30800000000000000
+      internalID: 4375036507356462910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_62
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 455
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b842a87002fbce6b0800000000000000
+      internalID: -5265623720016599925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_63
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 461
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82ddf9759c8cb0b0800000000000000
+      internalID: -5711535653787938162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_64
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 455
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5f929cb234d3b10800000000000000
+      internalID: 1962798867941029364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_65
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 452
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14376b81a53e11030800000000000000
+      internalID: 3463799564525794113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_66
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 468
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c415616fafa02b060800000000000000
+      internalID: 6967643646482338124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_67
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 452
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42cc3c60d2c2a0f0800000000000000
+      internalID: -1107108357954813366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_68
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 457
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8b25bd13a74f200800000000000000
+      internalID: 212929436944873648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_69
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 452
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9674c3b15dc0d38a0800000000000000
+      internalID: -6323884192333805719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_70
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 452
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a8c733fd008ff90800000000000000
+      internalID: -6919779868813260158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_71
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 468
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e71faa6718c91a6a0800000000000000
+      internalID: -6439693912307469954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_72
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 452
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65723ad34773c0cb0800000000000000
+      internalID: -4896477722468735146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_73
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 452
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b3801e4ad5bc4650800000000000000
+      internalID: 6218545134709015472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_74
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 452
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c71d9e5235e7230800000000000000
+      internalID: 3638436971263655055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_75
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 452
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a27bc144566b9ee0800000000000000
+      internalID: -1253295559225412960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_76
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 455
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebc2f53eeefad1b0800000000000000
+      internalID: -5630908085012608028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_77
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 457
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6229ee52467ba3b30800000000000000
+      internalID: 4267925237647970854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_78
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 452
+        width: 7
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f74cc2ba996074b0800000000000000
+      internalID: -5444735836345317391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_79
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 457
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e7884796d16c570800000000000000
+      internalID: 8486502886590152239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_80
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 452
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bd3bbdb5b3f2600800000000000000
+      internalID: 445640153847028566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_81
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 452
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfca30394fb70cd0800000000000000
+      internalID: -2591892739465752637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_82
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 450
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76f1992bcaa729d0800000000000000
+      internalID: -2799080853834959236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_83
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 402
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3096a14ca784490800000000000000
+      internalID: -7761818975097781256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_84
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 402
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00873e57d57613bf0800000000000000
+      internalID: -346382045223356416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_85
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 405
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82af38c94c5b16330800000000000000
+      internalID: 3702440224719370792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_86
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 411
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b67a53f5e69fad0800000000000000
+      internalID: -2667979949039195380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_87
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 402
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cade518ee1bd4d5e0800000000000000
+      internalID: -1885641418172142164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_88
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 402
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92034be02cd5e1280800000000000000
+      internalID: -9070709511425871831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_89
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 402
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c7fc2aa9c344100800000000000000
+      internalID: 91264527308389482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_90
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 322
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4730ae86ff3c42d40800000000000000
+      internalID: 5558783341826278260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_91
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 454b166c5cd0e3660800000000000000
+      internalID: 7367341183512720468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_92
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e70b39e4fecf0b40800000000000000
+      internalID: 5408769228775557088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_93
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 322
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77e2fe40bbcf98c0800000000000000
+      internalID: -3990246786727745666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_94
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 322
+        width: 51
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b87b6ac9c715710800000000000000
+      internalID: 1680261148239694603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_95
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 329
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45c5f659246fadb00800000000000000
+      internalID: 854265845175508052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_96
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 322
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1233ce6230c3120800000000000000
+      internalID: 2394792567560675824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_97
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f1bc9c350f21780800000000000000
+      internalID: -8713638086350004430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_98
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d50b76bcf3ccba0800000000000000
+      internalID: -6067404455124378252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_99
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ecf6d01b8f1374b0800000000000000
+      internalID: -5443972842417357598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_100
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 322
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7984793494e62a90800000000000000
+      internalID: -7338927217483413125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_101
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acddf882ee4ceee0800000000000000
+      internalID: -1230521863311074144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_102
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c1c34099f7b3710800000000000000
+      internalID: 1674071981676043290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_103
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e272d16bd9e51a60800000000000000
+      internalID: 7644273070979576546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_104
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dff1b825e9ef2340800000000000000
+      internalID: 4841345294886109137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_105
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 322
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015f7d038aeabc160800000000000000
+      internalID: 7046918079348471056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_106
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 322
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ae4204173b1eb30800000000000000
+      internalID: 4314927216986483284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_107
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 272
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e409636e0f35c310800000000000000
+      internalID: 1424614188162548967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_108
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 272
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0953e298a403b7680800000000000000
+      internalID: -8756351953804577392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_109
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 272
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72eb98eb03d2f27f0800000000000000
+      internalID: -635239335057572313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_110
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 272
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45478c9478c94f010800000000000000
+      internalID: 1221773503796638804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_111
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 275
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f103477833b3f47a0800000000000000
+      internalID: -6390824253713534945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_112
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 272
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f320b66c1709620800000000000000
+      internalID: 2778846067100368648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_113
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 277
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee1d3664f7bc3c30800000000000000
+      internalID: 4340546401193500384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_114
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 272
+        width: 7
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5811a9b919bdf440800000000000000
+      internalID: 4971333083826559071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_115
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 272
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd94d33962c79ea80800000000000000
+      internalID: -8437075921781044771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_116
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 272
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3436ee2099bb8a20800000000000000
+      internalID: 3065748000269022269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_117
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 272
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b99ab7a76c80e2ca0800000000000000
+      internalID: -6039880401705784933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_118
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 275
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9e0e40b9b18a7c0800000000000000
+      internalID: -4059964711458772541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_119
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 272
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7db7913a1beb907b0800000000000000
+      internalID: -5257461419823498281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_120
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 272
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91d07e2bb77c09ac0800000000000000
+      internalID: -3850358347305382631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_121
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 272
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353f9d58693104030800000000000000
+      internalID: 3476800449541698387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_122
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 272
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afce2a963f599bef0800000000000000
+      internalID: -91877444702507782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_123
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 272
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb3760853bf0d2f0800000000000000
+      internalID: -949983314169087042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_124
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 272
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a96ec60f8f8a07e0800000000000000
+      internalID: -1798467256723805788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_125
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 272
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 134f55237f3ac8c10800000000000000
+      internalID: 2057199411898217521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_126
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 225
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06cf1ce735848b960800000000000000
+      internalID: 7617918293143321696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_127
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 222
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875430930b5a96560800000000000000
+      internalID: 7307554046674683256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_128
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 233
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b35d95716af93c0800000000000000
+      internalID: -4350576095795004520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_129
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 227
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc86e587abd4c4f10800000000000000
+      internalID: 2255262976684484813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_130
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 222
+        width: 7
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee3eb455c8be65f0800000000000000
+      internalID: -761468129309212954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_131
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 222
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2d5027c1c614b80800000000000000
+      internalID: -8412323759523507459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_132
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 222
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2717b85f4992b48b0800000000000000
+      internalID: -5166990427726057102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_133
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 225
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a439babf92a92160800000000000000
+      internalID: 7001305902640346273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_134
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 231
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e79c53e481b366b0800000000000000
+      internalID: -5304200751804016666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_135
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 222
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a120842e6edac00800000000000000
+      internalID: 913640158971173534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_136
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 222
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44bad1d240bd97b20800000000000000
+      internalID: 3132775826796161860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_137
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 222
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41ed042055015240800000000000000
+      internalID: 4778606521377218892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_138
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 227
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8f65aca4fa411f0800000000000000
+      internalID: -1075041675277567779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_139
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 222
+        width: 7
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dbc32ec0a578be80800000000000000
+      internalID: -8162644991095354411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_140
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 222
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01b2760d0c0a1ae0800000000000000
+      internalID: -1577935469357649650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_141
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 222
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14fb080b8ed05e4e0800000000000000
+      internalID: -1953139570350440639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_142
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 222
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c01239ae56c7fd0800000000000000
+      internalID: -2342885647974331359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_143
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 225
+        width: 27
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d0618fc5f279590800000000000000
+      internalID: -7667607764229288611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_144
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 225
+        width: 27
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20c75572680738d0800000000000000
+      internalID: -2866813418829529042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_145
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 172
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d50b157e34f72f0800000000000000
+      internalID: -972984333701718722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_146
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 172
+        width: 51
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d345ba4e89e0b30800000000000000
+      internalID: 4255506805806087511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_147
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 172
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9a4f6531f11f170800000000000000
+      internalID: 8210377763596839385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_148
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 175
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de0df81d8d3d8ec40800000000000000
+      internalID: 5541912269661655277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_149
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 177
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3cbd2965d2274110800000000000000
+      internalID: 1245002121979214907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_150
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 172
+        width: 7
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c78e40bf16575070800000000000000
+      internalID: 8095033549323667401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_151
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 175
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24569b04e34d66f90800000000000000
+      internalID: -6960642810215570110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_152
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 172
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e29a459e96235e60800000000000000
+      internalID: 7949740229790438117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_153
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 172
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff52b13b7ae8ac60800000000000000
+      internalID: 7829765767019257845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_154
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 172
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f2af550d22dc910800000000000000
+      internalID: 1859180499364884305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_155
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 27
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2786c0aa99abeb0800000000000000
+      internalID: -4703277905203400024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_156
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 27
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee3176bb0f9520760800000000000000
+      internalID: 7422594026331116526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_157
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 29
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a949838e4d0be580800000000000000
+      internalID: -8796922816272709213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_158
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 36
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532a481e34b5d5750800000000000000
+      internalID: 6295288201238323765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_159
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 27
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1a9679bc9c11d5c0800000000000000
+      internalID: -4192538318653187558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_160
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 31
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 929512187e37aaae0800000000000000
+      internalID: -1537288884652517079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_161
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 27
+        width: 7
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf08b8ab5a8832b60800000000000000
+      internalID: 7720164431623848187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_162
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 29
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc06dcaecc98e1b0800000000000000
+      internalID: -5627075322922529573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_163
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 36
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2821c97f47e7f8d60800000000000000
+      internalID: 7894667712639275650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_164
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 31
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74f8d30ef919a380800000000000000
+      internalID: -8959601404899953541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_165
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 27
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9917c0df474bf9d0800000000000000
+      internalID: -2739517540194117220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_166
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 27
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5e6d219a1640560800000000000000
+      internalID: 7279050276531004846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_167
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 27
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b346ea0bc7aadb0800000000000000
+      internalID: -4779870956218467502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_168
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 27
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9022bd7ee56d2dd80800000000000000
+      internalID: -8227277866147306999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_169
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 27
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9c2452e1eb6e010800000000000000
+      internalID: 1217869785933728190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_170
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 31
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9ef45ba8332bd00800000000000000
+      internalID: 986907939187976646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_171
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 27
+        width: 7
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a382c2fdebc2a890800000000000000
+      internalID: -7448166610876857435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_172
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 27
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c1961ea124a7d4a0800000000000000
+      internalID: -6568601066934988348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: epilogue_173
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 27
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fefddc29b2b95660800000000000000
+      internalID: 7375122373187337977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      epilogue_0: 5993948452961440632
+      epilogue_1: 2251397663833972446
+      epilogue_10: -808194438257693817
+      epilogue_100: -7338927217483413125
+      epilogue_101: -1230521863311074144
+      epilogue_102: 1674071981676043290
+      epilogue_103: 7644273070979576546
+      epilogue_104: 4841345294886109137
+      epilogue_105: 7046918079348471056
+      epilogue_106: 4314927216986483284
+      epilogue_107: 1424614188162548967
+      epilogue_108: -8756351953804577392
+      epilogue_109: -635239335057572313
+      epilogue_11: -4519317028051465536
+      epilogue_110: 1221773503796638804
+      epilogue_111: -6390824253713534945
+      epilogue_112: 2778846067100368648
+      epilogue_113: 4340546401193500384
+      epilogue_114: 4971333083826559071
+      epilogue_115: -8437075921781044771
+      epilogue_116: 3065748000269022269
+      epilogue_117: -6039880401705784933
+      epilogue_118: -4059964711458772541
+      epilogue_119: -5257461419823498281
+      epilogue_12: -9121445016275235024
+      epilogue_120: -3850358347305382631
+      epilogue_121: 3476800449541698387
+      epilogue_122: -91877444702507782
+      epilogue_123: -949983314169087042
+      epilogue_124: -1798467256723805788
+      epilogue_125: 2057199411898217521
+      epilogue_126: 7617918293143321696
+      epilogue_127: 7307554046674683256
+      epilogue_128: -4350576095795004520
+      epilogue_129: 2255262976684484813
+      epilogue_13: -1276946671562264290
+      epilogue_130: -761468129309212954
+      epilogue_131: -8412323759523507459
+      epilogue_132: -5166990427726057102
+      epilogue_133: 7001305902640346273
+      epilogue_134: -5304200751804016666
+      epilogue_135: 913640158971173534
+      epilogue_136: 3132775826796161860
+      epilogue_137: 4778606521377218892
+      epilogue_138: -1075041675277567779
+      epilogue_139: -8162644991095354411
+      epilogue_14: 5268174596365490287
+      epilogue_140: -1577935469357649650
+      epilogue_141: -1953139570350440639
+      epilogue_142: -2342885647974331359
+      epilogue_143: -7667607764229288611
+      epilogue_144: -2866813418829529042
+      epilogue_145: -972984333701718722
+      epilogue_146: 4255506805806087511
+      epilogue_147: 8210377763596839385
+      epilogue_148: 5541912269661655277
+      epilogue_149: 1245002121979214907
+      epilogue_15: -6561713954139381312
+      epilogue_150: 8095033549323667401
+      epilogue_151: -6960642810215570110
+      epilogue_152: 7949740229790438117
+      epilogue_153: 7829765767019257845
+      epilogue_154: 1859180499364884305
+      epilogue_155: -4703277905203400024
+      epilogue_156: 7422594026331116526
+      epilogue_157: -8796922816272709213
+      epilogue_158: 6295288201238323765
+      epilogue_159: -4192538318653187558
+      epilogue_16: -4186520069929546427
+      epilogue_160: -1537288884652517079
+      epilogue_161: 7720164431623848187
+      epilogue_162: -5627075322922529573
+      epilogue_163: 7894667712639275650
+      epilogue_164: -8959601404899953541
+      epilogue_165: -2739517540194117220
+      epilogue_166: 7279050276531004846
+      epilogue_167: -4779870956218467502
+      epilogue_168: -8227277866147306999
+      epilogue_169: 1217869785933728190
+      epilogue_17: 3924812232249292078
+      epilogue_170: 986907939187976646
+      epilogue_171: -7448166610876857435
+      epilogue_172: -6568601066934988348
+      epilogue_173: 7375122373187337977
+      epilogue_18: 2767305584761019153
+      epilogue_19: -1577769259670749357
+      epilogue_2: -9137775566373004326
+      epilogue_20: 8474102732849067071
+      epilogue_21: -352775132620783418
+      epilogue_22: -8500035690254270348
+      epilogue_23: -861980373360954559
+      epilogue_24: 5884937079683100092
+      epilogue_25: 723499608753164957
+      epilogue_26: 6619186250661711451
+      epilogue_27: -8286995046079148878
+      epilogue_28: 6680513004787094349
+      epilogue_29: 8837243435720880556
+      epilogue_3: -1758316193064367707
+      epilogue_30: 6766863343176102857
+      epilogue_31: -5281825585001921661
+      epilogue_32: -5746851990218457836
+      epilogue_33: -6552307497605758831
+      epilogue_34: 3722116464558255776
+      epilogue_35: 8912947358045973042
+      epilogue_36: 5616893331189322461
+      epilogue_37: -3051633053115255495
+      epilogue_38: -8480270713779046100
+      epilogue_39: -4517772371976755306
+      epilogue_4: -2934226074465980674
+      epilogue_40: -3011611401468287596
+      epilogue_41: 3610802820166112015
+      epilogue_42: -4641031281808234086
+      epilogue_43: 8856791332445360326
+      epilogue_44: 6484865460083743640
+      epilogue_45: -8179864774106013390
+      epilogue_46: -4080807866489632399
+      epilogue_47: -1552199994306492378
+      epilogue_48: -8617699524049202917
+      epilogue_49: 6103011364817248298
+      epilogue_5: -1685398805952025880
+      epilogue_50: -6652469896988138968
+      epilogue_51: 7524796560949785875
+      epilogue_52: 1663463104330573126
+      epilogue_53: -1208494989175566482
+      epilogue_54: 2878812312300080234
+      epilogue_55: 4514309428909296456
+      epilogue_56: -7444791944301713103
+      epilogue_57: -6867841967861194238
+      epilogue_58: -7707008339192272783
+      epilogue_59: -3218050964529724025
+      epilogue_6: -7030206512282236443
+      epilogue_60: -5752432804860729273
+      epilogue_61: 4375036507356462910
+      epilogue_62: -5265623720016599925
+      epilogue_63: -5711535653787938162
+      epilogue_64: 1962798867941029364
+      epilogue_65: 3463799564525794113
+      epilogue_66: 6967643646482338124
+      epilogue_67: -1107108357954813366
+      epilogue_68: 212929436944873648
+      epilogue_69: -6323884192333805719
+      epilogue_7: -8263953914324663321
+      epilogue_70: -6919779868813260158
+      epilogue_71: -6439693912307469954
+      epilogue_72: -4896477722468735146
+      epilogue_73: 6218545134709015472
+      epilogue_74: 3638436971263655055
+      epilogue_75: -1253295559225412960
+      epilogue_76: -5630908085012608028
+      epilogue_77: 4267925237647970854
+      epilogue_78: -5444735836345317391
+      epilogue_79: 8486502886590152239
+      epilogue_8: -4005833141324500637
+      epilogue_80: 445640153847028566
+      epilogue_81: -2591892739465752637
+      epilogue_82: -2799080853834959236
+      epilogue_83: -7761818975097781256
+      epilogue_84: -346382045223356416
+      epilogue_85: 3702440224719370792
+      epilogue_86: -2667979949039195380
+      epilogue_87: -1885641418172142164
+      epilogue_88: -9070709511425871831
+      epilogue_89: 91264527308389482
+      epilogue_9: 4504597650964354280
+      epilogue_90: 5558783341826278260
+      epilogue_91: 7367341183512720468
+      epilogue_92: 5408769228775557088
+      epilogue_93: -3990246786727745666
+      epilogue_94: 1680261148239694603
+      epilogue_95: 854265845175508052
+      epilogue_96: 2394792567560675824
+      epilogue_97: -8713638086350004430
+      epilogue_98: -6067404455124378252
+      epilogue_99: -5443972842417357598
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

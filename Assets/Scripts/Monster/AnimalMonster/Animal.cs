@@ -1,23 +1,123 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Animal : Monster
 {
-    //Çàµ¿¹æ½Ä ¹İ°æ¹üÀ§
-    public float moveDistance;
-    //ÇÃ·¹ÀÌ¾î ÃßÀû¹üÀ§
-    public float targetDistance;
-    //´õÀÌ»ó µû¶ó°¡Áö¾Ê°í ¸ØÃß°Ô µÇ´Â °Å¸®
-    public float stopDistance;
+    [Header("ì´ë™ ë° ê³µê²© ë²”ìœ„ ì„¤ì •")]
+    public float moveDistance;     // ëœë¤ ì´ë™ ë°˜ê²½
+    public float targetDistance;   // ì¶”ì  ì‹œì‘ ë²”ìœ„
+    public float stopDistance;     // ì¶”ì  ë©ˆì¶¤ ê±°ë¦¬
 
+    [Header("ê³µê²© ê´€ë ¨ ì„¤ì •")]
+    [SerializeField] float baseAtkDistance;          // ê³µê²© ì‚¬ì •ê±°ë¦¬
+    [SerializeField] float animalBaseAtkCoolTime;    // ê³µê²© ì¿¨íƒ€ì„
+    [SerializeField] float castingTime;              // ìºìŠ¤íŒ… ì‹œê°„
+    [SerializeField] int baseAttackPower;            // ì‹¤ì œ ê°€í•´ì§€ëŠ” ê³µê²©ë ¥
 
+    private Vector3 startPos;        // ì´ˆê¸° ìœ„ì¹˜ (ì´ë™ ë°˜ê²½ ê¸°ì¤€ì )
+    private bool isDead = false;     // ì‚¬ë§ ì—¬ë¶€
+    private bool prepareAtk = false; // ê³µê²© ì¤€ë¹„ ìƒíƒœ
+    private bool isTracking = false; // ì¶”ì  ì¤‘ ì—¬ë¶€
+    [HideInInspector]
+    public bool inStopDistance = false;
 
-    //¿ÀºêÁ§Æ® »ı¼ºÁöÁ¡
-    private Vector3 startPos;
+    private void Start()
+    {
+        startPos = transform.position;
 
-    [SerializeField] int baseAttackPower;
+        // ì¢Œìš° ë¬´ì‘ìœ„ ë°©í–¥ ì„¤ì •
+        moveDirection = (Random.Range(0, 2) == 0) ? 1 : -1;
 
+        // ëœë¤ ì´ë™ ì‹œì‘
+        if (moveDistance != 0)
+        {
+            StartCoroutine(RandomMove());
+        }
+    }
+
+    public void Update()
+    {
+        if (isDead) return;
+
+        // HPë°” ìœ„ì¹˜ ë° ê°’ ê°±ì‹ 
+        if (hpBarInstance != null)
+        {
+            hpBarInstance.value = hp;
+            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
+        }
+
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
+
+        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
+        {
+            // ì¶”ì  ë¡œì§
+            isTracking = true;
+
+            Vector3 direction = (target.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+
+            animator.SetBool("isWalk", true);
+            moveDirection = (transform.position.x > target.position.x) ? -1 : 1;
+        }
+        else if (distanceToTarget > targetDistance)
+        {
+            // ëœë¤ ì´ë™
+            isTracking = false;
+            animator.SetBool("isWalk", true);
+
+            transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
+
+            float distanceFromStart = transform.position.x - startPos.x;
+            if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance != 0)
+            {
+                moveDirection *= -1;
+                startPos = transform.position;
+            }
+        }
+        else
+        {
+            // ì •ì§€ ìƒíƒœ
+            isTracking = false;
+            animator.SetBool("isWalk", false);
+        }
+
+        // ê³µê²© ì‹œë„
+        if (distanceToTarget < baseAtkDistance && !prepareAtk)
+        {
+            prepareAtk = true;
+            StartCoroutine(AnimalBaseBasicAtk());
+        }
+
+        // ì£½ìŒ ì²´í¬
+        if (hp <= 0 && !isDead)
+        {
+            StartCoroutine(DieAnimation());
+        }
+    }
+
+    // ëª¬ìŠ¤í„°ê°€ ì£½ì—ˆì„ ë•Œ í˜¸ì¶œ
+    IEnumerator DieAnimation()
+    {
+        isDead = true;
+        speed = 0f;
+        animator.SetBool("isDie", true);
+
+        // HP ë°” ì œê±°
+        if (hpBarInstance != null)
+        {
+            Destroy(hpBarInstance.gameObject);
+            hpBarInstance = null;
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        // ì˜¤ë¸Œì íŠ¸ í’€ë¡œ ë°˜í™˜
+        ObjectPoolManager.instance.ReturnToPool(this);
+        animator.SetBool("isDie", false);
+    }
+
+    // ëœë¤ ì´ë™ ë£¨í‹´
     public IEnumerator RandomMove()
     {
         while (true)
@@ -28,41 +128,14 @@ public class Animal : Monster
                 moveDirection *= -1;
             }
 
-            //·£´ıÀÌµ¿ÇÒ¶§ ¹æÇâÀÌµ¿ ÃÖ´ëÄ¡ ¼³Á¤
-            if (moveDistance / speed < 5)
-            {
-                yield return new WaitForSeconds(Random.Range(0f, (moveDistance / speed)));
-            }
-            else
-            {
-                yield return new WaitForSeconds(Random.Range(0f, 5f));
-            }
+            float waitTime = Mathf.Min(moveDistance / speed, 5f);
+            yield return new WaitForSeconds(Random.Range(0f, waitTime));
         }
     }
 
-    
-
-    //±âº»°ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ÄÚ·çÆ¾
-    IEnumerator BaseAttackAnimation()
-    {
-        animator.SetBool("isAttack", true);
-        yield return new WaitForSeconds(baseAtkAnimationTime);
-
-
-        //ÇÃ·¹ÀÌ¾î·ÎºÎÅÍÀÇ °Å¸®
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //°ø°İÇÏ´Â ½ÃÁ¡¿¡ ±âº»°ø°İ ¹üÀ§¾È¿¡ ÇÃ·¹ÀÌ¾î°¡ ¾ø´Ù¸é °ø°İÇÏÁö¾ÊÀ½
-        if (distanceToTarget < baseAtkDistance)
-        {
-            PlayerTest.instance.GetAttacked(atk, baseAttackPower);
-        }
-        animator.SetBool("isAttack", false);
-    }
-
-
+    // ê¸°ë³¸ ê³µê²© ì‹¤í–‰ ë£¨í‹´
     public IEnumerator AnimalBaseBasicAtk()
     {
-        
         float tempSpeed = speed;
         speed = 0f;
 
@@ -78,131 +151,26 @@ public class Animal : Monster
         prepareAtk = false;
     }
 
-
-
-    private void Start()
+    // ì‹¤ì œ ê³µê²© ì• ë‹ˆë©”ì´ì…˜ê³¼ ë°ë¯¸ì§€ ì ìš©
+    IEnumerator BaseAttackAnimation()
     {
-        startPos = transform.position;
-        //¸ó½ºÅÍÀÇ ·£´ı ¿òÁ÷ÀÓ ¹æÇâ ÃÊ±â ¼³Á¤
-        if (Random.Range(0, 2) == 0)
+        animator.SetBool("isAttack", true);
+        yield return new WaitForSeconds(baseAtkAnimationTime);
+
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (distanceToTarget < baseAtkDistance)
         {
-            moveDirection = 1;
+            // null ì²´í¬ ì¶”ê°€: PlayerTest.instanceê°€ ì—†ìœ¼ë©´ ì˜¤ë¥˜ ë°©ì§€
+            if (PlayerTest.instance != null)
+            {
+                PlayerTest.instance.GetAttacked(atk, baseAttackPower);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerTest.instance is null. Cannot apply attack.");
+            }
         }
-        else
-        {
-            moveDirection = -1;
-        }
-        if (moveDistance != 0)
-        {
-            StartCoroutine(RandomMove());
-        }
 
-
+        animator.SetBool("isAttack", false);
     }
-
-
-
-    private bool isDead = false;
-    //Á×¾úÀ»¶§ ¾Ö´Ï¸ŞÀÌ¼Ç ÄÚ·çÆ¾
-    IEnumerator DieAnimation()
-    {
-        isDead = true;
-        speed = 0f;
-        animator.SetBool("isDie", true);
-        Destroy(hpBarInstance.gameObject);
-        hpBarInstance = null;
-
-        yield return new WaitForSeconds(0.3f);
-        ObjectPoolManager.instance.ReturnToPool(this);
-        animator.SetBool("isDie", false);
-    }
-
-    //*******************¸ó½ºÅÍ ±âº»°ø°İ °ü·Ã º¯¼ö , ÄÚ·çÆ¾*************************
-    //±âº»°ø°İ ¹üÀ§
-    [SerializeField] float baseAtkDistance;
-    //µ¿¹°Çü ¸ó½ºÅÍ°¡¸îÃÊ¸¶´Ù ±âº»°ø°İÀ» ÇÒÁö
-    [SerializeField] float animalBaseAtkCoolTime;
-    //½ÃÀü½Ã°£ ( °ø°İÇÒ ½ÃÁ¡¿¡¼­ ¹üÀ§ ¾È¿¡ÀÖÀ¸¸éµÊ )
-    [SerializeField] float castingTime;
-
-
-
-
-    //°ø°İ ÁØºñÁßÀÎÁö
-    //animal type ¸ó½ºÅÍ¿¡¼­ ¾²´Â º¯¼ö
-    private bool prepareAtk = false;
-
-    //¸ó½ºÅÍ°¡ ÇÃ·¹ÀÌ¾î¸¦ µû¶ó°¡°íÀÖ´ÂÁö
-    private bool isTracking = false;
-
-    [HideInInspector]
-    public bool inStopDistance = false;
-   private void Update()
-{
-    if (isDead) return;
-
-    // HP¹Ù À§Ä¡ ¹× °ª °»½Å
-    if (hpBarInstance != null)
-    {
-        hpBarInstance.value = hp;
-        hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
-    }
-
-    float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-    // inStopDistance¸¦ ¸íÈ®È÷ °Å¸® ±âÁØÀ¸·Î¸¸ ÆÇ´Ü
-    inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
-
-    if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
-    {
-        // ÇÃ·¹ÀÌ¾î¸¦ ÃßÀû Áß
-        isTracking = true;
-
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-
-        animator.SetBool("isWalk", true);
-
-        // ÇÃ·¹ÀÌ¾î À§Ä¡¿¡ µû¶ó moveDirection ¼³Á¤
-        moveDirection = (transform.position.x > target.position.x) ? -1 : 1;
-
-        // ÃßÀû ÁßÀÏ ¶© startPos °»½ÅÇÏÁö ¾ÊÀ½ (ÀÌµ¿ °Å¸® ±âÁØ À¯Áö À§ÇØ)
-    }
-    else if (distanceToTarget > targetDistance)
-    {
-        // ÇÃ·¹ÀÌ¾î°¡ ¹üÀ§ ¹Û, ±âº» ·£´ı ÀÌµ¿ ¶Ç´Â ÁÂ¿ì ÀÌµ¿
-        isTracking = false;
-
-        animator.SetBool("isWalk", true);
-
-        transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
-
-        float distanceFromStart = transform.position.x - startPos.x;
-        if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance != 0)
-        {
-            moveDirection *= -1;           // ¹æÇâ ¹İÀü
-            startPos = transform.position; // ¹æÇâ ¹Ù²ğ ¶§ ±âÁØ À§Ä¡ °»½Å
-        }
-    }
-    else
-    {
-        // ¸ØÃã »óÅÂ
-        isTracking = false;
-        animator.SetBool("isWalk", false);
-    }
-
-    // ±âº» °ø°İ Ã³¸®
-    if (distanceToTarget < baseAtkDistance && !prepareAtk)
-    {
-        prepareAtk = true;
-        StartCoroutine(AnimalBaseBasicAtk());
-    }
-
-    // Á×À½ Ã³¸®
-    if (hp <= 0 && !isDead)
-    {
-        StartCoroutine(DieAnimation());
-    }
-}
-
 }

@@ -625,6 +625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomController: {fileID: 1817979032}
   showScrollbar: 0
+  isStartBoard: 0
 --- !u!1 &1103629799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,8 +1543,15 @@ MonoBehaviour:
   scrollbarGroup: {fileID: 1394975330}
   targetOffset: {x: 0, y: 0, z: -10}
   zoomInSize: 2.5
-  deepZoomSize: 1
   duration: 0.5
+  boardZoomObject1: {fileID: 0}
+  boardZoomObject2: {fileID: 0}
+  title: {fileID: 0}
+  objectToHide: {fileID: 0}
+  objectToShow: {fileID: 0}
+  playButtonClip: {fileID: 0}
+  boardZoom1Clip: {fileID: 0}
+  boardZoom2Clip: {fileID: 0}
 --- !u!4 &1817979033
 Transform:
   m_ObjectHideFlags: 0
@@ -1708,6 +1716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomController: {fileID: 1817979032}
   showScrollbar: 1
+  isStartBoard: 0
 --- !u!1 &2079329470
 GameObject:
   m_ObjectHideFlags: 0

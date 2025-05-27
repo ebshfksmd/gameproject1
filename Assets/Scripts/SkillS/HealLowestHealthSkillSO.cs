@@ -7,7 +7,7 @@ public class HealLowestHealthSkillSO : SkillSO
     [Tooltip("치유량")]
     public int healAmount = 50;
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         // 씬에 있는 모든 Player_health 컴포넌트 찾기
         var members = Object.FindObjectsOfType<Player_health>();

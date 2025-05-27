@@ -14,7 +14,7 @@ public class StatBuffSkillSO : SkillSO
     [SerializeField] private int defenseAmount = 20;
 
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
 
         var ph = caster.GetComponent<Player_health>();

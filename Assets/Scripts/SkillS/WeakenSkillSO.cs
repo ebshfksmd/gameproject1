@@ -10,7 +10,7 @@ public class WeakenSkillSO : SkillSO
     public LayerMask enemyLayer;               // 적 레이어
     public GameObject effectPrefab;            // 히트 이펙트(옵션)
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         // (옵션) 이펙트
         if (effectPrefab != null)

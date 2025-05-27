@@ -12,7 +12,7 @@ public class AOEdoubleSkillSO : SkillSO
     public LayerMask enemyLayer;
     public GameObject effectPrefab;
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         // caster에 붙은 MonoBehaviour (예: PlayerSkillController)로 코루틴 실행
         var runner = caster.GetComponent<MonoBehaviour>();

@@ -120,32 +120,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -153,20 +127,20 @@ TextureImporter:
       name: rat_skill_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 240
-        height: 240
+        x: 1269
+        y: 14
+        width: 122
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7bbf2271550c39b42842b46c8a2d9487
-      internalID: -1642069732
+      spriteID: 3a9fd074374def100800000000000000
+      internalID: 143785829700860323
       vertices: []
       indices: 
       edges: []
@@ -175,20 +149,20 @@ TextureImporter:
       name: rat_skill_1
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 240
-        height: 240
+        x: 1549
+        y: 129
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9f7e516f23f8cde4b8dc87b373ca8d07
-      internalID: 1346551191
+      spriteID: 403da845780cdbd10800000000000000
+      internalID: 2143080685169726212
       vertices: []
       indices: 
       edges: []
@@ -197,20 +171,20 @@ TextureImporter:
       name: rat_skill_2
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 240
-        height: 240
+        x: 69
+        y: 9
+        width: 117
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d58d265ff4409304f8366790a72da529
-      internalID: 601685575
+      spriteID: 288ed767e4a5b8440800000000000000
+      internalID: 4939140709383792770
       vertices: []
       indices: 
       edges: []
@@ -219,20 +193,20 @@ TextureImporter:
       name: rat_skill_3
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 240
-        height: 240
+        x: 309
+        y: 9
+        width: 117
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 778427f22699cd144b6e71ef30be4aa1
-      internalID: 1781813230
+      spriteID: b369d43e90935a320800000000000000
+      internalID: 2568521877115737659
       vertices: []
       indices: 
       edges: []
@@ -241,20 +215,20 @@ TextureImporter:
       name: rat_skill_4
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
-        width: 240
-        height: 240
+        x: 549
+        y: 14
+        width: 117
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9e666cfafdc280843a96252ba5a0e92a
-      internalID: -849375241
+      spriteID: 0ec52ad445e390a00800000000000000
+      internalID: 723177746970336480
       vertices: []
       indices: 
       edges: []
@@ -263,20 +237,20 @@ TextureImporter:
       name: rat_skill_5
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 240
-        height: 240
+        x: 789
+        y: 14
+        width: 117
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ddea7db6df3d97f478c40af881d897de
-      internalID: -617396785
+      spriteID: a0f985716f0e3d960800000000000000
+      internalID: 7625685941626642186
       vertices: []
       indices: 
       edges: []
@@ -285,20 +259,64 @@ TextureImporter:
       name: rat_skill_6
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 0
-        width: 240
-        height: 240
+        x: 1029
+        y: 9
+        width: 117
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: be3c6178fdd1ab24bab37203525bf0ca
-      internalID: -1733422278
+      spriteID: ae9a807e598973fa0800000000000000
+      internalID: -5821016223759422998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_skill_7
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 59
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f8ccac8feccd500800000000000000
+      internalID: 422440033015598883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rat_skill_8
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 14
+        width: 117
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 452860c0175efa490800000000000000
+      internalID: -7732709761476033964
       vertices: []
       indices: 
       edges: []
@@ -307,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 744e15dae1bf2004d9cbbb77d130e9b0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -316,14 +334,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rat_skill_0: -1642069732
-      rat_skill_1: 1346551191
-      rat_skill_2: 601685575
-      rat_skill_3: 1781813230
-      rat_skill_4: -849375241
-      rat_skill_5: -617396785
-      rat_skill_6: -1733422278
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

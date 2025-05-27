@@ -22,7 +22,7 @@ public class DashSkillSO : SkillSO
     [Tooltip("타격 효과 프리팹(선택)")]
     public GameObject effectPrefab;
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         var mb = caster.GetComponent<MonoBehaviour>();
         if (mb != null)

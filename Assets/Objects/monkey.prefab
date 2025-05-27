@@ -116,10 +116,11 @@ MonoBehaviour:
   moveDistance: 8
   targetDistance: 3
   stopDistance: 2
-  baseAttackPower: 1
   baseAtkDistance: 3
   animalBaseAtkCoolTime: 3
   castingTime: 0
+  baseAttackPower: 1
+  inStopDistance: 0
 --- !u!50 &-618225722819766470
 Rigidbody2D:
   serializedVersion: 5
@@ -146,7 +147,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!61 &7411021030593084945
 BoxCollider2D:
   m_ObjectHideFlags: 0

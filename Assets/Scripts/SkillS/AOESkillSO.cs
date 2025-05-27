@@ -9,7 +9,7 @@ public class AOESkillSO : SkillSO
     public LayerMask enemyLayer;              // 적 레이어 마스크
     public GameObject effectPrefab;           // 시전 이펙트(옵션)
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         Debug.Log($"AOE Cast! 위치: {caster.position}, 반경: {range}");
         Collider2D[] hits = Physics2D.OverlapCircleAll(

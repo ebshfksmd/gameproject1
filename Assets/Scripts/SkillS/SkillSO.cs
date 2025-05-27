@@ -17,5 +17,5 @@ public abstract class SkillSO : ScriptableObject
     public float cooldown = 5f;
 
     // 실제 스킬 효과만 담당
-    public abstract void Cast(Transform caster);
+    public abstract void Cast(Transform caster, KeyCode keyUsed);
 }

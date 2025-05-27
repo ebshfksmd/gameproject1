@@ -12,7 +12,7 @@ public class HeavyStrikeSkillSO : SkillSO
     [Tooltip("타격 이펙트(선택)")]
     public GameObject effectPrefab;
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         // 1) 반경 내 모든 적 탐지
         Collider2D[] hits = Physics2D.OverlapCircleAll(

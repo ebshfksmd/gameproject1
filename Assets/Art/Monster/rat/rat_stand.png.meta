@@ -105,32 +105,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -138,20 +112,20 @@ TextureImporter:
       name: rat_stand_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 240
-        height: 240
+        x: 69
+        y: 9
+        width: 117
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6116c464a1a3d4046ab60883c5701acf
-      internalID: 1996753206
+      spriteID: 62a12ff8d096391c0800000000000000
+      internalID: -4498136095842493914
       vertices: []
       indices: 
       edges: []
@@ -160,20 +134,20 @@ TextureImporter:
       name: rat_stand_1
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 240
-        height: 240
+        x: 309
+        y: 9
+        width: 117
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a45c4e2d09e5cfb468227b27fd91127f
-      internalID: 1968764259
+      spriteID: b67699274a6b29d00800000000000000
+      internalID: 978044886506366827
       vertices: []
       indices: 
       edges: []
@@ -182,20 +156,20 @@ TextureImporter:
       name: rat_stand_2
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 240
-        height: 240
+        x: 549
+        y: 9
+        width: 117
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6d6565de514ade648aeed1281ea780df
-      internalID: 898511450
+      spriteID: 338b1be26b06bdff0800000000000000
+      internalID: -10308238554580941
       vertices: []
       indices: 
       edges: []
@@ -204,20 +178,20 @@ TextureImporter:
       name: rat_stand_3
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 240
-        height: 240
+        x: 789
+        y: 9
+        width: 117
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cfcf85f666c36054280737ba615a1936
-      internalID: 1793073078
+      spriteID: 7a5c87b64614db3c0800000000000000
+      internalID: -4342242566159678041
       vertices: []
       indices: 
       edges: []
@@ -226,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c63e70a9b28c8dd46acd2ed25a973233
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +209,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rat_stand_0: 1996753206
-      rat_stand_1: 1968764259
-      rat_stand_2: 898511450
-      rat_stand_3: 1793073078
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

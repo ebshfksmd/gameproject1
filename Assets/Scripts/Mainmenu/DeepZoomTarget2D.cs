@@ -10,22 +10,12 @@ public class DeepZoomTarget2D : MonoBehaviour
 
     [Header("시작할때 거치는 보드인지 ")]
     [SerializeField] bool isStartBoard;
-    [Header("게임 입장 버튼")]
-    [SerializeField] GameObject gameEnterButton;
 
 
 
     void OnMouseDown()
     {
         zoomController.DeepZoomTo(transform, showScrollbar);
-        if(isStartBoard )
-        {
-            gameEnterButton.SetActive(true);
-        }
-        else
-        {
-            gameEnterButton.SetActive(false);
-        }
     }
 
 }

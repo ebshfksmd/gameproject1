@@ -15,7 +15,7 @@ public class TeamStatBuffSkillSO : SkillSO
     [Tooltip("버프 지속 시간(초)")]
     public float duration = 20f;
 
-    public override void Cast(Transform caster)
+    public override void Cast(Transform caster, KeyCode keyUsed)
     {
         // MonoBehaviour를 통해 코루틴 실행
         var mb = caster.GetComponent<MonoBehaviour>();

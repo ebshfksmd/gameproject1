@@ -111,32 +111,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -144,20 +118,20 @@ TextureImporter:
       name: rat_walk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 240
-        height: 240
+        x: 69
+        y: 4
+        width: 117
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 13b6a00439b3a354d8fadd3cbaea9499
-      internalID: -157200524
+      spriteID: 67ab21c9db0e422d0800000000000000
+      internalID: -3304269121611187594
       vertices: []
       indices: 
       edges: []
@@ -166,20 +140,20 @@ TextureImporter:
       name: rat_walk_1
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 240
-        height: 240
+        x: 304
+        y: 4
+        width: 127
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 254ca1fb9295ea749a19d1934418ca10
-      internalID: -430480910
+      spriteID: 7be4a96373c4278f0800000000000000
+      internalID: -544288804935414089
       vertices: []
       indices: 
       edges: []
@@ -188,20 +162,20 @@ TextureImporter:
       name: rat_walk_2
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 240
-        height: 240
+        x: 549
+        y: 9
+        width: 117
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 30f77d789e814044f9e847dee7179cb8
-      internalID: -1383284053
+      spriteID: b680940bb940a5780800000000000000
+      internalID: -8693631063961302933
       vertices: []
       indices: 
       edges: []
@@ -210,20 +184,20 @@ TextureImporter:
       name: rat_walk_3
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 240
-        height: 240
+        x: 789
+        y: 4
+        width: 117
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 22d9c4a6402b1514fb2edb83a56b5d9c
-      internalID: 947942303
+      spriteID: 78e0efbc47d7e00b0800000000000000
+      internalID: -5760528932768182649
       vertices: []
       indices: 
       edges: []
@@ -232,20 +206,20 @@ TextureImporter:
       name: rat_walk_4
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
-        width: 240
-        height: 240
+        x: 1024
+        y: 4
+        width: 127
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 97ab2da307500d3419160db7d61d12bd
-      internalID: 1927778733
+      spriteID: b03ad9e44ebd2f2e0800000000000000
+      internalID: -2093369103155879157
       vertices: []
       indices: 
       edges: []
@@ -254,20 +228,20 @@ TextureImporter:
       name: rat_walk_5
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 240
-        height: 240
+        x: 1269
+        y: 4
+        width: 117
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9f52d9030fe881c4bb894c5a2a36e361
-      internalID: 1963678272
+      spriteID: 942d157e9ba13eaf0800000000000000
+      internalID: -368421358762077623
       vertices: []
       indices: 
       edges: []
@@ -276,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c2dd36fa0a0189a46ae66a07e7d8e568
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +259,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rat_walk_0: -157200524
-      rat_walk_1: -430480910
-      rat_walk_2: -1383284053
-      rat_walk_3: 947942303
-      rat_walk_4: 1927778733
-      rat_walk_5: 1963678272
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
