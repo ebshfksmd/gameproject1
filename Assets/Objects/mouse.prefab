@@ -111,7 +111,6 @@ MonoBehaviour:
   speed: 2
   baseAtkAnimationTime: 0.5
   skillAtkAnimationTime: 0.5
-  target: {fileID: 6062266104421901496, guid: 04b7092df3a496c48b0ed92fb1ac5435, type: 3}
   type: 0
   moveDistance: 5
   targetDistance: 5
@@ -147,7 +146,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 1
 --- !u!95 &6802157347009648128
 Animator:
   serializedVersion: 7

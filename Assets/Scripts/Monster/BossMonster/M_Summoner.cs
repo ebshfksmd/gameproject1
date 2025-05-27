@@ -177,7 +177,7 @@ public class M_Summoner : Monster
         Destroy(hpBarInstance.gameObject);
         hpBarInstance = null;
         isDead = true;
-        ObjectPoolManager.instance.ReturnToPool(this);
+        Destroy(this.gameObject);
         animator.SetBool("isDie", false);
     }
 

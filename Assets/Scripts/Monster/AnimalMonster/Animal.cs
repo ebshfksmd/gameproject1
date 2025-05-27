@@ -113,7 +113,9 @@ public class Animal : Monster
         yield return new WaitForSeconds(0.3f);
 
         // 오브젝트 풀로 반환
-        ObjectPoolManager.instance.ReturnToPool(this);
+        //ObjectPoolManager.instance.ReturnToPool(this);
+        Destroy(this.gameObject);
+
         animator.SetBool("isDie", false);
     }
 

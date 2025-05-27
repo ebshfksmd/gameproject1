@@ -64,7 +64,7 @@ public class Monster : MonoBehaviour
 
     //플레이어 추적
     [HideInInspector]
-    public Transform target;
+    public static Transform target;
 
     [HideInInspector]
     public enum MonsterType

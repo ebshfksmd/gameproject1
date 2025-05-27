@@ -103,7 +103,7 @@ public class Human : Monster
         hpBarInstance = null;
         isDead = true;
         yield return new WaitForSeconds(0.3f);
-        ObjectPoolManager.instance.ReturnToPool(this);
+        Destroy(this.gameObject);
         animator.SetBool("isDie", false);
     }
 

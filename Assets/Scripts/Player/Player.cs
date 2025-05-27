@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Monster.target=transform;
+
         if (!canControl) return;
 
         float input = Input.GetAxis("Horizontal");
