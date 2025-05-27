@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 65fb4b97fa869944d8936010ba17fee9
+guid: af230fef068ace547abacf8ea571629c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4498136095842493914
-    second: rat_stand_0
+      213: 5926656315564437209
+    second: LH_WalkEdit_0
   - first:
-      213: 978044886506366827
-    second: rat_stand_1
+      213: 3078398919743492617
+    second: LH_WalkEdit_1
   - first:
-      213: -10308238554580941
-    second: rat_stand_2
+      213: -421343156709702065
+    second: LH_WalkEdit_2
   - first:
-      213: -4342242566159678041
-    second: rat_stand_3
+      213: -4701667044583689566
+    second: LH_WalkEdit_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,93 +105,119 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_stand_0
+      name: LH_WalkEdit_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 9
-        width: 117
-        height: 42
+        x: 0
+        y: 0
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 62a12ff8d096391c0800000000000000
-      internalID: -4498136095842493914
+      spriteID: 886ff7a39c0a76a47ac38596d30c88b0
+      internalID: 1717496127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_stand_1
+      name: LH_WalkEdit_1
       rect:
         serializedVersion: 2
-        x: 309
-        y: 9
-        width: 117
-        height: 37
+        x: 240
+        y: 0
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b67699274a6b29d00800000000000000
-      internalID: 978044886506366827
+      spriteID: 1ffa45bca3ba91e4db7f9fb21b546eb5
+      internalID: 1016754719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_stand_2
+      name: LH_WalkEdit_2
       rect:
         serializedVersion: 2
-        x: 549
-        y: 9
-        width: 117
-        height: 32
+        x: 480
+        y: 0
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 338b1be26b06bdff0800000000000000
-      internalID: -10308238554580941
+      spriteID: ba53f23949735fb43bd47b7f11e7bec7
+      internalID: 3223245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_stand_3
+      name: LH_WalkEdit_3
       rect:
         serializedVersion: 2
-        x: 789
-        y: 9
-        width: 117
-        height: 37
+        x: 720
+        y: 0
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a5c87b64614db3c0800000000000000
-      internalID: -4342242566159678041
+      spriteID: 167224a17e0810c4f85627d7199244e1
+      internalID: -1691250376
       vertices: []
       indices: 
       edges: []
@@ -200,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4192797510d563a4dabe4c1a91c8c14d
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rat_stand_0: -4498136095842493914
-      rat_stand_1: 978044886506366827
-      rat_stand_2: -10308238554580941
-      rat_stand_3: -4342242566159678041
+      LH_WalkEdit_0: 1717496127
+      LH_WalkEdit_1: 1016754719
+      LH_WalkEdit_2: 3223245
+      LH_WalkEdit_3: -1691250376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -111,7 +111,6 @@ MonoBehaviour:
   speed: 1.6
   baseAtkAnimationTime: 1
   skillAtkAnimationTime: 1
-  target: {fileID: 0}
   type: 0
   moveDistance: 8
   targetDistance: 6
@@ -147,7 +146,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!61 &-4242281374965588691
 BoxCollider2D:
   m_ObjectHideFlags: 0

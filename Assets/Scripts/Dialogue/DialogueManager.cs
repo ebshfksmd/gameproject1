@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class DialogueEntry
@@ -16,41 +17,22 @@ public class DialogueData
     public DialogueEntry[] dialogues;
 }
 
-/// <summary>
-/// Dialogue window that appears on click and types text inside a rectangle.
-/// Loads dialogue entries from a JSON file or uses defaults.
-/// Click anywhere to start, advance text, and close.
-/// JSON format:
-/// {
-///   "dialogues": [
-///     { "name": "NPC", "line": "Hello." },
-///     { "name": "Player", "line": "Hi!" }
-///   ]
-/// }
-/// </summary>
 public class DialogueManager : MonoBehaviour
 {
     [Header("UI References")]
-    [Tooltip("CanvasGroup for showing/hiding the dialogue panel")]
     public CanvasGroup dialoguePanel;
-    [Tooltip("TextMeshPro component for displaying speaker name")]
     public TMP_Text nameText;
-    [Tooltip("TextMeshPro component for displaying dialogue text")]
     public TMP_Text dialogueText;
+    public Image portraitImage; // 여기 하나만 받아서 스프라이트 변경
 
     [Header("JSON Input")]
-    [Tooltip("Optional JSON file with dialogue data")]
     public TextAsset dialogueJson;
 
     [Header("Default Dialogue Entries")]
-    [Tooltip("Default dialogue entries if JSON not provided or parsing fails")]
-    public DialogueEntry[] defaultDialogues = new DialogueEntry[]
-    {
-        new DialogueEntry { name = "시스템", line = "안녕하세요! 여기 대화 데모에 오신 것을 환영합니다." },
-        new DialogueEntry { name = "강사", line = "이 시스템은 클릭으로 대화를 진행합니다." },
-        new DialogueEntry { name = "강사", line = "텍스트가 타자기 효과로 차례대로 나타납니다." },
-        new DialogueEntry { name = "시스템", line = "이제 마지막 메시지입니다. 이 대화창이 곧 사라집니다." }
-    };
+    public DialogueEntry[] defaultDialogues;
+
+    [Header("Speaker Sprites")]
+    public SpeakerSpriteData[] speakerSprites;
 
     [Tooltip("Speed per character for typewriter effect")]
     public float typingSpeed = 0.05f;
@@ -60,22 +42,28 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isDialogueActive = false;
 
+    private Dictionary<string, Sprite> speakerSpriteMap;
+
+    [System.Serializable]
+    public class SpeakerSpriteData
+    {
+        public string speakerName;
+        public Sprite speakerSprite;
+    }
+
     void Start()
     {
-        // Load from JSON if available
+        // JSON 불러오기
         if (dialogueJson != null)
         {
             try
             {
                 DialogueData data = JsonUtility.FromJson<DialogueData>(dialogueJson.text);
-                if (data != null && data.dialogues != null && data.dialogues.Length > 0)
-                    dialogues = data.dialogues;
-                else
-                    dialogues = defaultDialogues;
+                dialogues = (data != null && data.dialogues.Length > 0) ? data.dialogues : defaultDialogues;
             }
             catch
             {
-                Debug.LogWarning("DialogueManager: JSON parsing failed, using default dialogues.");
+                Debug.LogWarning("DialogueManager: JSON 파싱 실패. 기본 대사 사용.");
                 dialogues = defaultDialogues;
             }
         }
@@ -83,44 +71,50 @@ public class DialogueManager : MonoBehaviour
         {
             dialogues = defaultDialogues;
         }
+
+        // 이름별 스프라이트 등록
+        speakerSpriteMap = new Dictionary<string, Sprite>();
+        foreach (var entry in speakerSprites)
+        {
+            if (!speakerSpriteMap.ContainsKey(entry.speakerName) && entry.speakerSprite != null)
+                speakerSpriteMap.Add(entry.speakerName, entry.speakerSprite);
+        }
+
         SetPanelVisible(false);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isDialogueActive) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!isDialogueActive)
+            if (typingCoroutine != null)
             {
-                StartDialogue();
+                StopCoroutine(typingCoroutine);
+                dialogueText.text = dialogues[currentLine].line;
+                typingCoroutine = null;
             }
             else
             {
-                if (typingCoroutine != null)
-                {
-                    StopCoroutine(typingCoroutine);
-                    dialogueText.text = dialogues[currentLine].line;
-                    typingCoroutine = null;
-                }
+                currentLine++;
+                if (dialogues != null && currentLine < dialogues.Length)
+                    ShowLine();
                 else
-                {
-                    currentLine++;
-                    if (dialogues != null && currentLine < dialogues.Length)
-                        ShowLine();
-                    else
-                        EndDialogue();
-                }
+                    EndDialogue();
             }
         }
     }
 
-    private void StartDialogue()
+
+    public void StartDialogue()
     {
         if (dialogues == null || dialogues.Length == 0)
         {
-            Debug.LogWarning("DialogueManager: No dialogue entries available.");
+            Debug.LogWarning("DialogueManager: 대사 없음");
             return;
         }
+
         isDialogueActive = true;
         currentLine = 0;
         SetPanelVisible(true);
@@ -134,10 +128,26 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
+
+        DialogueEntry line = dialogues[currentLine];
         dialogueText.text = string.Empty;
-        if (nameText != null)
-            nameText.text = dialogues[currentLine].name;
-        typingCoroutine = StartCoroutine(TypeText(dialogues[currentLine].line));
+        nameText.text = line.name;
+
+        // 얼굴 스프라이트 교체 디버깅
+        if (speakerSpriteMap.TryGetValue(line.name, out Sprite sprite))
+        {
+            Debug.Log($" {line.name}  Sprite: {sprite.name}");
+            portraitImage.sprite = sprite;
+            portraitImage.enabled = true;
+        }
+        else
+        {
+            Debug.LogWarning($" 스프라이트 없음: '{line.name}'");
+            portraitImage.enabled = false;
+        }
+
+
+        typingCoroutine = StartCoroutine(TypeText(line.line));
     }
 
     private IEnumerator TypeText(string line)
@@ -164,5 +174,10 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.interactable = visible;
             dialoguePanel.blocksRaycasts = visible;
         }
+    }
+
+    public bool IsDialogueActive()
+    {
+        return isDialogueActive;
     }
 }

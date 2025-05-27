@@ -98,13 +98,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        Vector3 pos = transform.position;
-        pos.x = fixedX; // 외부 영향으로 X가 밀리는 걸 방지
-        transform.position = pos;
-    }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.CompareTag("Ground"))

@@ -36,6 +36,9 @@ public class BoardZoomController : MonoBehaviour
     [SerializeField] private GameObject object3UI1;
     [SerializeField] private GameObject object3UI2;
 
+    [Header("Dialogue")]
+    [SerializeField] private DialogueManager dialogueManager;
+
     private AudioSource audioSource;
 
     private Vector3 originalPosition;
@@ -90,6 +93,10 @@ public class BoardZoomController : MonoBehaviour
 
     void Update()
     {
+        // 대사 중이면 입력 차단
+        if (dialogueManager != null && dialogueManager.IsDialogueActive())
+            return;
+
         if (zoomState == ZoomState.Original && Input.GetMouseButtonDown(0) && isClickedPlayButton)
         {
             AnimateTo(zoomTarget.position + targetOffset, zoomInSize);
@@ -131,8 +138,21 @@ public class BoardZoomController : MonoBehaviour
         if (zoomState == ZoomState.DeepZoom && Input.GetKeyDown(KeyCode.Space))
         {
             if (objectToHide != null) objectToHide.SetActive(false);
-            if (objectToShow != null) objectToShow.SetActive(true);
+            if (objectToShow != null)
+            {
+                objectToShow.SetActive(true);
+
+                // 다음 프레임에서 대사 시작
+                if (dialogueManager != null)
+                    StartCoroutine(DelayedStartDialogue());
+            }
         }
+    }
+
+    private IEnumerator DelayedStartDialogue()
+    {
+        yield return null; // 1 프레임 대기
+        dialogueManager.StartDialogue();
     }
 
     public void DeepZoomTo(Transform target, bool showScrollbar)

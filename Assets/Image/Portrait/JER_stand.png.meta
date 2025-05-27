@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 74dffd9f8a9ffb84ea64e0749bbcad6f
+guid: 44f20e6c5900e6646b06cc6b64905568
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8686878477471490235
-    second: JWC_stand_0
+      213: 8255116917434086264
+    second: JER_stand_0
   - first:
-      213: -3413331063742488131
-    second: JWC_stand_1
+      213: -4430049535620060609
+    second: JER_stand_1
   - first:
-      213: -8949734612412540474
-    second: JWC_stand_2
+      213: 1024806695412986189
+    second: JER_stand_2
   - first:
-      213: 6398069307336489032
-    second: JWC_stand_3
+      213: 662629840103450728
+    second: JER_stand_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -135,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JWC_stand_0
+      name: JER_stand_0
       rect:
         serializedVersion: 2
-        x: 79
+        x: 84
         y: 9
-        width: 82
-        height: 212
+        width: 72
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54f535fbc02027780800000000000000
-      internalID: -8686878477471490235
+      spriteID: 873f9f25911109270800000000000000
+      internalID: 8255116917434086264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JWC_stand_1
+      name: JER_stand_1
       rect:
         serializedVersion: 2
         x: 319
         y: 9
-        width: 82
-        height: 207
+        width: 77
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db1a2dc6b7961a0d0800000000000000
-      internalID: -3413331063742488131
+      spriteID: f3a6bf33b6d4582c0800000000000000
+      internalID: -4430049535620060609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JWC_stand_2
+      name: JER_stand_2
       rect:
         serializedVersion: 2
         x: 559
         y: 9
-        width: 82
-        height: 207
+        width: 77
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c9d129a9c72cc380800000000000000
-      internalID: -8949734612412540474
+      spriteID: d4178838248d83e00800000000000000
+      internalID: 1024806695412986189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JWC_stand_3
+      name: JER_stand_3
       rect:
         serializedVersion: 2
         x: 799
         y: 9
-        width: 82
-        height: 207
+        width: 77
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 848fe18f2228ac850800000000000000
-      internalID: 6398069307336489032
+      spriteID: 868a0fc2452223900800000000000000
+      internalID: 662629840103450728
       vertices: []
       indices: 
       edges: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      JWC_stand_0: -8686878477471490235
-      JWC_stand_1: -3413331063742488131
-      JWC_stand_2: -8949734612412540474
-      JWC_stand_3: 6398069307336489032
+      JER_stand_0: 8255116917434086264
+      JER_stand_1: -4430049535620060609
+      JER_stand_2: 1024806695412986189
+      JER_stand_3: 662629840103450728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

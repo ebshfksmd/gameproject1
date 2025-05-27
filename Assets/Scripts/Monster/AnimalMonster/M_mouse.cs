@@ -11,6 +11,7 @@ public class M_mouse : Animal
     float skillCount = 0f;
     bool isSkillCasting = false;
     bool isSkillPrepared = true;
+    Coroutine skillRoutine;
 
     IEnumerator SkillAnimation()
     {
@@ -27,7 +28,7 @@ public class M_mouse : Animal
             }
             else
             {
-                Debug.LogWarning("PlayerTest.instance is null. Skill attack canceled.");
+                Debug.LogWarning("PlayerTest.instance is null. Attack canceled.");
             }
         }
     }
@@ -35,7 +36,8 @@ public class M_mouse : Animal
     IEnumerator SkillCast()
     {
         isSkillCasting = true;
-        float tempSpeed = speed;
+
+        float prevSpeed = speed;
         speed = 0f;
 
         animator.SetBool("isWalk", false);
@@ -48,12 +50,11 @@ public class M_mouse : Animal
         }
 
         animator.SetBool("isWalk", true);
-        speed = tempSpeed;
+        speed = prevSpeed;
 
         isSkillPrepared = false;
         isSkillCasting = false;
     }
-
 
     IEnumerator SkillCheck()
     {
@@ -64,12 +65,11 @@ public class M_mouse : Animal
             if (!isSkillPrepared)
             {
                 skillCount += Time.deltaTime;
-            }
-
-            if (skillCount >= skillCooltime)
-            {
-                isSkillPrepared = true;
-                skillCount = 0f;
+                if (skillCount >= skillCooltime)
+                {
+                    isSkillPrepared = true;
+                    skillCount = 0f;
+                }
             }
 
             if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting)
@@ -83,7 +83,10 @@ public class M_mouse : Animal
 
     public override void Skill()
     {
-        StartCoroutine(SkillCheck());
+        if (skillRoutine == null)
+        {
+            skillRoutine = StartCoroutine(SkillCheck());
+        }
     }
 
 #pragma warning disable CS0108
@@ -98,6 +101,6 @@ public class M_mouse : Animal
         moveDistance = 5000f;
         type = MonsterType.animal;
 
-        Skill();
+        Skill(); // Start skill loop
     }
 }

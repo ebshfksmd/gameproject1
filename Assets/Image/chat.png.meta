@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 65fb4b97fa869944d8936010ba17fee9
+guid: 44ee9f68b3fbeff449bf3ce5c88cd6a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4498136095842493914
-    second: rat_stand_0
-  - first:
-      213: 978044886506366827
-    second: rat_stand_1
-  - first:
-      213: -10308238554580941
-    second: rat_stand_2
-  - first:
-      213: -4342242566159678041
-    second: rat_stand_3
+      213: 3899264874753553345
+    second: chat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_stand_0
+      name: chat_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 9
-        width: 117
-        height: 42
+        x: 1
+        y: 1
+        width: 1895
+        height: 234
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62a12ff8d096391c0800000000000000
-      internalID: -4498136095842493914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_stand_1
-      rect:
-        serializedVersion: 2
-        x: 309
-        y: 9
-        width: 117
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b67699274a6b29d00800000000000000
-      internalID: 978044886506366827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_stand_2
-      rect:
-        serializedVersion: 2
-        x: 549
-        y: 9
-        width: 117
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 338b1be26b06bdff0800000000000000
-      internalID: -10308238554580941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_stand_3
-      rect:
-        serializedVersion: 2
-        x: 789
-        y: 9
-        width: 117
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7a5c87b64614db3c0800000000000000
-      internalID: -4342242566159678041
+      spriteID: 1c3f7d09eb8fc1630800000000000000
+      internalID: 3899264874753553345
       vertices: []
       indices: 
       edges: []
@@ -209,11 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rat_stand_0: -4498136095842493914
-      rat_stand_1: 978044886506366827
-      rat_stand_2: -10308238554580941
-      rat_stand_3: -4342242566159678041
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

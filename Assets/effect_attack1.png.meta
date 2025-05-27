@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 65fb4b97fa869944d8936010ba17fee9
+guid: f321f426d24c9d44988d9dad1380d2b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4498136095842493914
-    second: rat_stand_0
+      213: -3297650188656544483
+    second: attack_1_0
   - first:
-      213: 978044886506366827
-    second: rat_stand_1
+      213: 42540282074972397
+    second: attack_1_1
   - first:
-      213: -10308238554580941
-    second: rat_stand_2
+      213: 1427936120346131835
+    second: attack_1_2
   - first:
-      213: -4342242566159678041
-    second: rat_stand_3
+      213: -1450166047590963086
+    second: attack_1_3
+  - first:
+      213: 3408046652129433154
+    second: attack_1_4
+  - first:
+      213: -4386850089186596021
+    second: attack_1_5
+  - first:
+      213: -8312566940136299171
+    second: attack_1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,93 +114,97 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_stand_0
+      name: attack_1_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 9
-        width: 117
-        height: 42
+        x: 0
+        y: 0
+        width: 150
+        height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 62a12ff8d096391c0800000000000000
-      internalID: -4498136095842493914
+      spriteID: e401d7110bef0b145b7e3211dfd7f39f
+      internalID: 1331542402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_stand_1
+      name: attack_1_1
       rect:
         serializedVersion: 2
-        x: 309
-        y: 9
-        width: 117
-        height: 37
+        x: 150
+        y: 0
+        width: 150
+        height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b67699274a6b29d00800000000000000
-      internalID: 978044886506366827
+      spriteID: c2174ba354eb7f94ba314fec30232b31
+      internalID: 2016009397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat_stand_2
+      name: attack_1_2
       rect:
         serializedVersion: 2
-        x: 549
-        y: 9
-        width: 117
-        height: 32
+        x: 300
+        y: 0
+        width: 150
+        height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 338b1be26b06bdff0800000000000000
-      internalID: -10308238554580941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rat_stand_3
-      rect:
-        serializedVersion: 2
-        x: 789
-        y: 9
-        width: 117
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7a5c87b64614db3c0800000000000000
-      internalID: -4342242566159678041
+      spriteID: 09804e8b4851a274f89915255d5e59f5
+      internalID: -794360166
       vertices: []
       indices: 
       edges: []
@@ -200,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 652e33da9c868874c9c35c8707acbbb7
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +223,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rat_stand_0: -4498136095842493914
-      rat_stand_1: 978044886506366827
-      rat_stand_2: -10308238554580941
-      rat_stand_3: -4342242566159678041
+      attack_1_0: 1331542402
+      attack_1_1: 2016009397
+      attack_1_2: -794360166
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

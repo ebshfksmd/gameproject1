@@ -20,7 +20,7 @@ public class Animal : Monster
     private bool isTracking = false; // 추적 중 여부
     [HideInInspector]
     public bool inStopDistance = false;
-
+    public int maxHp = 100;
     private void Start()
     {
         startPos = transform.position;
@@ -39,12 +39,24 @@ public class Animal : Monster
     {
         if (isDead) return;
 
-        // HP바 위치 및 값 갱신
         if (hpBarInstance != null)
         {
-            hpBarInstance.value = hp;
-            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
+            // 1) 위치 조정
+            hpBarInstance.transform.position = transform.position + Vector3.up;
+
+            // 2) 체력 비율 계산 (0~1)
+            float ratio = Mathf.Clamp01((float)hp / maxHp);
+
+            // 3) Fill 오브젝트 찾기
+            Transform fill = hpBarInstance.transform.Find("Fill");
+            if (fill != null)
+            {
+                Vector3 scale = fill.localScale;
+                scale.x = ratio; // 좌우 크기 조정
+                fill.localScale = scale;
+            }
         }
+
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
