@@ -23,7 +23,9 @@ public class PlayerSkillController : MonoBehaviour
     private Animator anim;
     private Player player;
     private AudioSource skillAudioSource;
-    private bool isCastingSkill = false;
+
+    // 스킬 캐스팅 상태 확인용
+    public static bool IsCastingSkill { get; private set; } = false;
 
     [HideInInspector]
     public static bool canAttack = true;
@@ -47,26 +49,36 @@ public class PlayerSkillController : MonoBehaviour
 
     void Update()
     {
-        // 쿨다운 감소
+        // 쿨타임 감소 및 로그 출력
         var keys = new List<SkillSO>(cooldownTimers.Keys);
         foreach (var so in keys)
         {
             if (cooldownTimers[so] > 0f)
+            {
                 cooldownTimers[so] -= Time.deltaTime;
+                Debug.Log($"[{so.skillName}] 쿨타임 남음: {cooldownTimers[so]:F1}초");
+            }
         }
 
-        // 스킬 시도
+        // 스킬 시전 시도
         TryCast(KeyCode.F, attack);
         TryCast(KeyCode.Q, qSkill);
         TryCast(KeyCode.W, wSkill);
         TryCast(KeyCode.E, eSkill);
         TryCast(KeyCode.R, rSkill);
+
+        // 캐스팅 중일 때 애니메이션 중지
+        if (IsCastingSkill && anim != null)
+        {
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRun", false);
+        }
     }
 
     private void TryCast(KeyCode key, SkillSO skill)
     {
         if (skill == null) return;
-        if (!canAttack || isCastingSkill) return;
+        if (!canAttack || IsCastingSkill) return;
 
         if (!cooldownTimers.ContainsKey(skill))
             cooldownTimers[skill] = 0f;
@@ -80,34 +92,32 @@ public class PlayerSkillController : MonoBehaviour
     private IEnumerator CastRoutine(SkillSO skill, KeyCode keyUsed)
     {
         if (player != null) player.canControl = false;
-        isCastingSkill = true;
+        IsCastingSkill = true;
 
-        // 애니메이션 재생
-        if (!string.IsNullOrEmpty(skill.animationName))
+        // 애니메이션 실행
+        if (!string.IsNullOrEmpty(skill.animationName) && anim != null)
+        {
             anim.Play(skill.animationName);
+        }
 
-        // 사운드 재생 (항상 재생되도록 수정)
+        // 오디오 실행
         AudioClip clip = GetClipByKey(keyUsed);
         if (clip != null)
         {
-            skillAudioSource.Stop(); // 기존 사운드 중단
+            skillAudioSource.Stop();
             skillAudioSource.clip = clip;
             skillAudioSource.Play();
         }
-
 
         // 스킬 효과 적용
         skill.Cast(transform, keyUsed);
         cooldownTimers[skill] = skill.cooldown;
 
-        // 대기 시간: 사운드 길이와 스킬 castTime 중 더 긴 것 유지
         float waitTime = Mathf.Max(skill.castTime, clip != null ? clip.length : 0f);
         yield return new WaitForSeconds(waitTime);
 
-
-
         if (player != null) player.canControl = true;
-        isCastingSkill = false;
+        IsCastingSkill = false;
     }
 
     private AudioClip GetClipByKey(KeyCode key)

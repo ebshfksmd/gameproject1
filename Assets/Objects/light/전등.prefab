@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5525564344591109599}
   - component: {fileID: 8040554344302131056}
+  - component: {fileID: -65647866343061843}
   m_Layer: 0
   m_Name: "\uC804\uB4F1"
   m_TagString: Untagged
@@ -87,6 +88,22 @@ MonoBehaviour:
   - {x: 2.2598193, y: -5.27298, z: 0}
   - {x: -2.3635292, y: -5.250006, z: 0}
   - {x: -5.6143427, y: -11.531223, z: 0}
+--- !u!114 &-65647866343061843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397347112202377747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4388bd3df6fa6e94a8bd35667512907c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 8040554344302131056}
+  intensitySlider: {fileID: 0}
+  minIntensity: 0.1
+  maxIntensity: 1
 --- !u!1 &7545261563410811798
 GameObject:
   m_ObjectHideFlags: 0

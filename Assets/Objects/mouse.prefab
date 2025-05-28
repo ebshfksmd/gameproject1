@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1513420908, guid: cf48fd991e90ac24dbcb6c9f09d8c547, type: 3}
   m_Color: {r: 0.7830189, g: 0.6759078, b: 0.6759078, a: 1}
   m_FlipX: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 6672594339046295350}
   hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
+  uiCanvas: {fileID: 0}
   hp: 100
   atk: 10
   def: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   castingTime: 0
   baseAttackPower: 1
   inStopDistance: 0
+  maxHp: 100
 --- !u!50 &3457507130653894331
 Rigidbody2D:
   serializedVersion: 5

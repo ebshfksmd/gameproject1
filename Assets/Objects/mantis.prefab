@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -742174900, guid: 5e4b69cc5a2254a4ca68191abaaad9fa, type: 3}
   m_Color: {r: 0.29388705, g: 1, b: 0.11006278, a: 1}
   m_FlipX: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObject: {fileID: 4063416820259693532}
   hpBar: {fileID: 5485301149967436762, guid: 366310ff11d8c394fa0dcdb01737b1aa, type: 3}
+  uiCanvas: {fileID: 0}
   hp: 100
   atk: 1
   def: 0

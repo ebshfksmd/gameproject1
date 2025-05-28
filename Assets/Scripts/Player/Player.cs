@@ -25,7 +25,9 @@ public class Player : MonoBehaviour
 
     public bool canControl = true;
 
-    private float fixedX; // 플레이어의 X 좌표 고정용
+    private float fixedX;
+
+    public bool IsGrounded => isGrounded; // ✅ 외부에서 점프 중인지 확인 가능
 
     void Awake()
     {
@@ -54,9 +56,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Monster.target=transform;
-
-        if (!canControl) return;
+        if (!canControl || PlayerSkillController.canAttack == false) return;
 
         float input = Input.GetAxis("Horizontal");
         float moveAmount = input * moveSpeed * speedMultiplier * Time.deltaTime;
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         if (moveAmount != 0f)
         {
             transform.Translate(new Vector3(moveAmount, 0f, 0f));
-            fixedX = transform.position.x; // 직접 움직였을 때만 X 갱신
+            fixedX = transform.position.x;
 
             if (input > 0)
                 transform.localScale = new Vector3(Scale, Scale, Scale);
@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
                 sfxAudioSource.PlayOneShot(jump);
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D col)
     {

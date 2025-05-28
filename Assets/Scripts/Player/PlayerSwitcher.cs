@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerSwitcher : MonoBehaviour
 {
@@ -18,13 +19,24 @@ public class PlayerSwitcher : MonoBehaviour
     public Image playerIcon;
     public Sprite[] playerIconImage;
 
+    [Header("Skill UI Settings")]
+    public Image[] skillIcons = new Image[4];
+    public Sprite[] allSkillSprites = new Sprite[16];
+
+    [Header("Player Name UI")]
+    public TextMeshProUGUI playerNameText;
+
+    private readonly string[] playerNames = { "이 현", "이도은", "장예린", "장원철" };
+
     private Coroutine walkInRoutine = null;
 
     void Awake()
     {
         healths = new Player_health[players.Length];
         for (int i = 0; i < players.Length; i++)
+        {
             healths[i] = players[i]?.GetComponent<Player_health>();
+        }
     }
 
     void Start()
@@ -41,11 +53,25 @@ public class PlayerSwitcher : MonoBehaviour
         {
             playerIcon.sprite = playerIconImage[currentIndex];
         }
+
+        UpdateSkillIcons(currentIndex);
+
+        if (playerNameText != null && currentIndex < playerNames.Length)
+        {
+            playerNameText.text = playerNames[currentIndex];
+        }
     }
 
     void Update()
     {
         if (DialogueIsActive()) return;
+
+        var currentPlayer = players[currentIndex];
+        if (currentPlayer != null && !currentPlayer.IsGrounded)
+            return;
+
+        if (PlayerSkillController.IsCastingSkill)
+            return;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -71,6 +97,13 @@ public class PlayerSwitcher : MonoBehaviour
         if (playerIcon != null && playerIconImage.Length > nextIndex)
         {
             playerIcon.sprite = playerIconImage[nextIndex];
+        }
+
+        UpdateSkillIcons(nextIndex);
+
+        if (playerNameText != null && nextIndex < playerNames.Length)
+        {
+            playerNameText.text = playerNames[nextIndex];
         }
 
         currentIndex = nextIndex;
@@ -131,5 +164,24 @@ public class PlayerSwitcher : MonoBehaviour
         if (anim) anim.SetBool("isWalking", false);
         next.canControl = true;
         walkInRoutine = null;
+    }
+
+    private void UpdateSkillIcons(int playerIndex)
+    {
+        int start = playerIndex * 4;
+
+        for (int i = 0; i < skillIcons.Length; i++)
+        {
+            if (start + i < allSkillSprites.Length && allSkillSprites[start + i] != null)
+            {
+                skillIcons[i].sprite = allSkillSprites[start + i];
+                skillIcons[i].enabled = true;
+            }
+            else
+            {
+                skillIcons[i].sprite = null;
+                skillIcons[i].enabled = false;
+            }
+        }
     }
 }

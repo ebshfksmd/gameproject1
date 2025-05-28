@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5268455316801567359}
   - component: {fileID: 7130437180144477469}
   - component: {fileID: 900926737697719733}
+  - component: {fileID: -7097377359201578616}
   m_Layer: 0
   m_Name: "\uC804\uB4F1(\uAE5C\uBE61\uC784)"
   m_TagString: Untagged
@@ -105,6 +106,22 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &-7097377359201578616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031357570446948748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4388bd3df6fa6e94a8bd35667512907c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 7130437180144477469}
+  intensitySlider: {fileID: 0}
+  minIntensity: 0.1
+  maxIntensity: 1
 --- !u!1 &8691057323484595093
 GameObject:
   m_ObjectHideFlags: 0
