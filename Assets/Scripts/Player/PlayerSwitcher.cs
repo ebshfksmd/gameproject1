@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // UI Image 사용을 위해 필요
+using UnityEngine.UI;
 
 public class PlayerSwitcher : MonoBehaviour
 {
@@ -15,8 +15,10 @@ public class PlayerSwitcher : MonoBehaviour
     public float walkInSpeed = 3f;
 
     [Header("Player Icon Setting")]
-    public Image playerIcon; // UI용 Image 컴포넌트
+    public Image playerIcon;
     public Sprite[] playerIconImage;
+
+    private Coroutine walkInRoutine = null;
 
     void Awake()
     {
@@ -35,7 +37,6 @@ public class PlayerSwitcher : MonoBehaviour
             players[i].canControl = isThis;
         }
 
-        // 초기 아이콘 설정
         if (playerIcon != null && playerIconImage.Length > currentIndex)
         {
             playerIcon.sprite = playerIconImage[currentIndex];
@@ -44,11 +45,18 @@ public class PlayerSwitcher : MonoBehaviour
 
     void Update()
     {
+        if (DialogueIsActive()) return;
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log("Tab 눌림 → SwitchToNextPublic 호출");
             SwitchToNextPublic();
         }
+    }
+
+    private bool DialogueIsActive()
+    {
+        DialogueManager dm = FindObjectOfType<DialogueManager>();
+        return dm != null && dm.IsDialogueActive();
     }
 
     public void SwitchToNextPublic()
@@ -60,7 +68,6 @@ public class PlayerSwitcher : MonoBehaviour
         var prev = players[prevIndex];
         var next = players[nextIndex];
 
-        //  UI 아이콘 갱신
         if (playerIcon != null && playerIconImage.Length > nextIndex)
         {
             playerIcon.sprite = playerIconImage[nextIndex];
@@ -74,12 +81,17 @@ public class PlayerSwitcher : MonoBehaviour
         next.gameObject.SetActive(true);
         next.canControl = false;
 
-        Vector3 facing = prev.transform.localScale.x >= 0
-            ? Vector3.right : Vector3.left;
+        Vector3 facing = prev.transform.localScale.x >= 0 ? Vector3.right : Vector3.left;
         Vector3 spawnPos = prev.transform.position - facing * switchOffset;
         next.transform.position = spawnPos;
 
-        StartCoroutine(WalkIn(next, prev.transform.position));
+        if (walkInRoutine != null)
+        {
+            StopCoroutine(walkInRoutine);
+            walkInRoutine = null;
+        }
+
+        walkInRoutine = StartCoroutine(WalkIn(next, prev.transform.position));
     }
 
     private int FindNextAlive(int startIndex)
@@ -118,5 +130,6 @@ public class PlayerSwitcher : MonoBehaviour
 
         if (anim) anim.SetBool("isWalking", false);
         next.canControl = true;
+        walkInRoutine = null;
     }
 }
