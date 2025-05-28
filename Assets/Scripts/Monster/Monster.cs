@@ -99,6 +99,7 @@ public class Monster : MonoBehaviour
     public void GetAttacked(int dmg, int power)
     {
         hp -= (dmg / (100 + def)) * power;
+        hpBarInstance.value = hp;
         StartCoroutine(HitAnimation());
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

@@ -95,13 +95,16 @@ public class PlayerSkillController : MonoBehaviour
             skillAudioSource.Play();
         }
 
-        // 대기 시간: 사운드 길이와 스킬 castTime 중 더 긴 것 유지
-        float waitTime = Mathf.Max(skill.castTime, clip != null ? clip.length : 0f);
-        yield return new WaitForSeconds(waitTime);
 
         // 스킬 효과 적용
         skill.Cast(transform, keyUsed);
         cooldownTimers[skill] = skill.cooldown;
+
+        // 대기 시간: 사운드 길이와 스킬 castTime 중 더 긴 것 유지
+        float waitTime = Mathf.Max(skill.castTime, clip != null ? clip.length : 0f);
+        yield return new WaitForSeconds(waitTime);
+
+
 
         if (player != null) player.canControl = true;
         isCastingSkill = false;

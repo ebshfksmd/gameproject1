@@ -16,8 +16,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   range: 5
   animationName: Q
+  castTime: 0
   cooldown: 5
-  damage: 20
+  damage: 600
+  power: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

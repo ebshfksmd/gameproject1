@@ -34,7 +34,7 @@ public class M_Rabbit : Animal
         if (distanceToTarget <= 5)
         {
             transform.position += Vector3.right * moveDirection * 0.8f;
-            PlayerTest.instance.GetAttacked2(atk, skillPower);
+            //PlayerTest.instance.GetAttacked2(atk, skillPower);
         }
     }
 
