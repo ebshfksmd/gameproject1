@@ -60,6 +60,12 @@ public class PlayerSwitcher : MonoBehaviour
         {
             playerNameText.text = playerNames[currentIndex];
         }
+
+        // 초기 PlayerTest.instance 설정
+        if (players[currentIndex].TryGetComponent(out PlayerTest pt))
+        {
+            PlayerTest.instance = pt;
+        }
     }
 
     void Update()
@@ -81,7 +87,7 @@ public class PlayerSwitcher : MonoBehaviour
 
     private bool DialogueIsActive()
     {
-        DialogueManager dm = FindObjectOfType<DialogueManager>();
+        DialogueManager dm = Object.FindFirstObjectByType<DialogueManager>();
         return dm != null && dm.IsDialogueActive();
     }
 
@@ -125,6 +131,16 @@ public class PlayerSwitcher : MonoBehaviour
         }
 
         walkInRoutine = StartCoroutine(WalkIn(next, prev.transform.position));
+
+        // 몬스터 추적 대상 갱신
+        Monster.target = next.transform;
+
+        // 현재 플레이어 인스턴스 갱신
+        if (next.TryGetComponent(out PlayerTest pt))
+        {
+            PlayerTest.instance = pt;
+            Debug.Log($"[PlayerSwitcher] PlayerTest.instance 갱신됨: {pt.name}");
+        }
     }
 
     private int FindNextAlive(int startIndex)

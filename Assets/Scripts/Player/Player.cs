@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     private float fixedX;
 
-    public bool IsGrounded => isGrounded; // ✅ 외부에서 점프 중인지 확인 가능
+    public bool IsGrounded => isGrounded; // 외부에서 점프 중인지 확인 가능
 
     void Awake()
     {

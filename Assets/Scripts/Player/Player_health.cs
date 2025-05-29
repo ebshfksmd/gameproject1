@@ -57,7 +57,7 @@ public class Player_health : MonoBehaviour
         yield return new WaitForSeconds(state.length);
 
         // 3) 다음 캐릭터로 전환 요청
-        var switcher = FindObjectOfType<PlayerSwitcher>();
+        var switcher = Object.FindFirstObjectByType<PlayerSwitcher>();
         if (switcher != null)
             switcher.SwitchToNextPublic();
 

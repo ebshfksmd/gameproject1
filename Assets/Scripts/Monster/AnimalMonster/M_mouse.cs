@@ -20,11 +20,13 @@ public class M_mouse : Animal
         animator.SetBool("isSkill", false);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
         if (distanceToTarget < skillDistance)
         {
             if (PlayerTest.instance != null)
             {
-                PlayerTest.instance.GetAttacked2(atk, skillPower);
+                Debug.Log("[쥐] 플레이어에게 스킬 공격!");
+                PlayerTest.instance.GetAttacked2(atk, skillPower); // 실제 데미지 적용
             }
             else
             {
@@ -32,6 +34,7 @@ public class M_mouse : Animal
             }
         }
     }
+
 
     IEnumerator SkillCast()
     {
@@ -61,6 +64,7 @@ public class M_mouse : Animal
         while (true)
         {
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            //Debug.Log($"[쥐 상태] 거리: {distanceToTarget}, 스킬가능: {isSkillPrepared}, 시전중: {isSkillCasting}");
 
             if (!isSkillPrepared)
             {
@@ -74,12 +78,14 @@ public class M_mouse : Animal
 
             if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting)
             {
+                Debug.Log("[쥐] 스킬 시전 시작");
                 StartCoroutine(SkillCast());
             }
 
             yield return null;
         }
     }
+
 
     public override void Skill()
     {
@@ -90,8 +96,7 @@ public class M_mouse : Animal
     }
 
 #pragma warning disable CS0108
-    private void Awake()
-#pragma warning restore CS0108
+    public override void Awake()
     {
         base.Awake();
 
@@ -103,4 +108,5 @@ public class M_mouse : Animal
 
         Skill(); // Start skill loop
     }
+
 }

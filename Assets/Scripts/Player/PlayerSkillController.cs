@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerSkillController : MonoBehaviour
 {
@@ -19,16 +21,17 @@ public class PlayerSkillController : MonoBehaviour
     public AudioClip E;
     public AudioClip R;
 
+    [Header("Cooldown UI")]
+    public Image[] skillCooldownFills = new Image[4]; // Q, W, E, R
+    public TextMeshProUGUI[] skillCooldownTexts = new TextMeshProUGUI[4];
+
     private Dictionary<SkillSO, float> cooldownTimers = new Dictionary<SkillSO, float>();
     private Animator anim;
     private Player player;
     private AudioSource skillAudioSource;
 
-    // 스킬 캐스팅 상태 확인용
     public static bool IsCastingSkill { get; private set; } = false;
-
-    [HideInInspector]
-    public static bool canAttack = true;
+    [HideInInspector] public static bool canAttack = true;
 
     void Start()
     {
@@ -45,29 +48,63 @@ public class PlayerSkillController : MonoBehaviour
             if (so != null)
                 cooldownTimers[so] = 0f;
         }
+
+        for (int i = 0; i < skillCooldownFills.Length; i++)
+        {
+            if (skillCooldownFills[i] != null)
+                skillCooldownFills[i].gameObject.SetActive(false);
+
+            if (skillCooldownTexts[i] != null)
+                skillCooldownTexts[i].gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
-        // 쿨타임 감소 및 로그 출력
         var keys = new List<SkillSO>(cooldownTimers.Keys);
         foreach (var so in keys)
         {
+            int index = GetSkillIndex(so);
             if (cooldownTimers[so] > 0f)
             {
                 cooldownTimers[so] -= Time.deltaTime;
-                Debug.Log($"[{so.skillName}] 쿨타임 남음: {cooldownTimers[so]:F1}초");
+                float remaining = Mathf.Max(0f, cooldownTimers[so]);
+                float cooldownTime = so.cooldown;
+
+                if (index >= 0 && index < skillCooldownFills.Length)
+                {
+                    if (skillCooldownFills[index] != null)
+                    {
+                        skillCooldownFills[index].gameObject.SetActive(true);
+                        skillCooldownFills[index].fillAmount = Mathf.Clamp01(remaining / cooldownTime);
+                    }
+
+                    if (skillCooldownTexts[index] != null)
+                    {
+                        skillCooldownTexts[index].gameObject.SetActive(true);
+                        skillCooldownTexts[index].text = $"{remaining:F1}";
+                    }
+                }
+            }
+            else
+            {
+                if (index >= 0 && index < skillCooldownFills.Length)
+                {
+                    if (skillCooldownFills[index] != null)
+                        skillCooldownFills[index].gameObject.SetActive(false);
+
+                    if (skillCooldownTexts[index] != null)
+                        skillCooldownTexts[index].gameObject.SetActive(false);
+                }
             }
         }
 
-        // 스킬 시전 시도
         TryCast(KeyCode.F, attack);
         TryCast(KeyCode.Q, qSkill);
         TryCast(KeyCode.W, wSkill);
         TryCast(KeyCode.E, eSkill);
         TryCast(KeyCode.R, rSkill);
 
-        // 캐스팅 중일 때 애니메이션 중지
         if (IsCastingSkill && anim != null)
         {
             anim.SetBool("isWalking", false);
@@ -77,8 +114,7 @@ public class PlayerSkillController : MonoBehaviour
 
     private void TryCast(KeyCode key, SkillSO skill)
     {
-        if (skill == null) return;
-        if (!canAttack || IsCastingSkill) return;
+        if (skill == null || !canAttack || IsCastingSkill) return;
 
         if (!cooldownTimers.ContainsKey(skill))
             cooldownTimers[skill] = 0f;
@@ -91,16 +127,16 @@ public class PlayerSkillController : MonoBehaviour
 
     private IEnumerator CastRoutine(SkillSO skill, KeyCode keyUsed)
     {
-        if (player != null) player.canControl = false;
+        if (player != null)
+            player.canControl = false;
+
         IsCastingSkill = true;
 
-        // 애니메이션 실행
         if (!string.IsNullOrEmpty(skill.animationName) && anim != null)
         {
             anim.Play(skill.animationName);
         }
 
-        // 오디오 실행
         AudioClip clip = GetClipByKey(keyUsed);
         if (clip != null)
         {
@@ -109,14 +145,23 @@ public class PlayerSkillController : MonoBehaviour
             skillAudioSource.Play();
         }
 
-        // 스킬 효과 적용
         skill.Cast(transform, keyUsed);
         cooldownTimers[skill] = skill.cooldown;
 
-        float waitTime = Mathf.Max(skill.castTime, clip != null ? clip.length : 0f);
-        yield return new WaitForSeconds(waitTime);
+        if (!string.IsNullOrEmpty(skill.animationName) && anim != null)
+        {
+            yield return null;
+            AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+            while (state.IsName(skill.animationName) && state.normalizedTime < 1f)
+            {
+                yield return null;
+                state = anim.GetCurrentAnimatorStateInfo(0);
+            }
+        }
 
-        if (player != null) player.canControl = true;
+        if (player != null)
+            player.canControl = true;
+
         IsCastingSkill = false;
     }
 
@@ -131,6 +176,15 @@ public class PlayerSkillController : MonoBehaviour
             KeyCode.R => R,
             _ => null,
         };
+    }
+
+    private int GetSkillIndex(SkillSO skill)
+    {
+        if (skill == qSkill) return 0;
+        if (skill == wSkill) return 1;
+        if (skill == eSkill) return 2;
+        if (skill == rSkill) return 3;
+        return -1;
     }
 
     public float GetCooldown(SkillSO skill)

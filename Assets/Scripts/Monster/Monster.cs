@@ -75,12 +75,17 @@ public class Monster : MonoBehaviour
             StartCoroutine(ApplyHpBar());
         }
 
-        // 타겟 설정
         GameObject targetObj = GameObject.FindGameObjectWithTag("Player");
         if (targetObj != null)
         {
             target = targetObj.transform;
+            Debug.Log($"[Monster] 타겟 설정 완료: {target.name}");
         }
+        else
+        {
+            Debug.LogWarning("[Monster] Player 태그를 가진 오브젝트를 찾을 수 없습니다.");
+        }
+
 
         monsterRenderer = GetComponentInChildren<Renderer>();
         if (monsterRenderer != null)
