@@ -168,23 +168,29 @@ public class Animal : Monster
     // 실제 공격 애니메이션과 데미지 적용
     IEnumerator BaseAttackAnimation()
     {
+        Debug.Log("[Animal] BaseAttackAnimation 진입");
+
         animator.SetBool("isAttack", true);
+        Debug.Log("[Animal] isAttack true");
+
         yield return new WaitForSeconds(baseAtkAnimationTime);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         if (distanceToTarget < baseAtkDistance)
         {
-            // null 체크 추가: PlayerTest.instance가 없으면 오류 방지
             if (PlayerTest.instance != null)
             {
+                Debug.Log("[Animal] Player에게 공격 적용");
                 PlayerTest.instance.GetAttacked(atk, baseAttackPower);
             }
             else
             {
-                Debug.LogWarning("PlayerTest.instance is null. Cannot apply attack.");
+                Debug.LogWarning("[Animal] PlayerTest.instance is null");
             }
         }
 
         animator.SetBool("isAttack", false);
+        Debug.Log("[Animal] isAttack false");
     }
+
 }
