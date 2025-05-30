@@ -11,35 +11,85 @@ public class M_mouse : Animal
     float skillCount = 0f;
     bool isSkillCasting = false;
     bool isSkillPrepared = true;
-    Coroutine skillRoutine;
 
-    IEnumerator SkillAnimation()
+    protected override void Update()
     {
-        animator.SetBool("isSkill", true);
-        yield return new WaitForSeconds(skillAtkAnimationTime);
-        animator.SetBool("isSkill", false);
+        if (isDead) return;
+
+        UpdateHpBar();
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
 
-        if (distanceToTarget < skillDistance)
+        HandleMovement(distanceToTarget);
+
+        // 스킬 쿨타임 관리
+        if (!isSkillPrepared)
         {
-            if (PlayerTest.instance != null)
+            skillCount += Time.deltaTime;
+            if (skillCount >= skillCooltime)
             {
-                Debug.Log("[쥐] 플레이어에게 스킬 공격!");
-                PlayerTest.instance.GetAttacked2(atk, skillPower); // 실제 데미지 적용
+                isSkillPrepared = true;
+                skillCount = 0f;
+                Debug.Log("[쥐] 스킬 준비 완료");
             }
-            else
-            {
-                Debug.LogWarning("PlayerTest.instance is null. Attack canceled.");
-            }
+        }
+
+        // 스킬 우선 시전
+        if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting)
+        {
+            Debug.Log("[쥐] 스킬 시전 시작");
+            StartCoroutine(SkillCast());
+            return;
+        }
+
+        // 기본 공격
+        if (distanceToTarget < baseAtkDistance && !prepareAtk && !isSkillCasting)
+        {
+            prepareAtk = true;
+            StartCoroutine(AnimalBaseBasicAtk());
+        }
+
+        // 사망 처리
+        if (hp <= 0 && !isDead)
+        {
+            StartCoroutine(DieAnimation());
         }
     }
 
+    void HandleMovement(float distanceToTarget)
+    {
+        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
+        {
+            isTracking = true;
+            Vector3 direction = (target.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+            animator.SetBool("isWalk", true);
+            moveDirection = (transform.position.x > target.position.x) ? -1 : 1;
+        }
+        else if (distanceToTarget > targetDistance)
+        {
+            isTracking = false;
+            animator.SetBool("isWalk", true);
+            transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
+
+            float distanceFromStart = transform.position.x - startPos.x;
+            if (Mathf.Abs(distanceFromStart) > moveDistance && moveDistance != 0)
+            {
+                moveDirection *= -1;
+                startPos = transform.position;
+            }
+        }
+        else
+        {
+            isTracking = false;
+            animator.SetBool("isWalk", false);
+        }
+    }
 
     IEnumerator SkillCast()
     {
         isSkillCasting = true;
-
         float prevSpeed = speed;
         speed = 0f;
 
@@ -52,61 +102,43 @@ public class M_mouse : Animal
             StartCoroutine(SkillAnimation());
         }
 
-        animator.SetBool("isWalk", true);
         speed = prevSpeed;
+        animator.SetBool("isWalk", true);
 
         isSkillPrepared = false;
         isSkillCasting = false;
     }
 
-    IEnumerator SkillCheck()
+    IEnumerator SkillAnimation()
     {
-        while (true)
+        animator.SetBool("isSkill", true);
+        yield return new WaitForSeconds(skillAtkAnimationTime);
+
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (distanceToTarget < skillDistance)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            //Debug.Log($"[쥐 상태] 거리: {distanceToTarget}, 스킬가능: {isSkillPrepared}, 시전중: {isSkillCasting}");
-
-            if (!isSkillPrepared)
+            if (PlayerTest.instance != null)
             {
-                skillCount += Time.deltaTime;
-                if (skillCount >= skillCooltime)
-                {
-                    isSkillPrepared = true;
-                    skillCount = 0f;
-                }
+                Debug.Log($"[스킬공격] {gameObject.name}이(가) {skillPower} 피해를 입힘");
+                PlayerTest.instance.GetAttacked2(atk, skillPower);
             }
-
-            if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting)
+            else
             {
-                Debug.Log("[쥐] 스킬 시전 시작");
-                StartCoroutine(SkillCast());
+                Debug.LogWarning("[M_mouse] PlayerTest.instance is null");
             }
-
-            yield return null;
         }
+
+        animator.SetBool("isSkill", false);
     }
 
-
-    public override void Skill()
-    {
-        if (skillRoutine == null)
-        {
-            skillRoutine = StartCoroutine(SkillCheck());
-        }
-    }
-
-#pragma warning disable CS0108
     public override void Awake()
     {
         base.Awake();
 
         hp = 100;
-        atk = 15;
+        atk = 150;
         def = 0;
         moveDistance = 5000f;
         type = MonsterType.animal;
-
-        Skill(); // Start skill loop
     }
-
 }

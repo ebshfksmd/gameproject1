@@ -28,7 +28,7 @@ public class TeamStatBuffSkillSO : SkillSO
     private IEnumerator ApplyTeamBuffs()
     {
         // 1) 씬에 있는 모든 Player_health 컴포넌트 찾기
-        var members = Object.FindObjectsOfType<Player_health>();
+        var members = Object.FindObjectsByType<PlayerTest>(FindObjectsSortMode.None);
 
         // 2) 버프 적용 및 즉시 치유
         foreach (var m in members)

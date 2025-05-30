@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     private float fixedX;
 
-    public bool IsGrounded => isGrounded; // 외부에서 점프 중인지 확인 가능
+    public bool IsGrounded => isGrounded;
 
     void Awake()
     {
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             StopSoundIfPlaying(isRun);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (canControl && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             anim.Play("jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
@@ -97,7 +97,6 @@ public class Player : MonoBehaviour
                 sfxAudioSource.PlayOneShot(jump);
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D col)
     {

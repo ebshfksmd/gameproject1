@@ -1,88 +1,75 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class PlayerSwitcher : MonoBehaviour
 {
-    [Header("Players (order matters)")]
+    [Header("Players (순서 중요)")]
     public Player[] players;
 
-    private Player_health[] healths;
+    private PlayerTest[] tests;
     private int currentIndex = 0;
 
-    [Header("Walk-in Settings")]
+    [Header("걷기 전환 설정")]
     public float switchOffset = 1f;
     public float walkInSpeed = 3f;
 
-    [Header("Player Icon Setting")]
+    [Header("왼쪽 메인 UI")]
     public Image playerIcon;
     public Sprite[] playerIconImage;
-
-    [Header("Skill UI Settings")]
     public Image[] skillIcons = new Image[4];
     public Sprite[] allSkillSprites = new Sprite[16];
-
-    [Header("Player Name UI")]
     public TextMeshProUGUI playerNameText;
 
-    private readonly string[] playerNames = { "이 현", "이도은", "장예린", "장원철" };
+    private readonly string[] playerNames = { "이 현", "이도은", "장원철", "장예린" };
 
+    [Header("Health UI 연결")]
+    public Slider[] hpSliders = new Slider[4];
+    public TextMeshProUGUI[] hpTexts = new TextMeshProUGUI[4];
+    public HealthBarUI[] otherPlayerUIs;
+
+    public static PlayerSwitcher instance;
     private Coroutine walkInRoutine = null;
+    private List<int> deathOrder = new List<int>(); // 사망 순서 저장
 
     void Awake()
     {
-        healths = new Player_health[players.Length];
+        instance = this;
+        tests = new PlayerTest[players.Length];
         for (int i = 0; i < players.Length; i++)
         {
-            healths[i] = players[i]?.GetComponent<Player_health>();
+            tests[i] = players[i]?.GetComponent<PlayerTest>();
         }
     }
 
     void Start()
     {
         currentIndex = FindNextAlive(-1);
-        for (int i = 0; i < players.Length; i++)
-        {
-            bool isThis = (i == currentIndex);
-            players[i].gameObject.SetActive(isThis);
-            players[i].canControl = isThis;
-        }
-
-        if (playerIcon != null && playerIconImage.Length > currentIndex)
-        {
-            playerIcon.sprite = playerIconImage[currentIndex];
-        }
-
-        UpdateSkillIcons(currentIndex);
-
-        if (playerNameText != null && currentIndex < playerNames.Length)
-        {
-            playerNameText.text = playerNames[currentIndex];
-        }
-
-        // 초기 PlayerTest.instance 설정
-        if (players[currentIndex].TryGetComponent(out PlayerTest pt))
-        {
-            PlayerTest.instance = pt;
-        }
+        ActivatePlayer(currentIndex);
+        UpdateMainUI(currentIndex);
+        UpdateAllPlayerHealthUI();
+        UpdateOtherPlayerUIs();
+        SetPlayerTestInstance(currentIndex);
     }
 
     void Update()
     {
         if (DialogueIsActive()) return;
 
-        var currentPlayer = players[currentIndex];
-        if (currentPlayer != null && !currentPlayer.IsGrounded)
+        if (tests[currentIndex].hp <= 0)
+        {
+            HandleDeath(currentIndex);
             return;
+        }
 
-        if (PlayerSkillController.IsCastingSkill)
-            return;
+        var currentPlayer = players[currentIndex];
+        if (!currentPlayer.IsGrounded) return;
+        if (PlayerSkillController.IsCastingSkill) return;
 
         if (Input.GetKeyDown(KeyCode.Tab))
-        {
             SwitchToNextPublic();
-        }
     }
 
     private bool DialogueIsActive()
@@ -91,32 +78,98 @@ public class PlayerSwitcher : MonoBehaviour
         return dm != null && dm.IsDialogueActive();
     }
 
+    private void SetPlayerTestInstance(int idx)
+    {
+        if (players[idx].TryGetComponent(out PlayerTest pt))
+            PlayerTest.instance = pt;
+    }
+
+    public void OnPlayerDeath(GameObject deadPlayer)
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].gameObject == deadPlayer)
+            {
+                HandleDeath(i);
+                break;
+            }
+        }
+    }
+
+    private void HandleDeath(int deadIndex)
+    {
+        if (!deathOrder.Contains(deadIndex))
+            deathOrder.Add(deadIndex); // 죽은 순서 기록
+
+        if (currentIndex == deadIndex)
+        {
+            int next = FindNextAlive(deadIndex);
+            if (next != deadIndex && tests[next] != null && tests[next].hp > 0)
+            {
+                ForceSwitchTo(next);
+            }
+            else
+            {
+                Debug.LogWarning($"[HandleDeath] {playerNames[deadIndex]} 사망. 전환할 생존자가 없습니다.");
+            }
+        }
+
+        UpdateOtherPlayerUIs();
+    }
+
+
+    private int FindNextAlive(int startIndex)
+    {
+        int total = 4;
+        for (int offset = 1; offset < total; offset++)
+        {
+            int idx = (startIndex + offset) % total;
+            if (tests[idx].hp > 0)
+                return idx;
+            else
+                Debug.Log($"[TAB] {playerNames[idx]}는 죽었으므로 건너뜀.");
+        }
+
+        Debug.Log("[TAB] 생존자가 없음.");
+        return startIndex;
+    }
+
     public void SwitchToNextPublic()
     {
-        int prevIndex = currentIndex;
-        int nextIndex = FindNextAlive(prevIndex);
-        if (nextIndex == prevIndex) return;
+        int total = players.Length;
+        for (int offset = 1; offset < total; offset++)
+        {
+            int idx = (currentIndex + offset) % total;
+            if (tests[idx].hp > 0)
+            {
+                Debug.Log($"[TAB] {playerNames[idx]}로 전환.");
+                ForceSwitchTo(idx);
+                return;
+            }
+            else
+            {
+                Debug.Log($"[TAB] {playerNames[idx]}는 죽었으므로 건너뜀.");
+            }
+        }
 
-        var prev = players[prevIndex];
+        Debug.Log("[TAB] 전환할 수 있는 생존 캐릭터가 없습니다.");
+    }
+
+    private void ForceSwitchTo(int nextIndex)
+    {
+        if (tests[nextIndex].hp <= 0)
+        {
+            Debug.LogWarning($"[BLOCKED] {playerNames[nextIndex]}는 죽은 캐릭터이므로 전환 차단됨.");
+            return;
+        }
+
+        var prev = players[currentIndex];
         var next = players[nextIndex];
-
-        if (playerIcon != null && playerIconImage.Length > nextIndex)
-        {
-            playerIcon.sprite = playerIconImage[nextIndex];
-        }
-
-        UpdateSkillIcons(nextIndex);
-
-        if (playerNameText != null && nextIndex < playerNames.Length)
-        {
-            playerNameText.text = playerNames[nextIndex];
-        }
 
         currentIndex = nextIndex;
 
         prev.canControl = false;
         prev.gameObject.SetActive(false);
-
         next.gameObject.SetActive(true);
         next.canControl = false;
 
@@ -124,36 +177,26 @@ public class PlayerSwitcher : MonoBehaviour
         Vector3 spawnPos = prev.transform.position - facing * switchOffset;
         next.transform.position = spawnPos;
 
-        if (walkInRoutine != null)
-        {
-            StopCoroutine(walkInRoutine);
-            walkInRoutine = null;
-        }
-
+        if (walkInRoutine != null) StopCoroutine(walkInRoutine);
         walkInRoutine = StartCoroutine(WalkIn(next, prev.transform.position));
 
-        // 몬스터 추적 대상 갱신
         Monster.target = next.transform;
+        SetPlayerTestInstance(currentIndex);
 
-        // 현재 플레이어 인스턴스 갱신
-        if (next.TryGetComponent(out PlayerTest pt))
-        {
-            PlayerTest.instance = pt;
-            Debug.Log($"[PlayerSwitcher] PlayerTest.instance 갱신됨: {pt.name}");
-        }
+        UpdateMainUI(currentIndex);
+        UpdateAllPlayerHealthUI();
+        UpdateOtherPlayerUIs();
     }
 
-    private int FindNextAlive(int startIndex)
+    private void ActivatePlayer(int index)
     {
-        int n = players.Length;
-        for (int offset = 1; offset <= n; offset++)
+        for (int i = 0; i < players.Length; i++)
         {
-            int idx = (startIndex + offset + n) % n;
-            var h = healths[idx];
-            if (h != null && !h.IsDead)
-                return idx;
+            bool isActive = (i == index);
+            players[i].gameObject.SetActive(isActive);
+            players[i].canControl = isActive;
         }
-        return Mathf.Clamp(startIndex, 0, n - 1);
+        Monster.target = players[index].transform;
     }
 
     private IEnumerator WalkIn(Player next, Vector3 targetPos)
@@ -171,8 +214,7 @@ public class PlayerSwitcher : MonoBehaviour
 
         while (Vector3.Distance(next.transform.position, targetPos) > 0.05f)
         {
-            Vector2 newPos = Vector2.MoveTowards(
-                rb.position, targetPos, walkInSpeed * Time.deltaTime);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, walkInSpeed * Time.deltaTime);
             rb.MovePosition(newPos);
             yield return null;
         }
@@ -182,10 +224,20 @@ public class PlayerSwitcher : MonoBehaviour
         walkInRoutine = null;
     }
 
+    private void UpdateMainUI(int index)
+    {
+        if (playerIcon != null && playerIconImage.Length > index)
+            playerIcon.sprite = playerIconImage[index];
+
+        UpdateSkillIcons(index);
+
+        if (playerNameText != null && index < playerNames.Length)
+            playerNameText.text = playerNames[index];
+    }
+
     private void UpdateSkillIcons(int playerIndex)
     {
         int start = playerIndex * 4;
-
         for (int i = 0; i < skillIcons.Length; i++)
         {
             if (start + i < allSkillSprites.Length && allSkillSprites[start + i] != null)
@@ -200,4 +252,97 @@ public class PlayerSwitcher : MonoBehaviour
             }
         }
     }
+
+    private void UpdateAllPlayerHealthUI()
+    {
+        int n = players.Length;
+        for (int i = 0; i < n; i++)
+        {
+            int uiSlot = (i - currentIndex + n) % n;
+            if (tests[i] != null && tests[i].hp > 0)
+            {
+                tests[i].SetHealthUI(hpSliders[uiSlot], hpTexts[uiSlot]);
+            }
+        }
+    }
+
+    private void UpdateOtherPlayerUIs()
+    {
+        int total = 4;
+        List<int> clockwise = new List<int>();
+        List<int> alive = new List<int>();
+
+        for (int offset = 1; offset <= 3; offset++)
+        {
+            int idx = (currentIndex + offset) % total;
+            clockwise.Add(idx);
+
+            if (tests[idx].hp > 0)
+                alive.Add(idx);
+        }
+
+        // 죽은 캐릭터는 deathOrder에서 UI 대상만 추출
+        List<int> dead = new List<int>();
+        foreach (int idx in deathOrder)
+        {
+            if (clockwise.Contains(idx)) // 오른쪽 UI 대상 중 죽은 것만
+                dead.Add(idx);
+        }
+
+        int deadCount = dead.Count;
+        int uiIdx = 0;
+
+        // 살아있는 캐릭터를 아래쪽부터 채우기 (0부터)
+        for (int i = 0; i < alive.Count && uiIdx < (3 - deadCount); i++, uiIdx++)
+        {
+            int idx = alive[i];
+            SetRightUI(uiIdx, idx);
+        }
+
+        // 죽은 캐릭터를 위쪽부터 (index 큰 쪽부터) 순서대로 채움
+        for (int i = 0; i < dead.Count && uiIdx < 3; i++, uiIdx++)
+        {
+            int slot = 2 - (dead.Count - 1 - i); // 위쪽부터
+            int idx = dead[i];
+            SetRightUI(slot, idx);
+            Debug.Log($"[UI] 죽은 캐릭터 {playerNames[idx]} 오른쪽 슬롯 {slot}에 고정됨.");
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (!otherPlayerUIs[i].gameObject.activeSelf)
+                otherPlayerUIs[i].gameObject.SetActive(false);
+        }
+    }
+
+
+    private void SetRightUI(int slot, int playerIdx)
+    {
+        var icon = playerIconImage[playerIdx];
+        var pt = tests[playerIdx];
+        bool isDead = pt.hp <= 0;
+
+        otherPlayerUIs[slot].SetProfileImage(icon, flipX: true, newName: playerNames[playerIdx]);
+
+        if (pt != null)
+        {
+            int curHp = pt.hp;
+            int maxHp = 100; // 필요하면 pt.maxHp로 변경하세요
+            otherPlayerUIs[slot].hpSource = pt;
+
+            var slider = otherPlayerUIs[slot].GetComponentInChildren<Slider>();
+            if (slider != null)
+            {
+                slider.maxValue = maxHp;
+                slider.value = curHp;
+            }
+
+        }
+
+        otherPlayerUIs[slot].SetGrayscale(isDead); // 아이콘 어둡게 처리
+        otherPlayerUIs[slot].gameObject.SetActive(true);
+    }
+
+
+
 }

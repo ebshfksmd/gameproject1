@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StatBuffSkill", menuName = "Skills/Stat Buff")]
 public class StatBuffSkillSO : SkillSO
 {
-
     [Header("Buff Parameters")]
     [SerializeField] private float healthPercent = 0.3f;
 
@@ -13,21 +12,20 @@ public class StatBuffSkillSO : SkillSO
     [Tooltip("방어력 증가량")]
     [SerializeField] private int defenseAmount = 20;
 
-
     public override void Cast(Transform caster, KeyCode keyUsed)
     {
-
-        var ph = caster.GetComponent<Player_health>();
-        if (ph != null)
+        var pt = caster.GetComponent<PlayerTest>();
+        if (pt != null)
         {
-            // 최대체력 + 회복
-            ph.BuffMaxHealth(healthPercent);
+            // 최대 체력 증가
+            int extraMaxHp = Mathf.RoundToInt(pt.MaxHp * healthPercent);
+            pt.MaxHp += extraMaxHp;
 
-            // 즉시 회복, 최대체력 넘지 않도록 Clamp
-            ph.Heal(healAmount);
+            // 회복 (최대 체력을 넘지 않게 Clamp)
+            pt.Heal(healAmount);
 
-            // 방어력 버프
-            ph.BuffDefense(defenseAmount);
+            // 방어력 증가
+            pt.def += defenseAmount;
         }
     }
 }

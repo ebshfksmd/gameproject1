@@ -21,20 +21,16 @@ public class PlayerTest : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite1;
     [SerializeField] private SpriteRenderer sprite2;
 
-    public enum Status
-    {
-        basic,
-        cantAtk
-    }
-
+    public enum Status { basic, cantAtk }
     public Status status = Status.basic;
+    private PlayerSwitcher playerSwitcher;
 
     private void Awake()
     {
+        playerSwitcher = Object.FindFirstObjectByType<PlayerSwitcher>();
         instance = this;
         hp = maxHp;
         UpdateHealthUI();
-        Debug.Log($"[PlayerTest] 등록됨: {gameObject.name}");
     }
 
     private void OnEnable()
@@ -43,15 +39,20 @@ public class PlayerTest : MonoBehaviour
         UpdateHealthUI();
     }
 
+    public void SetHealthUI(Slider slider, TextMeshProUGUI text)
+    {
+        hpSlider = slider;
+        hpText = text;
+        UpdateHealthUI();
+    }
+
     public void GetAttacked(int dmg, int power)
     {
-        Debug.Log("맞음");
         ApplyDamage(dmg, power, Color.red);
     }
 
     public void GetAttacked2(int dmg, int power)
     {
-        Debug.Log("쳐맞음");
         ApplyDamage(dmg, power, Color.blue);
     }
 
@@ -59,18 +60,35 @@ public class PlayerTest : MonoBehaviour
     {
         float rawDamage = ((float)dmg / (100f + def)) * power;
         int damageAmount = Mathf.Max(1, Mathf.RoundToInt(rawDamage));
-
-        hp -= damageAmount;
-        hp = Mathf.Max(0, hp);
-
-        Debug.Log($"받은 데미지: {damageAmount}, 남은 HP: {hp}");
-
+        hp = Mathf.Max(0, hp - damageAmount);
         UpdateHealthUI();
 
         if (gameObject.activeInHierarchy)
-        {
             StartCoroutine(HitEffect(hitColor));
+
+        if (hp == 0 && playerSwitcher != null)
+        {
+            playerSwitcher.OnPlayerDeath(this.gameObject);
         }
+    }
+    public int MaxHp
+    {
+        get => maxHp;
+        set
+        {
+            maxHp = Mathf.Max(1, value); // 최소 1 이상 보장
+            UpdateHealthUI();
+        }
+    }
+    public void BuffDefense(int amount)
+    {
+        def += amount;
+    }
+    public void Heal(int amount)
+    {
+        if (hp <= 0) return;
+        hp = Mathf.Min(hp + amount, maxHp);
+        UpdateHealthUI();
     }
 
     private void UpdateHealthUI()
@@ -91,9 +109,7 @@ public class PlayerTest : MonoBehaviour
     {
         if (sprite1 != null) sprite1.color = effectColor;
         if (sprite2 != null) sprite2.color = effectColor;
-
         yield return new WaitForSeconds(1f);
-
         if (sprite1 != null) sprite1.color = Color.white;
         if (sprite2 != null) sprite2.color = Color.white;
     }
