@@ -46,6 +46,7 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isDialogueActive = false;
     private Dictionary<string, Sprite> speakerSpriteMap;
+    private Player player;
 
     [System.Serializable]
     public class SpeakerSpriteData
@@ -167,7 +168,10 @@ public class DialogueManager : MonoBehaviour
         SetPanelVisible(false);
 
         if (postDialogueCanvas1 != null)
+        {
             postDialogueCanvas1.SetActive(true);
+            player.canControl = true;
+        }
         if (postDialogueCanvas2 != null)
             postDialogueCanvas2.SetActive(true);
     }

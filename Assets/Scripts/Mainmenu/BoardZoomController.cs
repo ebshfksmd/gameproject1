@@ -31,6 +31,7 @@ public class BoardZoomController : MonoBehaviour
     [SerializeField] private AudioClip boardZoom1Clip;
     [SerializeField] private AudioClip boardZoom2Clip;
     [SerializeField] private AudioClip boardZoom3Clip;
+    [SerializeField] private AudioSource bgmSource;
 
     [Header("UI for Object3")]
     [SerializeField] private GameObject object3UI1;
@@ -47,7 +48,6 @@ public class BoardZoomController : MonoBehaviour
     private Coroutine animRoutine;
     private Coroutine scrollbarRoutine;
     private bool isClickedPlayButton = false;
-
     void Awake()
     {
         if (targetCamera == null)
@@ -141,7 +141,8 @@ public class BoardZoomController : MonoBehaviour
             if (objectToShow != null)
             {
                 objectToShow.SetActive(true);
-
+                if (bgmSource != null && bgmSource.isPlaying)
+                    bgmSource.Stop();
                 // 다음 프레임에서 대사 시작
                 if (dialogueManager != null)
                     StartCoroutine(DelayedStartDialogue());

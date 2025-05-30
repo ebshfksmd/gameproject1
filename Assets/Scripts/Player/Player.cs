@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public AudioClip isWalking;
     public AudioClip jump;
 
-    public bool canControl = true;
+    public bool canControl = false;
 
     private float fixedX;
 
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         fixedX = transform.position.x;
+        canControl = false;
     }
 
     void Update()
