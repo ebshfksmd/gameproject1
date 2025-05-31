@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     private bool isPlaying = false;        // 효과음 재생 중 여부
     private AudioClip lastRequestedClip;   // 큐에 있는 마지막 요청된 효과음
     private AudioClip currentBGM = null;   // 현재 재생 중인 BGM
+    private bool hasPlayedHospitalFrontBGM = false;
 
     private void Awake()
     {
@@ -65,7 +66,7 @@ public class SoundManager : MonoBehaviour
 
     void Update()
     {
-        // 조건: bgObjects[6]이 활성화되고 intro가 아직 재생되지 않았다면 실행
+        // 기존 intro 관련 처리
         if (bgObjects.Length > 6 && bgObjects[6] != null && bgObjects[6].activeSelf && !hasPlayedIntro)
         {
             hasPlayedIntro = true;
@@ -75,7 +76,19 @@ public class SoundManager : MonoBehaviour
         {
             CheckAndPlayBgSound();
         }
+
+        // Hospital_Front 활성화 감지 → bglist[7] 재생
+        if (!hasPlayedHospitalFrontBGM && bgObjects.Length > 7 && bgObjects[7] != null)
+        {
+            if (bgObjects[7].activeSelf && bglist.Length > 7 && bglist[7] != null)
+            {
+                BgSoundPlay(bglist[7]);
+                hasPlayedHospitalFrontBGM = true;
+                Debug.Log("[SoundManager] Hospital_Front BGM 재생됨: " + bglist[7].name);
+            }
+        }
     }
+
 
     private IEnumerator PlayIntroThenBGM_Parallel()
     {

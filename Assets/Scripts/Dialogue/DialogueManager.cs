@@ -41,12 +41,23 @@ public class DialogueManager : MonoBehaviour
     [Tooltip("Speed per character for typewriter effect")]
     public float typingSpeed = 0.05f;
 
+    [Header("Custom Activation")]
+    public GameObject objectToDisable;
+    public GameObject objectToEnable;
+
+    [Header("Fade Out and Scene Transition")]
+    public Image blackFadePanel;
+    public GameObject nextObjectToActivate;
+    public GameObject thisObjectToDeactivate;
+
     private DialogueEntry[] dialogues;
     private int currentLine = 0;
     private Coroutine typingCoroutine;
     private bool isDialogueActive = false;
     private Dictionary<string, Sprite> speakerSpriteMap;
     private Player player;
+    private bool isDialogueFinished = false;
+    public bool IsDialogueFinished => isDialogueFinished;
 
     [System.Serializable]
     public class SpeakerSpriteData
@@ -61,7 +72,8 @@ public class DialogueManager : MonoBehaviour
         {
             try
             {
-                DialogueData data = JsonUtility.FromJson<DialogueData>(dialogueJson.text);
+                string cleanedText = dialogueJson.text.Trim('\uFEFF');
+                DialogueData data = JsonUtility.FromJson<DialogueData>(cleanedText);
                 dialogues = (data != null && data.dialogues.Length > 0) ? data.dialogues : defaultDialogues;
             }
             catch
@@ -78,16 +90,26 @@ public class DialogueManager : MonoBehaviour
         speakerSpriteMap = new Dictionary<string, Sprite>();
         foreach (var entry in speakerSprites)
         {
-            if (!speakerSpriteMap.ContainsKey(entry.speakerName) && entry.speakerSprite != null)
-                speakerSpriteMap.Add(entry.speakerName, entry.speakerSprite);
+            string key = entry.speakerName.Replace(" ", "");
+            if (!speakerSpriteMap.ContainsKey(key) && entry.speakerSprite != null)
+                speakerSpriteMap.Add(key, entry.speakerSprite);
         }
 
         SetPanelVisible(false);
+        if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(false);
+        if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(false);
 
-        if (postDialogueCanvas1 != null)
-            postDialogueCanvas1.SetActive(false);
-        if (postDialogueCanvas2 != null)
-            postDialogueCanvas2.SetActive(false);
+        nameText.text = "";
+        dialogueText.text = "";
+        dialogueText.ForceMeshUpdate();
+
+        if (blackFadePanel != null)
+        {
+            Color c = blackFadePanel.color;
+            c.a = 0f;
+            blackFadePanel.color = c;
+            blackFadePanel.gameObject.SetActive(true);
+        }
     }
 
     void Update()
@@ -115,14 +137,14 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue()
     {
-        if (dialogues == null || dialogues.Length == 0)
-        {
-            Debug.LogWarning("DialogueManager: No dialogue entries available.");
-            return;
-        }
-
+        isDialogueFinished = false;
         isDialogueActive = true;
         currentLine = 0;
+
+        nameText.text = "";
+        dialogueText.text = "";
+        dialogueText.ForceMeshUpdate();
+
         SetPanelVisible(true);
         ShowLine();
     }
@@ -136,10 +158,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueEntry line = dialogues[currentLine];
-        dialogueText.text = string.Empty;
-        nameText.text = line.name;
+        string cleanName = line.name.Trim().Replace(" ", "");
+        nameText.text = cleanName;
 
-        if (speakerSpriteMap.TryGetValue(line.name, out Sprite sprite))
+        dialogueText.text = "";
+        dialogueText.ForceMeshUpdate();
+
+        if (speakerSpriteMap.TryGetValue(cleanName, out Sprite sprite))
         {
             portraitImage.sprite = sprite;
             portraitImage.enabled = true;
@@ -150,6 +175,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         typingCoroutine = StartCoroutine(TypeText(line.line));
+
+        // 특정 대사 후 오브젝트 토글
+        if (cleanName == "이현" && line.line.Trim() == "여기..")
+        {
+            if (objectToDisable != null) objectToDisable.SetActive(false);
+            if (objectToEnable != null) objectToEnable.SetActive(true);
+        }
     }
 
     private IEnumerator TypeText(string line)
@@ -164,16 +196,64 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+ 
         isDialogueActive = false;
         SetPanelVisible(false);
 
         if (postDialogueCanvas1 != null)
         {
             postDialogueCanvas1.SetActive(true);
-            player.canControl = true;
+            if (player != null)
+                player.canControl = true;
         }
+
         if (postDialogueCanvas2 != null)
             postDialogueCanvas2.SetActive(true);
+
+        nameText.text = "";
+        dialogueText.text = "";
+        dialogueText.ForceMeshUpdate();
+
+        isDialogueFinished = true;
+
+        if (dialogueJson.name != "1Floor")
+        {
+            StartCoroutine(FadeAndSwitchObjects());
+        }
+        //1Floor.json 대사 끝났을 때 특정 오브젝트 활성화
+        if (dialogueJson != null && dialogueJson.name == "1Floor")
+        {
+            if (objectToEnable != null)
+                objectToEnable.SetActive(true);
+        }
+    }
+
+
+    private IEnumerator FadeAndSwitchObjects()
+    {
+        if (blackFadePanel != null)
+        {
+            float duration = 2f;
+            float time = 0f;
+            Color c = blackFadePanel.color;
+
+            while (time < duration)
+            {
+                time += Time.deltaTime;
+                c.a = Mathf.Clamp01(time / duration);
+                blackFadePanel.color = c;
+                yield return null;
+            }
+
+            c.a = 1f;
+            blackFadePanel.color = c;
+        }
+
+        if (nextObjectToActivate != null)
+            nextObjectToActivate.SetActive(true);
+
+        if (thisObjectToDeactivate != null)
+            thisObjectToDeactivate.SetActive(false);
     }
 
     private void SetPanelVisible(bool visible)

@@ -9,7 +9,7 @@ public class CameraSizeFadeInOnly : MonoBehaviour
     public float fadeDuration = 2f;
     public float targetCameraSize = 5f;
 
-    public Vector3 fixedCameraPosition = new Vector3(-1, -11f, -1f);
+    public Vector3 fixedCameraPosition = new Vector3(-10.3f, -11f, -1f);
     public float xOffset = 0f;
     public float yOffset = 0f;
     public bool fixCameraPosition = true;

@@ -8,7 +8,7 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(5f, 0f, -10f);
 
     [Header("Idle Camera Position")]
-    [SerializeField] private Vector3 fixedPosition = new Vector3(-46.93389f, -0.078476f, -9.719418f); // 고정 위치
+    [SerializeField] private Vector3 fixedPosition = new Vector3(-46.93389f, -6f, -9.719418f); // 고정 위치
 
     private bool isFollowing = true;
     private Transform target;
