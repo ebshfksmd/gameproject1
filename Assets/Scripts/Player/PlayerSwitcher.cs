@@ -23,7 +23,7 @@ public class PlayerSwitcher : MonoBehaviour
     public Sprite[] allSkillSprites = new Sprite[16];
     public TextMeshProUGUI playerNameText;
 
-    private readonly string[] playerNames = { "이 현", "이도은", "장원철", "장예린" };
+    private readonly string[] playerNames = { "이 현 | 딜러", "이도은 | 누커", "장원철 | 탱커", "장예린 | 힐러" };
 
     [Header("Health UI 연결")]
     public Slider[] hpSliders = new Slider[4];

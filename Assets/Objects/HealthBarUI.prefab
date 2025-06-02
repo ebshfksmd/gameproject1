@@ -30,9 +30,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1464929773038499239}
   - {fileID: 8800977699624859374}
   - {fileID: 1251320120726452695}
-  - {fileID: 1464929773038499239}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4313026610041932358
@@ -50,6 +50,8 @@ MonoBehaviour:
   profileImage: {fileID: 3654488314640916994}
   healthSlider: {fileID: 1401856411703566092}
   healthText: {fileID: 6183096873999956169}
+  nameText: {fileID: 0}
+  hpSource: {fileID: 0}
 --- !u!1 &1305130157900490847
 GameObject:
   m_ObjectHideFlags: 0

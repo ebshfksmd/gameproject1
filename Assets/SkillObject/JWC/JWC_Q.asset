@@ -19,7 +19,7 @@ MonoBehaviour:
   castTime: 1
   cooldown: 3
   dashDuration: 0.2
-  dashDamage: 20
+  dashDamage: 2000
   power: 3
   hitRadius: 1
   enemyLayer:
