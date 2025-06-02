@@ -131,7 +131,7 @@ public class M_mouse : Animal
         animator.SetBool("isSkill", false);
     }
 
-    public override void Awake()
+    public virtual void Awake()
     {
         base.Awake();
 

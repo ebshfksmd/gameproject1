@@ -57,7 +57,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!canControl || PlayerSkillController.canAttack == false) return;
+        if (!canControl || PlayerSkillController.canAttack == false)
+        {
+            StopSoundIfPlaying(isWalking);
+            StopSoundIfPlaying(isRun);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRun", false);
+            return;
+        }
 
         float input = Input.GetAxis("Horizontal");
         float moveAmount = input * moveSpeed * speedMultiplier * Time.deltaTime;
@@ -87,7 +94,7 @@ public class Player : MonoBehaviour
             StopSoundIfPlaying(isRun);
         }
 
-        if (canControl && Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             anim.Play("jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
@@ -98,6 +105,7 @@ public class Player : MonoBehaviour
                 sfxAudioSource.PlayOneShot(jump);
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D col)
     {

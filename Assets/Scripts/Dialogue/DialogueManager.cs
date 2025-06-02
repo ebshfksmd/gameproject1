@@ -110,6 +110,8 @@ public class DialogueManager : MonoBehaviour
             blackFadePanel.color = c;
             blackFadePanel.gameObject.SetActive(true);
         }
+
+        player = FindObjectOfType<Player>();
     }
 
     void Update()
@@ -140,6 +142,9 @@ public class DialogueManager : MonoBehaviour
         isDialogueFinished = false;
         isDialogueActive = true;
         currentLine = 0;
+
+        if (player != null)
+            player.canControl = false;
 
         nameText.text = "";
         dialogueText.text = "";
@@ -176,8 +181,7 @@ public class DialogueManager : MonoBehaviour
 
         typingCoroutine = StartCoroutine(TypeText(line.line));
 
-        // 특정 대사 후 오브젝트 토글
-        if (cleanName == "이현" && line.line.Trim() == "여기..")
+        if (cleanName == "이현" && line.line.Trim() == "어..라?")
         {
             if (objectToDisable != null) objectToDisable.SetActive(false);
             if (objectToEnable != null) objectToEnable.SetActive(true);
@@ -196,19 +200,15 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
- 
         isDialogueActive = false;
         SetPanelVisible(false);
 
-        if (postDialogueCanvas1 != null)
-        {
-            postDialogueCanvas1.SetActive(true);
-            if (player != null)
-                player.canControl = true;
-        }
+        if (objectToDisable != null) objectToDisable.SetActive(false);
+        if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(true);
+        if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(true);
 
-        if (postDialogueCanvas2 != null)
-            postDialogueCanvas2.SetActive(true);
+        if (player != null)
+            player.canControl = true;
 
         nameText.text = "";
         dialogueText.text = "";
@@ -216,18 +216,17 @@ public class DialogueManager : MonoBehaviour
 
         isDialogueFinished = true;
 
-        if (dialogueJson.name != "1Floor")
-        {
-            StartCoroutine(FadeAndSwitchObjects());
-        }
-        //1Floor.json 대사 끝났을 때 특정 오브젝트 활성화
         if (dialogueJson != null && dialogueJson.name == "1Floor")
         {
             if (objectToEnable != null)
                 objectToEnable.SetActive(true);
         }
+        else
+        {
+            // Coroutine 호출 전에 GameObject가 비활성화되지 않도록 반드시 순서 조절
+            StartCoroutine(FadeAndSwitchObjects());
+        }
     }
-
 
     private IEnumerator FadeAndSwitchObjects()
     {

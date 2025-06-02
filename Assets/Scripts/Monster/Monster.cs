@@ -6,11 +6,12 @@ using UnityEngine.Pool;
 public class Monster : MonoBehaviour
 {
     [HideInInspector] public bool IsPooled { get; set; } = false;
+    public static bool GlobalPauseMovement = false;
 
     public GameObject GameObject;
 
-    [SerializeField] private Slider hpBar;             // HP 바 프리팹
-    [SerializeField] private Canvas uiCanvas;          // HP 바를 붙일 UI 캔버스 (직접 지정)
+    [SerializeField] private Slider hpBar;
+    [SerializeField] private Canvas uiCanvas;
 
     public int hp;
     public int atk;
@@ -64,7 +65,7 @@ public class Monster : MonoBehaviour
 
         if (uiCanvas == null)
         {
-            Debug.LogError("UI Canvas가 설정되지 않았습니다. Inspector에서 Canvas를 지정하세요.");
+            Debug.LogError("UI Canvas가 설정되지 않았습니다.");
         }
         else
         {
@@ -79,13 +80,7 @@ public class Monster : MonoBehaviour
         if (targetObj != null)
         {
             target = targetObj.transform;
-            Debug.Log($"[Monster] 타겟 설정 완료: {target.name}");
         }
-        else
-        {
-            Debug.LogWarning("[Monster] Player 태그를 가진 오브젝트를 찾을 수 없습니다.");
-        }
-
 
         monsterRenderer = GetComponentInChildren<Renderer>();
         if (monsterRenderer != null)
@@ -119,16 +114,12 @@ public class Monster : MonoBehaviour
     {
         animator.SetBool("isHit", true);
         if (monsterRenderer != null)
-        {
             monsterRenderer.material.color = Color.red;
-        }
 
         yield return new WaitForSeconds(1f);
 
         if (monsterRenderer != null)
-        {
             monsterRenderer.material.color = originalColor;
-        }
 
         animator.SetBool("isHit", false);
     }

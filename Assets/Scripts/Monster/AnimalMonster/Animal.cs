@@ -22,6 +22,20 @@ public class Animal : Monster
     public bool inStopDistance = false;
     public int maxHp = 100;
 
+    public override void Awake()
+    {
+        base.Awake();
+
+        if (target == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                target = player.transform;
+            }
+        }
+    }
+
     protected virtual void Start()
     {
         startPos = transform.position;
@@ -35,7 +49,7 @@ public class Animal : Monster
 
     protected virtual void Update()
     {
-        if (isDead) return;
+        if (isDead || target == null) return;
 
         UpdateHpBar();
 
@@ -117,6 +131,7 @@ public class Animal : Monster
 
         yield return new WaitForSeconds(0.3f);
         Destroy(this.gameObject);
+        MonsterDeathWatcher.NotifyMonsterKilled();
         animator.SetBool("isDie", false);
     }
 
@@ -124,13 +139,16 @@ public class Animal : Monster
     {
         while (true)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            if (distanceToTarget > targetDistance)
+            if (target != null)
             {
-                moveDirection *= -1;
+                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                if (distanceToTarget > targetDistance)
+                {
+                    moveDirection *= -1;
+                }
             }
 
-            float waitTime = Mathf.Min(moveDistance / speed, 5f);
+            float waitTime = Mathf.Min(moveDistance / Mathf.Max(speed, 0.01f), 5f);
             yield return new WaitForSeconds(Random.Range(0f, waitTime));
         }
     }
@@ -142,13 +160,16 @@ public class Animal : Monster
 
         yield return new WaitForSeconds(animalBaseAtkCoolTime);
 
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        Debug.Log($"[Animal] 기본 공격 시도 거리: {distanceToTarget}, 기준: {baseAtkDistance}");
-
-        if (distanceToTarget < baseAtkDistance)
+        if (target != null)
         {
-            Debug.Log("[Animal] BaseAttackAnimation 호출");
-            StartCoroutine(BaseAttackAnimation());
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            Debug.Log($"[Animal] 기본 공격 시도 거리: {distanceToTarget}, 기준: {baseAtkDistance}");
+
+            if (distanceToTarget < baseAtkDistance)
+            {
+                Debug.Log("[Animal] BaseAttackAnimation 호출");
+                StartCoroutine(BaseAttackAnimation());
+            }
         }
 
         speed = tempSpeed;
@@ -160,25 +181,26 @@ public class Animal : Monster
         Debug.Log("[Animal] BaseAttackAnimation 진입");
 
         animator.SetBool("isAttack", true);
-        //Debug.Log("[Animal] isAttack true");
 
         yield return new WaitForSeconds(baseAtkAnimationTime);
 
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if (distanceToTarget < baseAtkDistance)
+        if (target != null)
         {
-            if (PlayerTest.instance != null)
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            if (distanceToTarget < baseAtkDistance)
             {
-                Debug.Log($"[기본공격] {gameObject.name}이(가) {baseAttackPower} 피해를 입힘");
-                PlayerTest.instance.GetAttacked(atk, baseAttackPower);
-            }
-            else
-            {
-                Debug.LogWarning("[Animal] PlayerTest.instance is null");
+                if (PlayerTest.instance != null)
+                {
+                    Debug.Log($"[기본공격] {gameObject.name}이(가) {baseAttackPower} 피해를 입힘");
+                    PlayerTest.instance.GetAttacked(atk, baseAttackPower);
+                }
+                else
+                {
+                    Debug.LogWarning("[Animal] PlayerTest.instance is null");
+                }
             }
         }
 
         animator.SetBool("isAttack", false);
-        //Debug.Log("[Animal] isAttack false");
     }
 }

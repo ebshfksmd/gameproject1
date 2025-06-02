@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CheckForMonster : MonoBehaviour
@@ -12,11 +13,12 @@ public class CheckForMonster : MonoBehaviour
     public GameObject object1; // 충돌 트리거용 오브젝트 (사물)
     public GameObject object2; // 비활성화할 오브젝트
     public GameObject object3; // 활성화할 오브젝트
+    [SerializeField] private GameObject postDialogueCanvas1;
+    [SerializeField] private GameObject postDialogueCanvas2;
 
     private bool isPlayerColliding = false;
 
     private DialogueManager dialogueManager;
-
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -75,8 +77,10 @@ public class CheckForMonster : MonoBehaviour
             if (dialogueManager != null &&
                 dialogueManager.IsDialogueFinished &&
                 dialogueManager.dialogueJson != null &&
-                dialogueManager.dialogueJson.name == "1Floor_end")
+                dialogueManager.dialogueJson.name == "Go_2Floor")
             {
+                if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(true);
+                if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(true);
                 if (object2 != null) object2.SetActive(false);
                 if (object3 != null) object3.SetActive(true);
             }
