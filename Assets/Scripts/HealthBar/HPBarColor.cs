@@ -10,21 +10,40 @@ public class HPBarColor : MonoBehaviour
     void Update()
     {
         float hpRatio = Mathf.Clamp01(currentHP / maxHP);
+        hpBarImage.color = GetColorByHPRatio(hpRatio);
+    }
 
-        Color color;
-        if (hpRatio > 0.5f)
+    private Color GetColorByHPRatio(float ratio)
+    {
+        Color cyan = new Color(0f, 1f, 1f);        // 100%
+        Color lime = new Color(0.5f, 1f, 0.5f);    // ~75%
+        Color yellow = new Color(1f, 1f, 0f);      // ~50%
+        Color orange = new Color(1f, 0.5f, 0f);    // ~25%
+        Color red = new Color(1f, 0f, 0f);         // 0%
+
+        if (ratio > 0.75f)
         {
-            // 청록색 → 노란색
-            float t = (hpRatio - 0.5f) * 2f; // 1~0
-            color = Color.Lerp(Color.yellow, Color.cyan, t);
+            // 75~100%: lime → cyan
+            float t = (ratio - 0.75f) / 0.25f;
+            return Color.Lerp(lime, cyan, t);
+        }
+        else if (ratio > 0.5f)
+        {
+            // 50~75%: yellow → lime
+            float t = (ratio - 0.5f) / 0.25f;
+            return Color.Lerp(yellow, lime, t);
+        }
+        else if (ratio > 0.25f)
+        {
+            // 25~50%: orange → yellow
+            float t = (ratio - 0.25f) / 0.25f;
+            return Color.Lerp(orange, yellow, t);
         }
         else
         {
-            // 노란색 → 빨간색
-            float t = hpRatio * 2f; // 1~0
-            color = Color.Lerp(Color.red, Color.yellow, t);
+            // 0~25%: red → orange
+            float t = ratio / 0.25f;
+            return Color.Lerp(red, orange, t);
         }
-
-        hpBarImage.color = color;
     }
 }

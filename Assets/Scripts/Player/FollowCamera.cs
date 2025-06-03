@@ -18,17 +18,41 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] private float rightLimitX = 60.1f;
 
     [Header("Fade Targets")]
-    [SerializeField] private List<GameObject> fadeObjects; // SpriteRenderer, MeshRenderer 등
-    [SerializeField] private List<Graphic> fadeTexts; // UI 글씨 (Text, Image, TMP 등)
+    [SerializeField] private List<GameObject> fadeObjects;
+    [SerializeField] private List<Graphic> fadeTexts;
     [SerializeField] private float fadeAlpha = 0.3f;
     [SerializeField] private float normalAlpha = 1.0f;
+
+    [Header("Auto Unlock")]
+    [SerializeField] private bool enableAutoUnlock = true;
+    [SerializeField] private GameObject objectA;
+    [SerializeField] private GameObject objectB;
 
     private bool isFollowing = true;
     private Transform target;
     private bool isFaded = false;
 
+    void Start()
+    {
+        // 시작할 때 모두 투명도 1로 설정
+        SetObjectsAlpha(normalAlpha);
+        SetTextAlpha(normalAlpha);
+    }
+
     void LateUpdate()
     {
+        if (enableAutoUnlock && !isFollowing)
+        {
+            bool aInactive = objectA == null || !objectA.activeInHierarchy;
+            bool bActive = objectB != null && objectB.activeInHierarchy;
+
+            if (aInactive && bActive)
+            {
+                Debug.Log("[조건 만족] SetFollow(true) 호출");
+                SetFollow(true);
+            }
+        }
+
         if (isFollowing)
             UpdateCamera();
         else
@@ -63,12 +87,14 @@ public class FollowCamera : MonoBehaviour
                 SetObjectsAlpha(fadeAlpha);
                 SetTextAlpha(fadeAlpha);
                 isFaded = true;
+                Debug.Log("[UpdateCamera] 벽 고정 → 투명도 적용");
             }
             else if (!isAtLimit && isFaded)
             {
                 SetObjectsAlpha(normalAlpha);
                 SetTextAlpha(normalAlpha);
                 isFaded = false;
+                Debug.Log("[UpdateCamera] 벽 고정 해제 → 투명도 복원");
             }
 
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
@@ -82,7 +108,6 @@ public class FollowCamera : MonoBehaviour
         {
             if (obj == null) continue;
 
-            // UI Image (예: ProfileImage)
             var uiImage = obj.GetComponent<UnityEngine.UI.Image>();
             if (uiImage != null)
             {
@@ -92,7 +117,6 @@ public class FollowCamera : MonoBehaviour
                 continue;
             }
 
-            // 일반 Renderer (SpriteRenderer, MeshRenderer 등)
             var renderer = obj.GetComponent<Renderer>();
             if (renderer != null && renderer.material.HasProperty("_Color"))
             {
@@ -102,7 +126,6 @@ public class FollowCamera : MonoBehaviour
             }
         }
     }
-
 
     private void SetTextAlpha(float alpha)
     {
@@ -125,8 +148,25 @@ public class FollowCamera : MonoBehaviour
     {
         isFollowing = follow;
         Debug.Log("카메라 모드: " + (follow ? "플레이어 추적" : "고정 위치"));
+
         if (follow)
+        {
             FindActivePlayer();
+            Debug.Log("[SetFollow] 추적 모드 진입");
+
+            if (isFaded)
+            {
+                Debug.Log("[SetFollow] 벽 고정 상태 초기화 시작");
+                SetObjectsAlpha(normalAlpha);
+                SetTextAlpha(normalAlpha);
+                isFaded = false;
+                Debug.Log("[SetFollow] 투명도 복구 완료");
+            }
+            else
+            {
+                Debug.Log("[SetFollow] isFaded == false, 초기화 생략");
+            }
+        }
     }
 
     private void FindActivePlayer()

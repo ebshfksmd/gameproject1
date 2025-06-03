@@ -25,8 +25,6 @@ public class Player : MonoBehaviour
 
     public bool canControl = false;
 
-    private float fixedX;
-
     public bool IsGrounded => isGrounded;
 
     void Awake()
@@ -49,12 +47,6 @@ public class Player : MonoBehaviour
             Debug.LogError("Rigidbody2D component not found on player object.");
     }
 
-    void Start()
-    {
-        fixedX = transform.position.x;
-        canControl = false;
-    }
-
     void Update()
     {
         if (!canControl || PlayerSkillController.canAttack == false)
@@ -72,7 +64,6 @@ public class Player : MonoBehaviour
         if (moveAmount != 0f)
         {
             transform.Translate(new Vector3(moveAmount, 0f, 0f));
-            fixedX = transform.position.x;
 
             if (input > 0)
                 transform.localScale = new Vector3(Scale, Scale, Scale);
@@ -106,25 +97,11 @@ public class Player : MonoBehaviour
         }
     }
 
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Hitbox"))
-        {
-            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-        }
-        else
-        {
-            anim.SetBool("isRun", false);
-            anim.SetBool("isWalking", false);
         }
     }
 

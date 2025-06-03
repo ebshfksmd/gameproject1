@@ -38,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject postDialogueCanvas1;
     [SerializeField] private GameObject postDialogueCanvas2;
 
-    [Tooltip("Speed per character for typewriter effect")]
     public float typingSpeed = 0.05f;
 
     [Header("Custom Activation")]
@@ -146,6 +145,8 @@ public class DialogueManager : MonoBehaviour
         if (player != null)
             player.canControl = false;
 
+        PlayerSkillController.canAttack = false;
+
         nameText.text = "";
         dialogueText.text = "";
         dialogueText.ForceMeshUpdate();
@@ -200,7 +201,10 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        Debug.Log("EndDialogue: 공격 해제됨");
         isDialogueActive = false;
+        PlayerSkillController.canAttack = true;
+
         SetPanelVisible(false);
 
         if (objectToDisable != null) objectToDisable.SetActive(false);
@@ -223,7 +227,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Coroutine 호출 전에 GameObject가 비활성화되지 않도록 반드시 순서 조절
             StartCoroutine(FadeAndSwitchObjects());
         }
     }
