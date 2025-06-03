@@ -21,6 +21,7 @@ public class SingleSlowDefenseSkillSO : SkillSO
     [Header("Visuals (Optional)")]
     [Tooltip("이펙트 프리팹 (생략 가능)")]
     public GameObject effectPrefab;
+    public bool isJER=false;
 
     public override void Cast(Transform caster, KeyCode keyUsed)
     {
@@ -49,10 +50,26 @@ public class SingleSlowDefenseSkillSO : SkillSO
         if (nearest != null)
         {
             var deb = nearest.GetComponent<Monster>();
+            Debug.Log("몬스터");
             if (deb != null)
             {
                 deb.ApplyMoveSpeedDebuff(moveSpeedReducePercent, duration);
-                deb.ApplyDefenseDebuff(defenseReduceAmount, duration);
+                if(isJER)
+                {
+                    deb.ApplyDefenseDebuff(defenseReduceAmount, duration);
+                    Debug.Log("JER");
+                }
+                else
+                {
+                    Debug.Log("원철이니");
+                    Player[] allPlayers = GameObject.FindObjectsByType<Player>(FindObjectsSortMode.None);
+
+                    foreach (var p in allPlayers)
+                    {
+                        //ApplySpeedBuff(이속을 얼만큼 증가시킬지, 지속시간);
+                        p.ApplySpeedBuff(1.4f, 10f);
+                    }
+                }
             }
         }
     }

@@ -14,7 +14,8 @@ public class TeamSpeedBuffSkillSO : SkillSO
             Instantiate(effectPrefab, caster.position, Quaternion.identity);
 
         // 씬에 존재하는 모든 Player 컴포넌트를 찾아서 버프
-        Player[] allPlayers = GameObject.FindObjectsOfType<Player>();
+        Player[] allPlayers = GameObject.FindObjectsByType<Player>(FindObjectsSortMode.None);
+
         foreach (var p in allPlayers)
         {
             p.ApplySpeedBuff(multiplier, duration);

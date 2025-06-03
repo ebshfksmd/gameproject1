@@ -8,6 +8,7 @@ public class SingleTargetSkillSO : SkillSO
     public int power = 3;// 입힐 데미지
     public LayerMask enemyLayer;             // Enemy 레이어 마스크
     public GameObject effectPrefab;          // (선택) 타격 이펙트 프리팹
+    public bool isJER=false;
 
     public override void Cast(Transform caster, KeyCode keyUsed)
     {
@@ -52,7 +53,14 @@ public class SingleTargetSkillSO : SkillSO
             // EnemyHealth가 있으면 데미지
             var enemy = nearest.GetComponent<Monster>();
             if (enemy != null)
+            {
                 enemy.GetAttacked(damage,power);
+                if(isJER)
+                {
+                    enemy.ApplyStun();
+                }
+
+            }
         }
     }
 }

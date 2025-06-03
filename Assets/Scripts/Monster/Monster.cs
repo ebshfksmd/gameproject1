@@ -6,12 +6,11 @@ using UnityEngine.Pool;
 public class Monster : MonoBehaviour
 {
     [HideInInspector] public bool IsPooled { get; set; } = false;
-    public static bool GlobalPauseMovement = false;
 
     public GameObject GameObject;
 
-    [SerializeField] private Slider hpBar;
-    [SerializeField] private Canvas uiCanvas;
+    [SerializeField] private Slider hpBar;             // HP 바 프리팹
+    [SerializeField] private Canvas uiCanvas;          // HP 바를 붙일 UI 캔버스 (직접 지정)
 
     public int hp;
     public int atk;
@@ -21,6 +20,10 @@ public class Monster : MonoBehaviour
     protected Animator animator;
     public float baseAtkAnimationTime;
     public float skillAtkAnimationTime;
+    [SerializeField] protected float baseAtkCoolTime;
+    [SerializeField] protected float skillCoolTime;
+    //기절했는지 아닌지
+    protected bool isStun=false;
 
     public string PoolKey { get; set; }
 
@@ -57,6 +60,8 @@ public class Monster : MonoBehaviour
     private Coroutine moveDebuffRoutine;
     private Coroutine defDebuffRoutine;
 
+
+
     public int CurrentHealth => hp;
 
     public virtual void Awake()
@@ -65,7 +70,7 @@ public class Monster : MonoBehaviour
 
         if (uiCanvas == null)
         {
-            Debug.LogError("UI Canvas가 설정되지 않았습니다.");
+            Debug.LogError("UI Canvas가 설정되지 않았습니다. Inspector에서 Canvas를 지정하세요.");
         }
         else
         {
@@ -80,7 +85,13 @@ public class Monster : MonoBehaviour
         if (targetObj != null)
         {
             target = targetObj.transform;
+            Debug.Log($"[Monster] 타겟 설정 완료: {target.name}");
         }
+        else
+        {
+            Debug.LogWarning("[Monster] Player 태그를 가진 오브젝트를 찾을 수 없습니다.");
+        }
+
 
         monsterRenderer = GetComponentInChildren<Renderer>();
         if (monsterRenderer != null)
@@ -114,12 +125,16 @@ public class Monster : MonoBehaviour
     {
         animator.SetBool("isHit", true);
         if (monsterRenderer != null)
+        {
             monsterRenderer.material.color = Color.red;
+        }
 
         yield return new WaitForSeconds(1f);
 
         if (monsterRenderer != null)
+        {
             monsterRenderer.material.color = originalColor;
+        }
 
         animator.SetBool("isHit", false);
     }
@@ -172,5 +187,20 @@ public class Monster : MonoBehaviour
         yield return new WaitForSeconds(duration);
         def = orig;
         defDebuffRoutine = null;
+    }
+
+
+    public void ApplyStun()
+    {
+        StartCoroutine(Stun());
+    }
+
+
+    private IEnumerator Stun()
+    {
+        isStun = true;
+        //기절 시간조절
+        yield return new WaitForSeconds(2f);
+        isStun = false;
     }
 }

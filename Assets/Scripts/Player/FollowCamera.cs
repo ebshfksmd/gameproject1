@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
 
 public class FollowCamera : MonoBehaviour
 {
@@ -8,15 +11,21 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(5f, 0f, -10f);
 
     [Header("Idle Camera Position")]
-    [SerializeField] private Vector3 fixedPosition = new Vector3(-46.93389f, -6f, -9.719418f); // 고정 위치
+    [SerializeField] private Vector3 fixedPosition = new Vector3(0, 0, -10f);
+
+    [Header("Wall Limits")]
+    [SerializeField] private float leftLimitX = -60f;
+    [SerializeField] private float rightLimitX = 60.1f;
+
+    [Header("Fade Targets")]
+    [SerializeField] private List<GameObject> fadeObjects; // SpriteRenderer, MeshRenderer 등
+    [SerializeField] private List<Graphic> fadeTexts; // UI 글씨 (Text, Image, TMP 등)
+    [SerializeField] private float fadeAlpha = 0.3f;
+    [SerializeField] private float normalAlpha = 1.0f;
 
     private bool isFollowing = true;
     private Transform target;
-
-    void Start()
-    {
-        Camera.main.orthographicSize = 5f;
-    }
+    private bool isFaded = false;
 
     void LateUpdate()
     {
@@ -41,7 +50,69 @@ public class FollowCamera : MonoBehaviour
                 offset.z
             );
 
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.fixedDeltaTime);
+            float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+            float minX = leftLimitX + halfWidth;
+            float maxX = rightLimitX - halfWidth;
+
+            desiredPosition.x = Mathf.Clamp(desiredPosition.x, minX, maxX);
+
+            bool isAtLimit = desiredPosition.x <= minX || desiredPosition.x >= maxX;
+
+            if (isAtLimit && !isFaded)
+            {
+                SetObjectsAlpha(fadeAlpha);
+                SetTextAlpha(fadeAlpha);
+                isFaded = true;
+            }
+            else if (!isAtLimit && isFaded)
+            {
+                SetObjectsAlpha(normalAlpha);
+                SetTextAlpha(normalAlpha);
+                isFaded = false;
+            }
+
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.position = smoothedPosition;
+        }
+    }
+
+    private void SetObjectsAlpha(float alpha)
+    {
+        foreach (GameObject obj in fadeObjects)
+        {
+            if (obj == null) continue;
+
+            // UI Image (예: ProfileImage)
+            var uiImage = obj.GetComponent<UnityEngine.UI.Image>();
+            if (uiImage != null)
+            {
+                Color c = uiImage.color;
+                c.a = alpha;
+                uiImage.color = c;
+                continue;
+            }
+
+            // 일반 Renderer (SpriteRenderer, MeshRenderer 등)
+            var renderer = obj.GetComponent<Renderer>();
+            if (renderer != null && renderer.material.HasProperty("_Color"))
+            {
+                Color color = renderer.material.color;
+                color.a = alpha;
+                renderer.material.color = color;
+            }
+        }
+    }
+
+
+    private void SetTextAlpha(float alpha)
+    {
+        foreach (Graphic graphic in fadeTexts)
+        {
+            if (graphic == null) continue;
+
+            Color c = graphic.color;
+            c.a = alpha;
+            graphic.color = c;
         }
     }
 
@@ -58,7 +129,7 @@ public class FollowCamera : MonoBehaviour
             FindActivePlayer();
     }
 
-    void FindActivePlayer()
+    private void FindActivePlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
         foreach (GameObject p in players)
@@ -66,8 +137,12 @@ public class FollowCamera : MonoBehaviour
             if (p.activeInHierarchy)
             {
                 target = p.transform;
+                Debug.Log($"[플레이어 찾음] {p.name}");
                 break;
             }
         }
+
+        if (target == null)
+            Debug.LogWarning("[경고] 활성 플레이어를 찾지 못했습니다.");
     }
 }
