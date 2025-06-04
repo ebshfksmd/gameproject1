@@ -110,7 +110,7 @@ public class PlayerTest : MonoBehaviour
         if (sprite1 != null) sprite1.color = effectColor;
         if (sprite2 != null) sprite2.color = effectColor;
         yield return new WaitForSeconds(1f);
-        if (sprite1 != null) sprite1.color = Color.white;
-        if (sprite2 != null) sprite2.color = Color.white;
+        if (sprite1 != null) sprite1.color = new Color32(196, 250, 255, 255);
+        if (sprite2 != null) sprite2.color = new Color32(196, 250, 255, 255);
     }
 }

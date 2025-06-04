@@ -91,7 +91,7 @@ public class HealthBarUI : MonoBehaviour
             else
                 segmentColor = Color.Lerp(red, orange, ratio / 0.25f);
 
-            hpBarSegments[i].color = ratio >= threshold ? segmentColor : Color.gray;
+            hpBarSegments[i].color = ratio >= threshold ? segmentColor : Color.red;
         }
     }
 

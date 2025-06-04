@@ -78,7 +78,8 @@ public class CheckForMonster : MonoBehaviour
                 dialogueManager.IsDialogueFinished &&
                 dialogueManager.dialogueJson != null &&
                 (dialogueManager.dialogueJson.name == "Go_2Floor" ||
-                dialogueManager.dialogueJson.name == "Go_3Floor"))
+                dialogueManager.dialogueJson.name == "Go_3Floor" ||
+                dialogueManager.dialogueJson.name == "Go_5Floor"))
             {
                 if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(true);
                 if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(true);
