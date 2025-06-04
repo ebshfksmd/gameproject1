@@ -29,10 +29,11 @@ public class PlayerSwitcher : MonoBehaviour
     public Slider[] hpSliders = new Slider[4];
     public TextMeshProUGUI[] hpTexts = new TextMeshProUGUI[4];
     public HealthBarUI[] otherPlayerUIs;
+    [SerializeField] private HealthBarUI currentPlayerUI;
 
     public static PlayerSwitcher instance;
     private Coroutine walkInRoutine = null;
-    private List<int> deathOrder = new List<int>(); // 사망 순서 저장
+    private List<int> deathOrder = new List<int>();
 
     void Awake()
     {
@@ -49,6 +50,7 @@ public class PlayerSwitcher : MonoBehaviour
         currentIndex = FindNextAlive(-1);
         ActivatePlayer(currentIndex);
         UpdateMainUI(currentIndex);
+        UpdateMainHealthUI();
         UpdateAllPlayerHealthUI();
         UpdateOtherPlayerUIs();
         SetPlayerTestInstance(currentIndex);
@@ -99,7 +101,7 @@ public class PlayerSwitcher : MonoBehaviour
     private void HandleDeath(int deadIndex)
     {
         if (!deathOrder.Contains(deadIndex))
-            deathOrder.Add(deadIndex); // 죽은 순서 기록
+            deathOrder.Add(deadIndex);
 
         if (currentIndex == deadIndex)
         {
@@ -117,10 +119,9 @@ public class PlayerSwitcher : MonoBehaviour
         UpdateOtherPlayerUIs();
     }
 
-
     private int FindNextAlive(int startIndex)
     {
-        int total = 4;
+        int total = players.Length;
         for (int offset = 1; offset < total; offset++)
         {
             int idx = (startIndex + offset) % total;
@@ -184,6 +185,7 @@ public class PlayerSwitcher : MonoBehaviour
         SetPlayerTestInstance(currentIndex);
 
         UpdateMainUI(currentIndex);
+        UpdateMainHealthUI();
         UpdateAllPlayerHealthUI();
         UpdateOtherPlayerUIs();
     }
@@ -235,6 +237,13 @@ public class PlayerSwitcher : MonoBehaviour
             playerNameText.text = playerNames[index];
     }
 
+    private void UpdateMainHealthUI()
+    {
+        if (tests[currentIndex] == null || currentPlayerUI == null) return;
+
+        currentPlayerUI.Init(tests[currentIndex], playerIconImage[currentIndex], playerNames[currentIndex], flipX: false);
+    }
+
     private void UpdateSkillIcons(int playerIndex)
     {
         int start = playerIndex * 4;
@@ -281,28 +290,25 @@ public class PlayerSwitcher : MonoBehaviour
                 alive.Add(idx);
         }
 
-        // 죽은 캐릭터는 deathOrder에서 UI 대상만 추출
         List<int> dead = new List<int>();
         foreach (int idx in deathOrder)
         {
-            if (clockwise.Contains(idx)) // 오른쪽 UI 대상 중 죽은 것만
+            if (clockwise.Contains(idx))
                 dead.Add(idx);
         }
 
         int deadCount = dead.Count;
         int uiIdx = 0;
 
-        // 살아있는 캐릭터를 아래쪽부터 채우기 (0부터)
         for (int i = 0; i < alive.Count && uiIdx < (3 - deadCount); i++, uiIdx++)
         {
             int idx = alive[i];
             SetRightUI(uiIdx, idx);
         }
 
-        // 죽은 캐릭터를 위쪽부터 (index 큰 쪽부터) 순서대로 채움
         for (int i = 0; i < dead.Count && uiIdx < 3; i++, uiIdx++)
         {
-            int slot = 2 - (dead.Count - 1 - i); // 위쪽부터
+            int slot = 2 - (dead.Count - 1 - i);
             int idx = dead[i];
             SetRightUI(slot, idx);
             Debug.Log($"[UI] 죽은 캐릭터 {playerNames[idx]} 오른쪽 슬롯 {slot}에 고정됨.");
@@ -315,7 +321,6 @@ public class PlayerSwitcher : MonoBehaviour
         }
     }
 
-
     private void SetRightUI(int slot, int playerIdx)
     {
         var icon = playerIconImage[playerIdx];
@@ -327,7 +332,7 @@ public class PlayerSwitcher : MonoBehaviour
         if (pt != null)
         {
             int curHp = pt.hp;
-            int maxHp = 100; // 필요하면 pt.maxHp로 변경하세요
+            int maxHp = 100; // 필요 시 pt.MaxHp로 교체
             otherPlayerUIs[slot].hpSource = pt;
 
             var slider = otherPlayerUIs[slot].GetComponentInChildren<Slider>();
@@ -336,13 +341,9 @@ public class PlayerSwitcher : MonoBehaviour
                 slider.maxValue = maxHp;
                 slider.value = curHp;
             }
-
         }
 
-        otherPlayerUIs[slot].SetGrayscale(isDead); // 아이콘 어둡게 처리
+        otherPlayerUIs[slot].SetGrayscale(isDead);
         otherPlayerUIs[slot].gameObject.SetActive(true);
     }
-
-
-
 }

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "TV\uB300_0": -3080387672557459437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
