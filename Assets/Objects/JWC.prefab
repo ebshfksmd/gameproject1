@@ -100,9 +100,6 @@ PrefabInstance:
       addedObject: {fileID: 8608562842821301167}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 937e2f901eb1fdc4b9434e8bdde727a6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3895664105220501907}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 937e2f901eb1fdc4b9434e8bdde727a6, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6504477966564072499}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 937e2f901eb1fdc4b9434e8bdde727a6, type: 3}
       insertIndex: -1
@@ -163,27 +160,22 @@ MonoBehaviour:
   qSkill: {fileID: 11400000, guid: 5c28111fd91b87244a99cf1c517a1e8e, type: 2}
   wSkill: {fileID: 11400000, guid: 7f2d09cea01ed024093b58dad1bc44cf, type: 2}
   eSkill: {fileID: 11400000, guid: 9ee6da269a0f46249bbbe73f2bf9b63c, type: 2}
-  rSkill: {fileID: 0}
+  rSkill: {fileID: 11400000, guid: 46b67f80b9d54594986108ce9bce3867, type: 2}
   F: {fileID: 8300000, guid: 1d013890f4c7a084282abd79686ad6f5, type: 3}
   Q: {fileID: 8300000, guid: cf2e4ea514a1a8b43bdd740fe9cf0334, type: 3}
   W: {fileID: 0}
   E: {fileID: 8300000, guid: 02279436fb6d55546ad19639fed20162, type: 3}
   R: {fileID: 8300000, guid: afd980f914584b74cab5117f43158141, type: 3}
---- !u!114 &3895664105220501907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8031638328538216695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b127700e152feb47aa0542d19d61b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  defense: 0
+  skillCooldownFills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillCooldownTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &6504477966564072499
 Rigidbody2D:
   serializedVersion: 5
@@ -272,7 +264,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_Priority: 0
   m_ComponentVersion: 5
-  m_HasRenderer: 0
+  m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
@@ -293,17 +285,17 @@ MonoBehaviour:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
       m_Center: {x: 0, y: 0.2299881, z: 0}
-      m_Extent: {x: 0.02998352, y: 0.15999603, z: 0}
+      m_Extent: {x: 0.049987793, y: 0.1800003, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.03
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0.05
   m_CastingOption: 1
-  m_PreviousTrimEdge: 0
-  m_PreviousEdgeProcessing: -1
-  m_PreviousShadowCastingSource: -1
-  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_PreviousTrimEdge: 0.03
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 4439149479515553659}
   references:
     version: 2
     RefIds:
@@ -370,6 +362,9 @@ MonoBehaviour:
   atk: 10
   def: 1
   hp: 100
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}
+  maxHp: 100
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
   status: 0

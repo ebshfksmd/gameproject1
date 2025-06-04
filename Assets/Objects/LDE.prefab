@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6112409791153285979}
   - component: {fileID: 3182819551511259419}
   - component: {fileID: 488620328266533737}
-  - component: {fileID: 8766846439439159740}
   - component: {fileID: 8555105246652800152}
   - component: {fileID: 3716163077035616222}
   - component: {fileID: 2204392175463787159}
@@ -138,21 +137,6 @@ MonoBehaviour:
   isWalking: {fileID: 8300000, guid: 9192770c49cbe724da03201703f55517, type: 3}
   jump: {fileID: 8300000, guid: 6db7c1d968bad3245a1b1dcddd3e2320, type: 3}
   canControl: 1
---- !u!114 &8766846439439159740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757369963901767342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b127700e152feb47aa0542d19d61b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  defense: 0
 --- !u!114 &8555105246652800152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +159,16 @@ MonoBehaviour:
   W: {fileID: 8300000, guid: f03406ac4af782b43bcb09894796333d, type: 3}
   E: {fileID: 8300000, guid: a1581a195e3fee84091b1a9bea099bd3, type: 3}
   R: {fileID: 8300000, guid: f383233fc2ded944980abacecf673d47, type: 3}
+  skillCooldownFills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillCooldownTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &3716163077035616222
 Rigidbody2D:
   serializedVersion: 5
@@ -263,7 +257,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_Priority: 0
   m_ComponentVersion: 5
-  m_HasRenderer: 0
+  m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
@@ -284,17 +278,17 @@ MonoBehaviour:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
       m_Center: {x: 0.01499939, y: 0.18998718, z: 0}
-      m_Extent: {x: 0.024993896, y: 0.13000488, z: 0}
+      m_Extent: {x: 0.034988403, y: 0.13999939, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.03
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0.04
   m_CastingOption: 1
-  m_PreviousTrimEdge: 0
-  m_PreviousEdgeProcessing: -1
-  m_PreviousShadowCastingSource: -1
-  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_PreviousTrimEdge: 0.03
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 6112409791153285979}
   references:
     version: 2
     RefIds:
@@ -361,6 +355,9 @@ MonoBehaviour:
   atk: 10
   def: 1
   hp: 100
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}
+  maxHp: 100
   sprite1: {fileID: 0}
   sprite2: {fileID: 0}
   status: 0

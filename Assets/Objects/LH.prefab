@@ -153,7 +153,7 @@ MonoBehaviour:
   qSkill: {fileID: 11400000, guid: 639c48c2a8b04a84f9d128745fdf224e, type: 2}
   wSkill: {fileID: 11400000, guid: b8004002ed85ce4429c89d62a369a6c7, type: 2}
   eSkill: {fileID: 11400000, guid: 2ebc7abd611f34d46a2cd0f9384c23b1, type: 2}
-  rSkill: {fileID: 0}
+  rSkill: {fileID: 11400000, guid: d65eb3c7e0440a54887b7080a195fda1, type: 2}
   F: {fileID: 8300000, guid: 175e6b4b1086b0646b89f97eb1e1f308, type: 3}
   Q: {fileID: 8300000, guid: 82887fba635159444bc6f260218ca70f, type: 3}
   W: {fileID: 8300000, guid: ba9234ffc5b3bed44b1bb730866c19de, type: 3}

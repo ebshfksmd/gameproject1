@@ -15,7 +15,6 @@ public class M_Summoner : Monster
 
     //기본공격 쿨타임
     float baseAttackCoolTime = 4;
-    float skillCoolTime = 10;
 
     //다른 몬스터가 있는지 없는지 확인하는 변수
     Transform anyMonster = null;
@@ -35,40 +34,43 @@ public class M_Summoner : Monster
     {
         while (true)
         {
-            
-            StartCoroutine(BaseAttackAnimation());
-            if (baseAtkCount < 8)
+            if (!isStun)
             {
-                // 쥐 스폰
-                for (int i = 0; i < 3; i++)
+                StartCoroutine(BaseAttackAnimation());
+                if (baseAtkCount < 8)
                 {
-                    Monster mouse = ObjectPoolManager.instance.GetFromPool(mousePrefab);
-                    if (mouse != null)
+                    // 쥐 스폰
+                    for (int i = 0; i < 3; i++)
                     {
-                        mouse.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        Monster mouse = ObjectPoolManager.instance.GetFromPool(mousePrefab);
+                        if (mouse != null)
+                        {
+                            mouse.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        }
                     }
-                }
 
-                // 토끼 스폰
-                for (int i = 0; i < 2; i++)
-                {
-                    Monster rabbit = ObjectPoolManager.instance.GetFromPool(rabbitPrefab);
-                    if (rabbit != null)
+                    // 토끼 스폰
+                    for (int i = 0; i < 2; i++)
                     {
-                        rabbit.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        Monster rabbit = ObjectPoolManager.instance.GetFromPool(rabbitPrefab);
+                        if (rabbit != null)
+                        {
+                            rabbit.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        }
                     }
-                }
 
-                // 원숭이 스폰
-                Monster mongkey = ObjectPoolManager.instance.GetFromPool(monkeyPrefab);
-                if (mongkey != null)
-                {
-                    mongkey.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                }
+                    // 원숭이 스폰
+                    Monster mongkey = ObjectPoolManager.instance.GetFromPool(monkeyPrefab);
+                    if (mongkey != null)
+                    {
+                        mongkey.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                    }
 
-                baseAtkCount++;
+                    baseAtkCount++;
+                }
+                yield return new WaitForSeconds(baseAttackCoolTime);
             }
-            yield return new WaitForSeconds(baseAttackCoolTime);
+
 
         }
     }
@@ -87,27 +89,31 @@ public class M_Summoner : Monster
     {
         while (true)
         {
-            switch (Random.Range(0, 2))
+            if (!isStun)
             {
-                case 0: // 지네
-                    Monster centipede = ObjectPoolManager.instance.GetFromPool(centipedePrefab);
-                    if (centipede != null)
-                    {
-                        centipede.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                    }
-                    break;
+                switch (Random.Range(0, 2))
+                {
+                    case 0: // 지네
+                        Monster centipede = ObjectPoolManager.instance.GetFromPool(centipedePrefab);
+                        if (centipede != null)
+                        {
+                            centipede.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        }
+                        break;
 
-                case 1: // 사마귀
-                    Monster mantis = ObjectPoolManager.instance.GetFromPool(mantisPrefab);
-                    if (mantis != null)
-                    {
-                        mantis.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                    }
-                    break;
+                    case 1: // 사마귀
+                        Monster mantis = ObjectPoolManager.instance.GetFromPool(mantisPrefab);
+                        if (mantis != null)
+                        {
+                            mantis.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        }
+                        break;
+                }
+
+                StartCoroutine(SkillAnimation());
+                yield return new WaitForSeconds(skillCoolTime);
             }
 
-            StartCoroutine(SkillAnimation());
-            yield return new WaitForSeconds(skillCoolTime);
         }
     }
 

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class M_mouse : Animal
 {
-    float skillCooltime = 8f;
     float skillCastingTime = 3f;
     float skillDistance = 3f;
     int skillPower = 4;
@@ -27,7 +26,7 @@ public class M_mouse : Animal
         if (!isSkillPrepared)
         {
             skillCount += Time.deltaTime;
-            if (skillCount >= skillCooltime)
+            if (skillCount >= skillCoolTime)
             {
                 isSkillPrepared = true;
                 skillCount = 0f;
@@ -36,7 +35,7 @@ public class M_mouse : Animal
         }
 
         // 스킬 우선 시전
-        if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting)
+        if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting && !isStun)
         {
             Debug.Log("[쥐] 스킬 시전 시작");
             StartCoroutine(SkillCast());
@@ -44,7 +43,7 @@ public class M_mouse : Animal
         }
 
         // 기본 공격
-        if (distanceToTarget < baseAtkDistance && !prepareAtk && !isSkillCasting)
+        if (distanceToTarget < baseAtkDistance && !prepareAtk && !isSkillCasting && !isStun)
         {
             prepareAtk = true;
             StartCoroutine(AnimalBaseBasicAtk());
@@ -131,7 +130,7 @@ public class M_mouse : Animal
         animator.SetBool("isSkill", false);
     }
 
-    public virtual void Awake()
+    public override void Awake()
     {
         base.Awake();
 

@@ -22,7 +22,7 @@ public class Human : Monster
         while (true)
         {
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            if (distanceToTarget>targetDistance)
+            if (distanceToTarget > targetDistance)
             {
                 moveDirection *= -1;
             }
@@ -43,7 +43,7 @@ public class Human : Monster
     //기본공격 애니메이션 코루틴
     IEnumerator BaseAttackAnimation()
     {
-        
+
         animator.SetBool("isAttack", true);
         yield return new WaitForSeconds(baseAtkAnimationTime);
         animator.SetBool("isAttack", false);
@@ -56,13 +56,13 @@ public class Human : Monster
 
     public IEnumerator HumanBaseBasicAtk()
     {
-        
+
         float tempSpeed = speed;
         speed = 0f;
         yield return new WaitForSeconds(castingTime);
         StartCoroutine(BaseAttackAnimation());
         speed = tempSpeed;
-       
+
         count = 0;
         isCast = false;
     }
@@ -110,8 +110,7 @@ public class Human : Monster
     //*******************몬스터 기본공격 관련 변수 , 코루틴*************************
     //기본공격 범위
     [SerializeField] float baseAtkDistance;
-    //인간형 몬스터가 몇초마다 공격할지 ( 계속 안에 있어야함 )
-    [SerializeField] float humanBaseAtkCoolTime;
+
     //시전시간 ( 공격할 시점에서 범위 안에있으면됨 )
     [SerializeField] float castingTime;
 
@@ -146,7 +145,7 @@ public class Human : Monster
         inStopDistance = (distanceToTarget <= stopDistance || distanceToTarget <= baseAtkDistance);
 
         // isTracking과 이동 상태 분기
-        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
+        if (distanceToTarget < targetDistance && distanceToTarget > stopDistance && !isStun)
         {
             isTracking = true;
             // 플레이어를 따라감
@@ -160,7 +159,7 @@ public class Human : Monster
 
             // 추적 중에는 startPos 갱신하지 않음
         }
-        else if (distanceToTarget > targetDistance)
+        else if (distanceToTarget > targetDistance && !isStun)
         {
             // 플레이어가 범위 밖 -> 기본 이동
             isTracking = false;
@@ -196,7 +195,7 @@ public class Human : Monster
             count = 0;
         }
 
-        if (count >= humanBaseAtkCoolTime)
+        if (count >= baseAtkCoolTime && !isStun)
         {
             StartCoroutine(HumanBaseBasicAtk());
             isCast = true;

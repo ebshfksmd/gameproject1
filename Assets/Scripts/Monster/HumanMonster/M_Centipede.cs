@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class M_Centipede : Human
 {
-    //스킬 쿨타임
-    float skillCooltime = 20f;
     //스킬 시전시간
     float skillCastingTime = 6f;
     //스킬 위력
@@ -90,7 +88,7 @@ public class M_Centipede : Human
             }
 
             //스킬쿨타임이 돌았을때
-            if (skillCount >= skillCooltime)
+            if (skillCount >= skillCoolTime)
             {
                 isSKillPrepare = true;
                 skillCount = 0;
@@ -124,15 +122,17 @@ public class M_Centipede : Human
 
 
 #pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
+#pragma warning disable CS0114 
     private void Awake()
 #pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
+#pragma warning restore CS0114
     {
         base.Awake();
         hp = 300;
         atk = 150;
         def = 100;
         type = MonsterType.human;
-        
+
         Skill();
     }
 }

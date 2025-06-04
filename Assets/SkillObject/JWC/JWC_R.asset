@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cd54337dc8d5cd46b32e16fbf9c5816, type: 3}
-  m_Name: JER_E
+  m_Name: JWC_R
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
   range: 0
-  animationName: E
+  animationName: R
   castTime: 0
-  cooldown: 5
+  cooldown: 60
   radius: 5
   moveSpeedReducePercent: 0.3
   defenseReduceAmount: 2
@@ -26,4 +26,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
-  isJER: 1
+  isJER: 0

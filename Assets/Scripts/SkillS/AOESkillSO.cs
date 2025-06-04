@@ -8,7 +8,7 @@ public class AOESkillSO : SkillSO
     public int power = 3;
     public LayerMask enemyLayer;              // 적 레이어 마스크
     public GameObject effectPrefab;           // 시전 이펙트(옵션)
-    public bool isJER=false;
+    public bool isJER = false;
 
     public override void Cast(Transform caster, KeyCode keyUsed)
     {

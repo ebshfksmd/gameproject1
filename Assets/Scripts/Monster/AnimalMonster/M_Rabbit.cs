@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class M_Rabbit : Animal
 {
-    float skillCooltime = 15f;
     float skillCastingTime = 3f;
     float skillDistance = 3f;
     int skillPower = 6;
@@ -27,7 +26,7 @@ public class M_Rabbit : Animal
         if (!isSkillPrepared)
         {
             skillCount += Time.deltaTime;
-            if (skillCount >= skillCooltime)
+            if (skillCount >= skillCoolTime)
             {
                 isSkillPrepared = true;
                 skillCount = 0f;
@@ -36,7 +35,7 @@ public class M_Rabbit : Animal
         }
 
         // 스킬 시전
-        if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting)
+        if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting && !isStun)
         {
             StartCoroutine(SkillCast());
             return; // 스킬 시전 중에는 아무것도 하지 않음

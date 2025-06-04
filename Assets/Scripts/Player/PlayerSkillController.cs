@@ -1,8 +1,9 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections;
-using System.Collections.Generic;
 
 public class PlayerSkillController : MonoBehaviour
 {
@@ -14,17 +15,20 @@ public class PlayerSkillController : MonoBehaviour
     public SkillSO rSkill;
 
     [Header("Audio")]
-    public AudioClip F, Q, W, E, R;
+    public AudioClip F;
+    public AudioClip Q;
+    public AudioClip W;
+    public AudioClip E;
+    public AudioClip R;
 
     [Header("Cooldown UI")]
-    public Image[] skillCooldownFills = new Image[4];
+    public Image[] skillCooldownFills = new Image[4]; // Q, W, E, R
     public TextMeshProUGUI[] skillCooldownTexts = new TextMeshProUGUI[4];
 
     private Dictionary<SkillSO, float> cooldownTimers = new Dictionary<SkillSO, float>();
     private Animator anim;
     private Player player;
     private AudioSource skillAudioSource;
-    private DialogueManager dialogueManager;
 
     public static bool IsCastingSkill { get; private set; } = false;
     [HideInInspector] public static bool canAttack = true;
@@ -33,55 +37,64 @@ public class PlayerSkillController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GetComponent<Player>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
+
         skillAudioSource = gameObject.AddComponent<AudioSource>();
+        skillAudioSource.loop = false;
+        skillAudioSource.playOnAwake = false;
+        skillAudioSource.volume = 1f;
 
-        foreach (var skill in new[] { qSkill, wSkill, eSkill, rSkill })
+        foreach (var so in new[] { qSkill, wSkill, eSkill, rSkill })
         {
-            if (skill != null)
-                cooldownTimers[skill] = 0f;
+            if (so != null)
+                cooldownTimers[so] = 0f;
         }
 
-        foreach (var fill in skillCooldownFills)
+        for (int i = 0; i < skillCooldownFills.Length; i++)
         {
-            if (fill != null) fill.gameObject.SetActive(false);
-        }
+            if (skillCooldownFills[i] != null)
+                skillCooldownFills[i].gameObject.SetActive(false);
 
-        foreach (var text in skillCooldownTexts)
-        {
-            if (text != null) text.gameObject.SetActive(false);
+            if (skillCooldownTexts[i] != null)
+                skillCooldownTexts[i].gameObject.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (dialogueManager == null)
-            dialogueManager = FindObjectOfType<DialogueManager>();
-
-        if (!canAttack || (dialogueManager != null && dialogueManager.IsDialogueActive()))
-            return;
-
-        var skillKeys = new List<SkillSO>(cooldownTimers.Keys);
-        foreach (var skill in skillKeys)
+        var keys = new List<SkillSO>(cooldownTimers.Keys);
+        foreach (var so in keys)
         {
-            if (skill == null || !cooldownTimers.ContainsKey(skill)) continue;
-
-            int i = GetSkillIndex(skill);
-            cooldownTimers[skill] -= Time.deltaTime;
-            float t = Mathf.Max(0, cooldownTimers[skill]);
-
-            if (i >= 0)
+            int index = GetSkillIndex(so);
+            if (cooldownTimers[so] > 0f)
             {
-                if (skillCooldownFills[i] != null)
-                {
-                    skillCooldownFills[i].gameObject.SetActive(t > 0);
-                    skillCooldownFills[i].fillAmount = t / skill.cooldown;
-                }
+                cooldownTimers[so] -= Time.deltaTime;
+                float remaining = Mathf.Max(0f, cooldownTimers[so]);
+                float cooldownTime = so.cooldown;
 
-                if (skillCooldownTexts[i] != null)
+                if (index >= 0 && index < skillCooldownFills.Length)
                 {
-                    skillCooldownTexts[i].gameObject.SetActive(t > 0);
-                    skillCooldownTexts[i].text = $"{t:F1}";
+                    if (skillCooldownFills[index] != null)
+                    {
+                        skillCooldownFills[index].gameObject.SetActive(true);
+                        skillCooldownFills[index].fillAmount = Mathf.Clamp01(remaining / cooldownTime);
+                    }
+
+                    if (skillCooldownTexts[index] != null)
+                    {
+                        skillCooldownTexts[index].gameObject.SetActive(true);
+                        skillCooldownTexts[index].text = $"{remaining:F1}";
+                    }
+                }
+            }
+            else
+            {
+                if (index >= 0 && index < skillCooldownFills.Length)
+                {
+                    if (skillCooldownFills[index] != null)
+                        skillCooldownFills[index].gameObject.SetActive(false);
+
+                    if (skillCooldownTexts[index] != null)
+                        skillCooldownTexts[index].gameObject.SetActive(false);
                 }
             }
         }
@@ -91,44 +104,65 @@ public class PlayerSkillController : MonoBehaviour
         TryCast(KeyCode.W, wSkill);
         TryCast(KeyCode.E, eSkill);
         TryCast(KeyCode.R, rSkill);
+
+        if (IsCastingSkill && anim != null)
+        {
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRun", false);
+        }
     }
 
     private void TryCast(KeyCode key, SkillSO skill)
     {
-        if (dialogueManager == null)
-            dialogueManager = FindObjectOfType<DialogueManager>();
-
-        bool isDialogue = dialogueManager != null && dialogueManager.IsDialogueActive();
-        if (skill == null || !canAttack || IsCastingSkill || isDialogue) return;
+        if (skill == null || !canAttack || IsCastingSkill) return;
 
         if (!cooldownTimers.ContainsKey(skill))
             cooldownTimers[skill] = 0f;
 
         if (Input.GetKeyDown(key) && cooldownTimers[skill] <= 0f)
+        {
             StartCoroutine(CastRoutine(skill, key));
+        }
     }
 
     private IEnumerator CastRoutine(SkillSO skill, KeyCode keyUsed)
     {
-        if (player != null) player.canControl = false;
+        if (player != null)
+            player.canControl = false;
+
         IsCastingSkill = true;
 
-        if (!string.IsNullOrEmpty(skill.animationName))
-            anim?.Play(skill.animationName);
+        if (!string.IsNullOrEmpty(skill.animationName) && anim != null)
+        {
+            anim.Play(skill.animationName);
+        }
 
-        skillAudioSource.PlayOneShot(GetClipByKey(keyUsed));
+        AudioClip clip = GetClipByKey(keyUsed);
+        if (clip != null)
+        {
+            skillAudioSource.Stop();
+            skillAudioSource.clip = clip;
+            skillAudioSource.Play();
+        }
+
         skill.Cast(transform, keyUsed);
         cooldownTimers[skill] = skill.cooldown;
 
-        yield return new WaitForSeconds(0.1f);
-        while (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName(skill.animationName) &&
-               anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        if (!string.IsNullOrEmpty(skill.animationName) && anim != null)
         {
             yield return null;
+            AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+            while (state.IsName(skill.animationName) && state.normalizedTime < 1f)
+            {
+                yield return null;
+                state = anim.GetCurrentAnimatorStateInfo(0);
+            }
         }
 
+        if (player != null)
+            player.canControl = true;
+
         IsCastingSkill = false;
-        if (player != null) player.canControl = true;
     }
 
     private AudioClip GetClipByKey(KeyCode key)

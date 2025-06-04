@@ -21,7 +21,7 @@ public class SingleSlowDefenseSkillSO : SkillSO
     [Header("Visuals (Optional)")]
     [Tooltip("ÀÌÆåÆ® ÇÁ¸®ÆÕ (»ý·« °¡´É)")]
     public GameObject effectPrefab;
-    public bool isJER=false;
+    public bool isJER = false;
 
     public override void Cast(Transform caster, KeyCode keyUsed)
     {
@@ -54,7 +54,7 @@ public class SingleSlowDefenseSkillSO : SkillSO
             if (deb != null)
             {
                 deb.ApplyMoveSpeedDebuff(moveSpeedReducePercent, duration);
-                if(isJER)
+                if (isJER)
                 {
                     deb.ApplyDefenseDebuff(defenseReduceAmount, duration);
                     Debug.Log("JER");
