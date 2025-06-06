@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b83590c01a9996a4d99c8cb7db79dd1f
+guid: a1926574ab20f104dbfbcc455a554e74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8320824912735345967
-    second: boss_attack_0
-  - first:
-      213: -3975016362501032488
-    second: boss_attack_1
+      213: -1093784743695869844
+    second: JWC_gameover_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_attack_0
+      name: JWC_gameover_0
       rect:
         serializedVersion: 2
-        x: 59
-        y: 9
-        width: 132
-        height: 207
+        x: 0
+        y: 0
+        width: 900
+        height: 1050
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2d9fc92c22897370800000000000000
-      internalID: 8320824912735345967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss_attack_1
-      rect:
-        serializedVersion: 2
-        x: 299
-        y: 9
-        width: 147
-        height: 207
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8d5b2c8cda7e5d8c0800000000000000
-      internalID: -3975016362501032488
+      spriteID: c68144b129812d0f0800000000000000
+      internalID: -1093784743695869844
       vertices: []
       indices: 
       edges: []
@@ -185,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      boss_attack_0: 8320824912735345967
-      boss_attack_1: -3975016362501032488
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

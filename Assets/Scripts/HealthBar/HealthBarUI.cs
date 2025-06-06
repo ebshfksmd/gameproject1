@@ -43,10 +43,6 @@ public class HealthBarUI : MonoBehaviour
     {
         if (hpSource != null)
             UpdateUI();
-        if (fillImage != null)
-        {
-            Debug.Log("Fill color: " + fillImage.color);
-        }
     }
 
     private void UpdateUI()

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public AudioClip isWalking;
     public AudioClip jump;
 
-    public bool canControl = false;
+    public bool canControl = true;
 
     private float fixedX;
 
@@ -44,21 +44,28 @@ public class Player : MonoBehaviour
         sfxAudioSource.loop = false;
         sfxAudioSource.playOnAwake = false;
         sfxAudioSource.volume = 1f;
-
-        if (rb == null)
-            Debug.LogError("Rigidbody2D component not found on player object.");
     }
 
     void Start()
     {
         fixedX = transform.position.x;
-        canControl = false;
+        canControl = true;
     }
 
     void Update()
     {
-        if (!canControl || PlayerSkillController.canAttack == false) return;
+        Debug.Log($"[Player] Update: canControl={canControl}, canAttack={PlayerSkillController.canAttack}");
 
+        if (!canControl || PlayerSkillController.canAttack == false)
+        {
+            StopSoundIfPlaying(isWalking);
+            StopSoundIfPlaying(isRun);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRun", false);
+            return;
+        }
+
+        Debug.Log("[Player] 움직일 수 있음");
         float input = Input.GetAxis("Horizontal");
         float moveAmount = input * moveSpeed * speedMultiplier * Time.deltaTime;
 
@@ -104,19 +111,6 @@ public class Player : MonoBehaviour
         if (col.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Hitbox"))
-        {
-            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-        }
-        else
-        {
-            anim.SetBool("isRun", false);
-            anim.SetBool("isWalking", false);
         }
     }
 

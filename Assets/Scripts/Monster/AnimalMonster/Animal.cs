@@ -117,6 +117,7 @@ public class Animal : Monster
 
         yield return new WaitForSeconds(0.3f);
         Destroy(this.gameObject);
+        MonsterDeathWatcher.NotifyMonsterKilled();
         animator.SetBool("isDie", false);
     }
 

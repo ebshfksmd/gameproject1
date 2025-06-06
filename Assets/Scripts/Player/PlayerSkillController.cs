@@ -29,6 +29,7 @@ public class PlayerSkillController : MonoBehaviour
     private Animator anim;
     private Player player;
     private AudioSource skillAudioSource;
+    private DialogueManager dialogueManager;
 
     public static bool IsCastingSkill { get; private set; } = false;
     [HideInInspector] public static bool canAttack = true;
@@ -37,7 +38,7 @@ public class PlayerSkillController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GetComponent<Player>();
-
+        dialogueManager = FindObjectOfType<DialogueManager>();
         skillAudioSource = gameObject.AddComponent<AudioSource>();
         skillAudioSource.loop = false;
         skillAudioSource.playOnAwake = false;
@@ -61,6 +62,11 @@ public class PlayerSkillController : MonoBehaviour
 
     void Update()
     {
+        if (dialogueManager == null)
+            dialogueManager = FindObjectOfType<DialogueManager>();
+
+        if (!canAttack || (dialogueManager != null && dialogueManager.IsDialogueActive()))
+            return;
         var keys = new List<SkillSO>(cooldownTimers.Keys);
         foreach (var so in keys)
         {
@@ -114,7 +120,11 @@ public class PlayerSkillController : MonoBehaviour
 
     private void TryCast(KeyCode key, SkillSO skill)
     {
-        if (skill == null || !canAttack || IsCastingSkill) return;
+        if (dialogueManager == null)
+            dialogueManager = FindObjectOfType<DialogueManager>();
+
+        bool isDialogue = dialogueManager != null && dialogueManager.IsDialogueActive();
+        if (skill == null || !canAttack || IsCastingSkill || isDialogue) return;
 
         if (!cooldownTimers.ContainsKey(skill))
             cooldownTimers[skill] = 0f;
@@ -144,7 +154,7 @@ public class PlayerSkillController : MonoBehaviour
             skillAudioSource.clip = clip;
             skillAudioSource.Play();
         }
-
+        skillAudioSource.PlayOneShot(GetClipByKey(keyUsed));
         skill.Cast(transform, keyUsed);
         cooldownTimers[skill] = skill.cooldown;
 
@@ -159,10 +169,8 @@ public class PlayerSkillController : MonoBehaviour
             }
         }
 
-        if (player != null)
-            player.canControl = true;
-
         IsCastingSkill = false;
+        if (player != null) player.canControl = true;
     }
 
     private AudioClip GetClipByKey(KeyCode key)
