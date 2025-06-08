@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Pool;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class Monster : MonoBehaviour
     public GameObject GameObject;
 
     [SerializeField] private Slider hpBar;             // HP 바 프리팹
-    [SerializeField] private Canvas uiCanvas;          // HP 바를 붙일 UI 캔버스 (직접 지정)
+    [SerializeField] public Canvas uiCanvas;          // HP 바를 붙일 UI 캔버스 (직접 지정)
 
     public int hp;
     public int atk;
@@ -23,7 +23,7 @@ public class Monster : MonoBehaviour
     [SerializeField] protected float baseAtkCoolTime;
     [SerializeField] protected float skillCoolTime;
     //기절했는지 아닌지
-    protected bool isStun=false;
+    protected bool isStun = false;
 
     public string PoolKey { get; set; }
 
@@ -60,8 +60,6 @@ public class Monster : MonoBehaviour
     private Coroutine moveDebuffRoutine;
     private Coroutine defDebuffRoutine;
 
-
-
     public int CurrentHealth => hp;
 
     public virtual void Awake()
@@ -70,15 +68,7 @@ public class Monster : MonoBehaviour
 
         if (uiCanvas == null)
         {
-            Debug.LogError("UI Canvas가 설정되지 않았습니다. Inspector에서 Canvas를 지정하세요.");
-        }
-        else
-        {
-            hpBarInstance = Instantiate(hpBar, uiCanvas.transform);
-            hpBarInstance.maxValue = hp;
-            hpBarInstance.minValue = 0;
-            hpBarInstance.value = hp;
-            StartCoroutine(ApplyHpBar());
+            Debug.Log("UI Canvas가 설정되지 않았습니다. Inspector에서 Canvas를 지정하세요.");
         }
 
         GameObject targetObj = GameObject.FindGameObjectWithTag("Player");
@@ -92,25 +82,40 @@ public class Monster : MonoBehaviour
             Debug.LogWarning("[Monster] Player 태그를 가진 오브젝트를 찾을 수 없습니다.");
         }
 
-
         monsterRenderer = GetComponentInChildren<Renderer>();
         if (monsterRenderer != null)
         {
             originalColor = monsterRenderer.material.color;
         }
+        if(uiCanvas != null)
+        {
+            InitializeHpBar();
+        }
     }
 
-    IEnumerator ApplyHpBar()
+    // 새로 추가한 초기화 함수 (uiCanvas 할당 후 반드시 호출)
+    public void InitializeHpBar()
     {
-        if (hpBarInstance != null)
+        if (uiCanvas != null && hpBar != null)
+        {
+            hpBarInstance = Instantiate(hpBar, uiCanvas.transform);
+            hpBarInstance.maxValue = hp;
+            hpBarInstance.minValue = 0;
             hpBarInstance.value = hp;
-        yield return null;
+        }
+        else
+        {
+            Debug.LogWarning("InitializeHpBar 실패: uiCanvas 또는 hpBar가 할당되지 않았습니다.");
+        }
     }
 
     public void GetAttacked(int dmg, int power)
     {
         hp -= (dmg / (100 + def)) * power;
-        hpBarInstance.value = hp;
+
+        if (hpBarInstance != null)
+            hpBarInstance.value = hp;
+
         StartCoroutine(HitAnimation());
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -189,17 +194,14 @@ public class Monster : MonoBehaviour
         defDebuffRoutine = null;
     }
 
-
     public void ApplyStun()
     {
         StartCoroutine(Stun());
     }
 
-
     private IEnumerator Stun()
     {
         isStun = true;
-        //기절 시간조절
         yield return new WaitForSeconds(2f);
         isStun = false;
     }

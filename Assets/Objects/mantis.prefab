@@ -112,13 +112,14 @@ MonoBehaviour:
   speed: 0.8
   baseAtkAnimationTime: 0.3
   skillAtkAnimationTime: 0.3
+  baseAtkCoolTime: 3
+  skillCoolTime: 20
   type: 0
   moveDistance: 10
   targetDistance: 10
   stopDistance: 2
   baseAttackPower: 0
   baseAtkDistance: 3
-  humanBaseAtkCoolTime: 3
   castingTime: 5
   inStopDistance: 0
 --- !u!50 &4075816236913008005

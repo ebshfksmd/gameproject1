@@ -10,7 +10,6 @@ public class Animal : Monster
 
     [Header("공격 관련 설정")]
     [SerializeField] protected float baseAtkDistance;
-
     [SerializeField] protected float castingTime;
     [SerializeField] protected int baseAttackPower;
 
@@ -18,14 +17,24 @@ public class Animal : Monster
     protected bool isDead = false;
     protected bool prepareAtk = false;
     protected bool isTracking = false;
-    [HideInInspector]
-    public bool inStopDistance = false;
+
+    [HideInInspector] public bool inStopDistance = false;
     public int maxHp = 100;
 
     protected virtual void Start()
     {
         startPos = transform.position;
         moveDirection = (Random.Range(0, 2) == 0) ? 1 : -1;
+
+        StartCoroutine(WaitForTargetThenMove());
+    }
+
+    private IEnumerator WaitForTargetThenMove()
+    {
+        while (target == null)
+        {
+            yield return null;
+        }
 
         if (moveDistance != 0)
         {
@@ -74,7 +83,6 @@ public class Animal : Monster
 
         if (distanceToTarget < baseAtkDistance && !prepareAtk && !isStun)
         {
-            Debug.Log("[Animal] 공격 조건 만족, 코루틴 시작");
             prepareAtk = true;
             StartCoroutine(AnimalBaseBasicAtk());
         }
@@ -144,11 +152,8 @@ public class Animal : Monster
         yield return new WaitForSeconds(baseAtkCoolTime);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        Debug.Log($"[Animal] 기본 공격 시도 거리: {distanceToTarget}, 기준: {baseAtkDistance}");
-
         if (distanceToTarget < baseAtkDistance)
         {
-            Debug.Log("[Animal] BaseAttackAnimation 호출");
             StartCoroutine(BaseAttackAnimation());
         }
 
@@ -158,10 +163,7 @@ public class Animal : Monster
 
     protected virtual IEnumerator BaseAttackAnimation()
     {
-        Debug.Log("[Animal] BaseAttackAnimation 진입");
-
         animator.SetBool("isAttack", true);
-        //Debug.Log("[Animal] isAttack true");
 
         yield return new WaitForSeconds(baseAtkAnimationTime);
 
@@ -170,7 +172,6 @@ public class Animal : Monster
         {
             if (PlayerTest.instance != null)
             {
-                Debug.Log($"[기본공격] {gameObject.name}이(가) {baseAttackPower} 피해를 입힘");
                 PlayerTest.instance.GetAttacked(atk, baseAttackPower);
             }
             else
@@ -180,6 +181,5 @@ public class Animal : Monster
         }
 
         animator.SetBool("isAttack", false);
-        //Debug.Log("[Animal] isAttack false");
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3123795958393677485}
   m_Layer: 6
   m_Name: summoner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,8 +112,10 @@ MonoBehaviour:
   speed: 0
   baseAtkAnimationTime: 1
   skillAtkAnimationTime: 1
+  baseAtkCoolTime: 3
+  skillCoolTime: 60
   type: 0
-  mousePrefab: {fileID: 0}
+  mousePrefab: {fileID: 3398906228989063074, guid: 37a6852fd4346df4cbaef0d31b1750c2, type: 3}
   rabbitPrefab: {fileID: 2775361722772880897, guid: be15bd504bba0d24f91ec9a2c4c5b954, type: 3}
   monkeyPrefab: {fileID: 3858904071113469138, guid: 31600236f75c0704eb34e1a9f2946a42, type: 3}
   centipedePrefab: {fileID: -1652205290157916316, guid: ca343d6a9f152be4c8f517594793f26e, type: 3}

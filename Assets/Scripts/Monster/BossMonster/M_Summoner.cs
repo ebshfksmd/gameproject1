@@ -1,27 +1,51 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class M_Summoner : Monster
 {
-
-
     [SerializeField] M_mouse mousePrefab;
     [SerializeField] M_Rabbit rabbitPrefab;
     [SerializeField] M_Monkey monkeyPrefab;
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
 
-    //기본공격 쿨타임
-    float baseAttackCoolTime = 4;
-
-    //다른 몬스터가 있는지 없는지 확인하는 변수
-    Transform anyMonster = null;
-
+    float baseAttackCoolTime = 4f;
     int baseAtkCount = 0;
+    bool isDead = false;
+    SpriteRenderer spr;
 
-    //기본공격 애니메이션 코루틴
+    private void Start()
+    {
+        spr = GetComponent<SpriteRenderer>();
+        StartCoroutine(WaitForPlayer());
+    }
+
+    IEnumerator WaitForPlayer()
+    {
+        while (GameObject.FindGameObjectWithTag("Player") == null)
+            yield return null;
+
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        StartCoroutine(CheckAnyMonster());
+        StartCoroutine(BaseAtk());
+        StartCoroutine(BossSkill());
+    }
+
+    void Update()
+    {
+        if (isDead) return;
+
+        if (hpBarInstance != null)
+        {
+            hpBarInstance.value = hp;
+            hpBarInstance.transform.position = transform.position + Vector3.up;
+        }
+
+        if (hp <= 0)
+            StartCoroutine(DieAnimation());
+    }
+
     IEnumerator BaseAttackAnimation()
     {
         animator.SetBool("isAttack", true);
@@ -29,7 +53,6 @@ public class M_Summoner : Monster
         animator.SetBool("isAttack", false);
     }
 
-    //기본공격
     IEnumerator BaseAtk()
     {
         while (true)
@@ -37,45 +60,40 @@ public class M_Summoner : Monster
             if (!isStun)
             {
                 StartCoroutine(BaseAttackAnimation());
+
                 if (baseAtkCount < 8)
                 {
-                    // 쥐 스폰
                     for (int i = 0; i < 3; i++)
                     {
-                        Monster mouse = ObjectPoolManager.instance.GetFromPool(mousePrefab);
-                        if (mouse != null)
-                        {
-                            mouse.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                        }
+                        Monster mob = Instantiate(mousePrefab, GetSpawnPosition(), Quaternion.identity);
+                        mob.uiCanvas = uiCanvas;
+                        mob.InitializeHpBar();  // 추가
                     }
 
-                    // 토끼 스폰
                     for (int i = 0; i < 2; i++)
                     {
-                        Monster rabbit = ObjectPoolManager.instance.GetFromPool(rabbitPrefab);
-                        if (rabbit != null)
-                        {
-                            rabbit.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                        }
+                        Monster mob = Instantiate(rabbitPrefab, GetSpawnPosition(), Quaternion.identity);
+                        mob.uiCanvas = uiCanvas;
+                        mob.InitializeHpBar();  // 추가
                     }
 
-                    // 원숭이 스폰
-                    Monster mongkey = ObjectPoolManager.instance.GetFromPool(monkeyPrefab);
-                    if (mongkey != null)
                     {
-                        mongkey.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+                        Monster mob = Instantiate(monkeyPrefab, GetSpawnPosition(), Quaternion.identity);
+                        mob.uiCanvas = uiCanvas;
+                        mob.InitializeHpBar();  // 추가
                     }
 
                     baseAtkCount++;
                 }
+
                 yield return new WaitForSeconds(baseAttackCoolTime);
             }
-
-
+            else
+            {
+                yield return null;
+            }
         }
     }
-
-
 
     IEnumerator SkillAnimation()
     {
@@ -84,136 +102,79 @@ public class M_Summoner : Monster
         animator.SetBool("isSkill", false);
     }
 
-
     IEnumerator BossSkill()
     {
         while (true)
         {
             if (!isStun)
             {
-                switch (Random.Range(0, 2))
-                {
-                    case 0: // 지네
-                        Monster centipede = ObjectPoolManager.instance.GetFromPool(centipedePrefab);
-                        if (centipede != null)
-                        {
-                            centipede.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                        }
-                        break;
+                int rand = Random.Range(0, 2);
 
-                    case 1: // 사마귀
-                        Monster mantis = ObjectPoolManager.instance.GetFromPool(mantisPrefab);
-                        if (mantis != null)
-                        {
-                            mantis.transform.position = new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
-                        }
+                Monster mob = null;
+                switch (rand)
+                {
+                    case 0:
+                        mob = Instantiate(centipedePrefab, GetSpawnPosition(), Quaternion.identity);
                         break;
+                    case 1:
+                        mob = Instantiate(mantisPrefab, GetSpawnPosition(), Quaternion.identity);
+                        break;
+                }
+
+                if (mob != null)
+                {
+                    mob.uiCanvas = uiCanvas;
+                    mob.InitializeHpBar();  // 추가
                 }
 
                 StartCoroutine(SkillAnimation());
                 yield return new WaitForSeconds(skillCoolTime);
             }
-
+            else
+            {
+                yield return null;
+            }
         }
     }
 
-    SpriteRenderer spr;
-
-
-
-    //매프레임마다 몬스터가 있는지 없는지 확인하는 코루틴
     IEnumerator CheckAnyMonster()
     {
         while (true)
         {
-            //플레이어 위치 확인
-            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
-            //몬스터가 존재하는지 확인
             GameObject found = GameObject.FindGameObjectWithTag("Monster");
-            if (found != null)
-            {
-                anyMonster = found.transform;
-            }
-            else
-            {
-                anyMonster = null;
-            }
 
-            if (anyMonster == null)
+            if (found == null)
             {
-                SpriteRenderer tempSpr = GetComponent<SpriteRenderer>();
-                spr.color = new Color(tempSpr.color.r, tempSpr.color.g, tempSpr.color.b, 1f);
+                spr.color = new Color(spr.color.r, spr.color.g, spr.color.b, 1f);
                 canAtk = false;
             }
             else
             {
-                SpriteRenderer tempSpr = GetComponent<SpriteRenderer>();
-                spr.color = new Color(tempSpr.color.r, tempSpr.color.g, tempSpr.color.b, 0.5f);
+                spr.color = new Color(spr.color.r, spr.color.g, spr.color.b, 0.5f);
                 canAtk = true;
             }
-            //체력이 30미만일때 기본공격속도 2배
-            if (hp < 30)
-            {
-                baseAttackCoolTime = 15f;
-            }
-            else
-            {
-                baseAttackCoolTime = 30f;
-            }
-            if (transform.position.x > target.position.x)
-            {
-                moveDirection = 1;
-            }
-            else
-            {
-                moveDirection = -1;
-            }
+
+            baseAttackCoolTime = hp < 30 ? 15f : 30f;
+            moveDirection = transform.position.x > target.position.x ? 1 : -1;
+
             yield return null;
         }
     }
 
-    private bool isDead = false;
-    //죽었을때 애니메이션 코루틴
     IEnumerator DieAnimation()
     {
         speed = 0f;
         animator.SetBool("isDie", true);
         yield return new WaitForSeconds(0.3f);
-        Destroy(hpBarInstance.gameObject);
+        Destroy(hpBarInstance?.gameObject);
         hpBarInstance = null;
         isDead = true;
-        Destroy(this.gameObject);
+        Destroy(gameObject);
         animator.SetBool("isDie", false);
     }
 
-    private void Start()
+    Vector3 GetSpawnPosition()
     {
-        spr = GetComponent<SpriteRenderer>();
-        ObjectPoolManager.instance.Init(mousePrefab, 24, 24);
-        ObjectPoolManager.instance.Init(rabbitPrefab, 16, 16);
-        ObjectPoolManager.instance.Init(monkeyPrefab, 8, 8);
-        ObjectPoolManager.instance.Init(centipedePrefab, 3, 3);
-        ObjectPoolManager.instance.Init(mantisPrefab, 3, 3);
-        StartCoroutine(CheckAnyMonster());
-        StartCoroutine(BaseAtk());
-        StartCoroutine(BossSkill());
-    }
-
-    private void Update()
-    {
-        if (isDead) return;
-        if (hpBarInstance != null)
-        {
-            hpBarInstance.value = hp;
-            hpBarInstance.gameObject.transform.position = transform.position + Vector3.up;
-        }
-
-
-        //몬스터가 죽었을때
-        if (hp <= 0)
-        {
-            StartCoroutine(DieAnimation());
-        }
+        return new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
     }
 }

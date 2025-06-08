@@ -112,12 +112,13 @@ MonoBehaviour:
   speed: 2
   baseAtkAnimationTime: 0.5
   skillAtkAnimationTime: 0.5
+  baseAtkCoolTime: 2
+  skillCoolTime: 8
   type: 0
   moveDistance: 5
   targetDistance: 5
   stopDistance: 2
   baseAtkDistance: 3
-  animalBaseAtkCoolTime: 2
   castingTime: 0
   baseAttackPower: 1
   inStopDistance: 0

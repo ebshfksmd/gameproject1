@@ -38,7 +38,6 @@ public class M_Rabbit : Animal
         if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting && !isStun)
         {
             StartCoroutine(SkillCast());
-            return; // 스킬 시전 중에는 아무것도 하지 않음
         }
 
         // 평타 시도 (스킬 쿨타임 중일 때만)
