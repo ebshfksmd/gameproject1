@@ -10,7 +10,7 @@ public class CheckForMonster : MonoBehaviour
     private bool lastState = false;         // 마지막 상태 저장 (Monster 존재 여부)
     private Player player;                  // 플레이어 참조
 
-    public GameObject object1; // 충돌 트리거용 오브젝트 (사물)
+    public GameObject 비상문; // 충돌 트리거용 오브젝트 (사물)
     public GameObject object2; // 비활성화할 오브젝트
     public GameObject object3; // 활성화할 오브젝트
     [SerializeField] private GameObject postDialogueCanvas1;
@@ -31,6 +31,7 @@ public class CheckForMonster : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("[CheckForMonster] Update 실행 중");
         // 1. Monster 체크
         if (targetParent != null && dialogueObject != null && objectToDisable != null)
         {
@@ -62,6 +63,7 @@ public class CheckForMonster : MonoBehaviour
 
                 lastState = hasMonster;
             }
+
         }
 
         // 2. 대사가 끝났으면 무조건 player.canControl = true
@@ -91,8 +93,11 @@ public class CheckForMonster : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"[Trigger] 충돌한 오브젝트: {other.name} / 태그: {other.tag}");
+
         if (other.CompareTag("Player"))
         {
+            Debug.Log("플레이어와 충돌 확인됨");
             isPlayerColliding = true;
         }
     }

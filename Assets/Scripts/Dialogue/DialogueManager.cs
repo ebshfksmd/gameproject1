@@ -129,6 +129,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue()
     {
+        if (skipTriggerObject != null) skipTriggerObject.SetActive(true);
+
         isDialogueFinished = false;
         isDialogueActive = true;
         currentLine = 0;
@@ -136,16 +138,9 @@ public class DialogueManager : MonoBehaviour
         if (player != null)
         {
             player.canControl = false;
-            Debug.Log("[StartDialogue] player.canControl = false");
-        }
-        else
-        {
-            Debug.LogWarning("[StartDialogue] player is NULL");
         }
 
         PlayerSkillController.canAttack = false;
-        Debug.Log("[StartDialogue] PlayerSkillController.canAttack = false");
-
         nameText.text = "";
         dialogueText.text = "";
         dialogueText.ForceMeshUpdate();
@@ -179,7 +174,6 @@ public class DialogueManager : MonoBehaviour
             portraitImage.enabled = false;
         }
 
-        Debug.Log($"[ShowLine] Line {currentLine}: {line.name} - {line.line}");
         typingCoroutine = StartCoroutine(TypeText(line.line));
 
         if (cleanName == "이현" && line.line.Trim() == "어..라?")
@@ -243,6 +237,7 @@ public class DialogueManager : MonoBehaviour
         SetPanelVisible(false);
 
         if (objectToDisable != null) objectToDisable.SetActive(false);
+        if(skipTriggerObject!=null) skipTriggerObject.SetActive(false);
         if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(true);
         if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(true);
 

@@ -70,6 +70,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 47245e2eed2e58346b546c725559bc5b
     name: BGSoundVolume
+  - guid: 0346a909fca13284c89ca91a87354845
+    name: MyExposedParam
   m_AudioMixerGroupViews:
   - guids:
     - 050c27f2e9bc89e41b6eb4527c4846e7

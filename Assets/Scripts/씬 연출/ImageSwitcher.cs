@@ -41,6 +41,7 @@ public class ImageSwitcher : MonoBehaviour
             if (currentIndex >= sprites.Length)
             {
                 targetImage.gameObject.SetActive(false);
+                Time.timeScale = 1f;
                 isFinished = true;
                 return;
             }
@@ -58,5 +59,6 @@ public class ImageSwitcher : MonoBehaviour
 
         targetImage.sprite = sprites[0];
         targetImage.gameObject.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

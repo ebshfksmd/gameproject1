@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"[Player] Update: canControl={canControl}, canAttack={PlayerSkillController.canAttack}");
 
         if (!canControl || PlayerSkillController.canAttack == false)
         {
@@ -65,7 +64,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        Debug.Log("[Player] 움직일 수 있음");
         float input = Input.GetAxis("Horizontal");
         float moveAmount = input * moveSpeed * speedMultiplier * Time.deltaTime;
 

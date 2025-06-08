@@ -44,6 +44,7 @@ public class ButtonHoverAndHideImage : MonoBehaviour, IPointerEnterHandler, IPoi
         {
             buttonImage.sprite = defaultSprite;
             targetToHide.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }
