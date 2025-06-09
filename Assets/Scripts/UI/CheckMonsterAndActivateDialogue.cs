@@ -31,7 +31,6 @@ public class CheckForMonster : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("[CheckForMonster] Update 실행 중");
         // 1. Monster 체크
         if (targetParent != null && dialogueObject != null && objectToDisable != null)
         {

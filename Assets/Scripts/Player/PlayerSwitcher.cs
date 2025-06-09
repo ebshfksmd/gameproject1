@@ -31,6 +31,11 @@ public class PlayerSwitcher : MonoBehaviour
     public HealthBarUI[] otherPlayerUIs;
     [SerializeField] private HealthBarUI currentPlayerUI;
 
+    [Header("Game Over창")]
+    public GameObject GameOver;
+    public GameObject []CurrentObj;
+    public GameObject UI;
+
     public static PlayerSwitcher instance;
     private Coroutine walkInRoutine = null;
     private List<int> deathOrder = new List<int>();
@@ -113,6 +118,13 @@ public class PlayerSwitcher : MonoBehaviour
             else
             {
                 Debug.LogWarning($"[HandleDeath] {playerNames[deadIndex]} 사망. 전환할 생존자가 없습니다.");
+                Debug.LogWarning("게임 오버");
+                UI.SetActive(false);
+
+                for (int i = 0; i < 5; i ++){
+                    CurrentObj[i].SetActive(false);
+                }
+                GameOver.SetActive(true);
             }
         }
 
@@ -143,27 +155,15 @@ public class PlayerSwitcher : MonoBehaviour
             int idx = (currentIndex + offset) % total;
             if (tests[idx].hp > 0)
             {
-                Debug.Log($"[TAB] {playerNames[idx]}로 전환.");
                 ForceSwitchTo(idx);
                 return;
             }
-            else
-            {
-                Debug.Log($"[TAB] {playerNames[idx]}는 죽었으므로 건너뜀.");
-            }
         }
 
-        Debug.Log("[TAB] 전환할 수 있는 생존 캐릭터가 없습니다.");
     }
 
     private void ForceSwitchTo(int nextIndex)
     {
-        if (tests[nextIndex].hp <= 0)
-        {
-            Debug.LogWarning($"[BLOCKED] {playerNames[nextIndex]}는 죽은 캐릭터이므로 전환 차단됨.");
-            return;
-        }
-
         var prev = players[currentIndex];
         var next = players[nextIndex];
 
