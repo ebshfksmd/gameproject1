@@ -123,6 +123,10 @@ MonoBehaviour:
   baseAttackPower: 1
   inStopDistance: 0
   maxHp: 100
+  dieClip: {fileID: 8300000, guid: 025b909a531fd9a4a99b7940a38bb5a6, type: 3}
+  skillClip: {fileID: 8300000, guid: 272743912e733744da5ef74e75a74464, type: 3}
+  rushClip: {fileID: 8300000, guid: 83f8658ffee5e9c46ad50bb3784f87a1, type: 3}
+  jumpClip: {fileID: 8300000, guid: 257467f99676afd4fa6e66e2d31a59ed, type: 3}
 --- !u!50 &-4646651651687027144
 Rigidbody2D:
   serializedVersion: 5

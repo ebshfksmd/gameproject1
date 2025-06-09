@@ -121,7 +121,11 @@ MonoBehaviour:
   baseAttackPower: 0
   baseAtkDistance: 3
   castingTime: 2
+  isDead: 0
   inStopDistance: 0
+  basicSound: {fileID: 8300000, guid: ed5ca1930c440b44a82c6a81f6f88a97, type: 3}
+  baseAttackSound: {fileID: 8300000, guid: 46b587f658b567048888f4e31b35eca9, type: 3}
+  skillSound: {fileID: 8300000, guid: 9fa38e224be403b48b2274cf9e335836, type: 3}
 --- !u!50 &-1763669699405185410
 Rigidbody2D:
   serializedVersion: 5

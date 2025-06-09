@@ -21,9 +21,9 @@ public class SoundManager : MonoBehaviour
     private bool isPlaying = false;
     private AudioClip lastRequestedClip;
     private AudioClip currentBGM = null;
-
+    public static SoundManager Instance => instance;
     private bool hasPlayedHospitalFrontBGM = false;
-
+    private AudioSource loopSource;
     private void Awake()
     {
         if (instance == null)
@@ -78,7 +78,8 @@ public class SoundManager : MonoBehaviour
                 Debug.Log("[SoundManager] 병원 앞 BGM 재생됨: " + bglist[7].name);
             }
         }
-        // bgObjects[6]이 비활성화되고, bgObjects[7]이 활성화된 경우 → bglist[1] 재생
+
+        // 3. bgObjects[6] OFF + bgObjects[7] ON → bglist[1] 재생
         if (bgObjects.Length > 7 && bgObjects[6] != null && bgObjects[7] != null)
         {
             if (!bgObjects[6].activeSelf && bgObjects[7].activeSelf)
@@ -88,6 +89,27 @@ public class SoundManager : MonoBehaviour
                     BgSoundPlay(bglist[1]);
                     Debug.Log("[SoundManager] bgObjects[6] OFF + bgObjects[7] ON → bglist[1] 재생됨: " + bglist[1].name);
                 }
+
+                // bgObjects[1]이 꺼져 있으면 bglist[1] 정지
+                if (bgObjects.Length > 1 && (bgObjects[1] == null || !bgObjects[1].activeSelf))
+                {
+                    if (bgSound.clip == bglist[1] && bgSound.isPlaying)
+                    {
+                        bgSound.Stop();
+                        currentBGM = null;
+                        Debug.Log("[SoundManager] bgObjects[1]이 OFF → bglist[1] 정지됨");
+                    }
+                }
+            }
+        }
+
+        // 4. bgObjects[0]이 ON → bglist[0] 재생
+        if (bgObjects.Length > 0 && bgObjects[0] != null && bgObjects[0].activeSelf)
+        {
+            if (bglist.Length > 0 && bglist[0] != null && currentBGM != bglist[0])
+            {
+                BgSoundPlay(bglist[0]);
+                Debug.Log("[SoundManager] bgObjects[0] ON → bglist[0] 재생됨: " + bglist[0].name);
             }
         }
     }
@@ -150,7 +172,32 @@ public class SoundManager : MonoBehaviour
             StartCoroutine(PlaySound(clip));
         }
     }
+    public void PlayLoopSound(AudioClip clip)
+    {
+        if (clip == null) return;
 
+        if (loopSource == null)
+        {
+            loopSource = gameObject.AddComponent<AudioSource>();
+            loopSource.loop = true;
+            loopSource.playOnAwake = false;
+        }
+
+        if (loopSource.clip != clip)
+        {
+            loopSource.clip = clip;
+            loopSource.Play();
+        }
+    }
+
+    public void StopLoopSound(AudioClip clip)
+    {
+        if (loopSource != null && loopSource.isPlaying && loopSource.clip == clip)
+        {
+            loopSource.Stop();
+            loopSource.clip = null;
+        }
+    }
     private IEnumerator PlaySound(AudioClip clip)
     {
         isPlaying = true;
@@ -188,4 +235,10 @@ public class SoundManager : MonoBehaviour
             }
         }
     }
+
+    public bool IsSFXPlaying(AudioClip clip)
+    {
+        return sfxSource.isPlaying && sfxSource.clip == clip;
+    }
+
 }

@@ -9,6 +9,8 @@ public class M_Summoner : Monster
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
 
+    [SerializeField] private Transform spawnContainer; // 소환된 몬스터들의 부모 오브젝트
+
     float baseAttackCoolTime = 4f;
     int baseAtkCount = 0;
     bool isDead = false;
@@ -66,21 +68,24 @@ public class M_Summoner : Monster
                     for (int i = 0; i < 3; i++)
                     {
                         Monster mob = Instantiate(mousePrefab, GetSpawnPosition(), Quaternion.identity);
+                        if (spawnContainer != null) mob.transform.SetParent(spawnContainer);
                         mob.uiCanvas = uiCanvas;
-                        mob.InitializeHpBar();  // 추가
+                        mob.InitializeHpBar();
                     }
 
                     for (int i = 0; i < 2; i++)
                     {
                         Monster mob = Instantiate(rabbitPrefab, GetSpawnPosition(), Quaternion.identity);
+                        if (spawnContainer != null) mob.transform.SetParent(spawnContainer);
                         mob.uiCanvas = uiCanvas;
-                        mob.InitializeHpBar();  // 추가
+                        mob.InitializeHpBar();
                     }
 
                     {
                         Monster mob = Instantiate(monkeyPrefab, GetSpawnPosition(), Quaternion.identity);
+                        if (spawnContainer != null) mob.transform.SetParent(spawnContainer);
                         mob.uiCanvas = uiCanvas;
-                        mob.InitializeHpBar();  // 추가
+                        mob.InitializeHpBar();
                     }
 
                     baseAtkCount++;
@@ -123,8 +128,9 @@ public class M_Summoner : Monster
 
                 if (mob != null)
                 {
+                    if (spawnContainer != null) mob.transform.SetParent(spawnContainer);
                     mob.uiCanvas = uiCanvas;
-                    mob.InitializeHpBar();  // 추가
+                    mob.InitializeHpBar();
                 }
 
                 StartCoroutine(SkillAnimation());

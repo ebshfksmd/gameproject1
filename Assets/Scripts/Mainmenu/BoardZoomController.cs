@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BoardZoomController : MonoBehaviour
@@ -40,6 +40,8 @@ public class BoardZoomController : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] private DialogueManager dialogueManager;
 
+    public GameObject PlayerHide;
+
     private AudioSource audioSource;
 
     private Vector3 originalPosition;
@@ -48,6 +50,9 @@ public class BoardZoomController : MonoBehaviour
     private Coroutine animRoutine;
     private Coroutine scrollbarRoutine;
     private bool isClickedPlayButton = false;
+
+    private Transform currentZoomTarget = null;
+
     void Awake()
     {
         if (targetCamera == null)
@@ -86,14 +91,11 @@ public class BoardZoomController : MonoBehaviour
         isClickedPlayButton = true;
 
         if (playButtonClip != null)
-        {
             audioSource.PlayOneShot(playButtonClip);
-        }
     }
 
     void Update()
     {
-        // 대사 중이면 입력 차단
         if (dialogueManager != null && dialogueManager.IsDialogueActive())
             return;
 
@@ -137,28 +139,34 @@ public class BoardZoomController : MonoBehaviour
 
         if (zoomState == ZoomState.DeepZoom && Input.GetKeyDown(KeyCode.Space))
         {
-            if (objectToHide != null) objectToHide.SetActive(false);
-            if (objectToShow != null)
+            if (currentZoomTarget == boardZoomObject1.transform)
             {
-                objectToShow.SetActive(true);
-                if (bgmSource != null && bgmSource.isPlaying)
-                    bgmSource.Stop();
-                // 다음 프레임에서 대사 시작
-                if (dialogueManager != null)
-                    StartCoroutine(DelayedStartDialogue());
+                if (objectToHide != null) objectToHide.SetActive(false);
+                if (objectToShow != null)
+                {
+                    objectToShow.SetActive(true);
+                    if (bgmSource != null && bgmSource.isPlaying)
+                        bgmSource.Stop();
+
+                    if (dialogueManager != null)
+                        StartCoroutine(DelayedStartDialogue());
+                }
             }
         }
     }
 
     private IEnumerator DelayedStartDialogue()
     {
-        yield return null; // 1 프레임 대기
+        yield return null;
         dialogueManager.StartDialogue();
     }
 
     public void DeepZoomTo(Transform target, bool showScrollbar)
     {
         if (zoomState != ZoomState.BoardZoom) return;
+
+        currentZoomTarget = target;
+        Vector3 finalTargetPos = target.position + targetOffset;
 
         if (boardZoomObject1 != null && target == boardZoomObject1.transform)
         {
@@ -168,33 +176,29 @@ public class BoardZoomController : MonoBehaviour
         else if (boardZoomObject2 != null && target == boardZoomObject2.transform)
         {
             deepZoomSize = 1.3f;
+            finalTargetPos += new Vector3(1f, 0f, 0f);
             if (boardZoom2Clip != null) audioSource.PlayOneShot(boardZoom2Clip);
+            PlayerHide.gameObject.SetActive(true);
         }
         else if (boardZoomObject3 != null && target == boardZoomObject3.transform)
         {
             deepZoomSize = 0.66f;
             if (boardZoom3Clip != null) audioSource.PlayOneShot(boardZoom3Clip);
         }
-        else
-        {
-            deepZoomSize = 1f;
-        }
 
-        AnimateTo(target.position + targetOffset, deepZoomSize);
+        AnimateTo(finalTargetPos, deepZoomSize);
         zoomState = ZoomState.DeepZoom;
 
         if (showScrollbar)
             FadeScrollbar(true);
     }
 
-    private void AnimateTo(Vector3 pos, float size)
+    private void AnimateTo(Vector3 toPos, float toSize)
     {
         if (animRoutine != null)
             StopCoroutine(animRoutine);
 
-        Vector3 startPos = targetCamera.transform.position;
-        float startSize = targetCamera.orthographicSize;
-        animRoutine = StartCoroutine(AnimateCoroutine(startPos, pos, startSize, size));
+        animRoutine = StartCoroutine(AnimateCoroutine(targetCamera.transform.position, toPos, targetCamera.orthographicSize, toSize));
     }
 
     private IEnumerator AnimateCoroutine(Vector3 fromPos, Vector3 toPos, float fromSize, float toSize)
@@ -211,8 +215,6 @@ public class BoardZoomController : MonoBehaviour
 
         targetCamera.transform.position = toPos;
         targetCamera.orthographicSize = toSize;
-
-        isClickedPlayButton = false;
 
         if (zoomState == ZoomState.DeepZoom && Mathf.Approximately(toSize, 0.66f))
         {
@@ -254,7 +256,6 @@ public class BoardZoomController : MonoBehaviour
             scrollbarGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, t);
             titleColor.a = Mathf.Lerp(titleStartAlpha, titleEndAlpha, t);
             title.color = titleColor;
-
             elapsed += Time.deltaTime;
             yield return null;
         }

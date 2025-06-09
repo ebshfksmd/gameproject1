@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class DialogueEntry
@@ -258,7 +259,18 @@ public class DialogueManager : MonoBehaviour
         dialogueText.ForceMeshUpdate();
 
         isDialogueFinished = true;
+        if (dialogueJson != null && dialogueJson.name == "5_Floor_end")
+        {
+            Debug.Log("[EndDialogue] '5_Floor_end' 감지 → 오브젝트 전환 처리");
 
+            if (nextObjectToActivate != null)
+                nextObjectToActivate.SetActive(true);
+
+            if (thisObjectToDeactivate != null)
+                thisObjectToDeactivate.SetActive(false);
+
+            if(objectToDisable!= null) objectToDisable.SetActive(false);
+        }
         if (dialogueJson != null && dialogueJson.name == "1Floor")
         {
             if (objectToEnable != null)
@@ -267,6 +279,12 @@ public class DialogueManager : MonoBehaviour
         else
         {
             StartCoroutine(FadeAndSwitchObjects());
+        }
+        if (dialogueJson != null && dialogueJson.name == "Ending")
+        {
+            Debug.Log("[EndDialogue] Ending 대사 종료 → 씬 초기화");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
         }
     }
 

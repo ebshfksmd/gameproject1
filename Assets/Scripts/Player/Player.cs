@@ -23,10 +23,11 @@ public class Player : MonoBehaviour
     public AudioClip isWalking;
     public AudioClip jump;
 
+    [Header("X 고정 조건 오브젝트")]
+    [SerializeField] private GameObject fixedPositionObject;
+
     public bool canControl = true;
-
     private float fixedX;
-
     public bool IsGrounded => isGrounded;
 
     void Awake()
@@ -54,7 +55,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         if (!canControl || PlayerSkillController.canAttack == false)
         {
             StopSoundIfPlaying(isWalking);
@@ -69,13 +69,30 @@ public class Player : MonoBehaviour
 
         if (moveAmount != 0f)
         {
-            transform.Translate(new Vector3(moveAmount, 0f, 0f));
-            fixedX = transform.position.x;
+            Vector3 moveVec = new Vector3(moveAmount, 0f, 0f);
+
+            if (fixedPositionObject != null && fixedPositionObject.activeSelf)
+            {
+                moveVec.x = 0f;
+                transform.position = new Vector3(fixedX, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.Translate(moveVec);
+                fixedX = transform.position.x;
+            }
 
             if (input > 0)
                 transform.localScale = new Vector3(Scale, Scale, Scale);
             else if (input < 0)
                 transform.localScale = new Vector3(-Scale, Scale, Scale);
+        }
+        else
+        {
+            if (fixedPositionObject != null && fixedPositionObject.activeSelf)
+            {
+                transform.position = new Vector3(fixedX, transform.position.y, transform.position.z);
+            }
         }
 
         bool isShift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);

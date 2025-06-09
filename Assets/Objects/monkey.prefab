@@ -123,6 +123,8 @@ MonoBehaviour:
   baseAttackPower: 1
   inStopDistance: 0
   maxHp: 100
+  skillSound: {fileID: 8300000, guid: fdfeba2c3a271044cace2d40afa96cc9, type: 3}
+  idleLoopSound: {fileID: 8300000, guid: c7dd69cbd6def6747898aabbcfc7ec99, type: 3}
 --- !u!50 &-618225722819766470
 Rigidbody2D:
   serializedVersion: 5

@@ -123,6 +123,9 @@ MonoBehaviour:
   baseAttackPower: 1
   inStopDistance: 0
   maxHp: 100
+  crySFX: {fileID: 8300000, guid: 6c3b093425173244986a072fe487616b, type: 3}
+  baseAtkSFX: {fileID: 8300000, guid: 364adc6dc91bb804e87500619e1bee62, type: 3}
+  skillSFX: {fileID: 8300000, guid: b841ca9732aeba04cbc33826849f78d0, type: 3}
 --- !u!50 &3457507130653894331
 Rigidbody2D:
   serializedVersion: 5

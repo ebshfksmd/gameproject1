@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 90b61e64314195643940346a511162e2
+guid: c6b083cfdfeb87e43bc11ed90e0d2490
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4117278854838817202
-    second: boss_stand_0
-  - first:
-      213: 3807022882127560904
-    second: boss_stand_1
-  - first:
-      213: -1744664724017176482
-    second: boss_stand_2
+      213: 1789413074347781742
+    second: operate_right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -102,53 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_stand_0
+      name: operate_right_0
       rect:
         serializedVersion: 2
-        x: 59
-        y: 91
-        width: 122
-        height: 125
+        x: 0
+        y: 13
+        width: 74
+        height: 74
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b115efdd43832930800000000000000
-      internalID: 4117278854838817202
+      spriteID: e6e60fcd5b545d810800000000000000
+      internalID: 1789413074347781742
       vertices: []
       indices: 
       edges: []
@@ -157,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -167,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      boss_stand 1_0: 1358524636
-      boss_stand_0: 4117278854838817202
-      boss_stand_1: 3807022882127560904
-      boss_stand_2: -1744664724017176482
+      operate_right_0: 1789413074347781742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

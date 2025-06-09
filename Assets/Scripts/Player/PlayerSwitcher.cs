@@ -39,6 +39,8 @@ public class PlayerSwitcher : MonoBehaviour
     public static PlayerSwitcher instance;
     private Coroutine walkInRoutine = null;
     private List<int> deathOrder = new List<int>();
+    [Header("고정 위치 오브젝트")]
+    [SerializeField] private GameObject fixedPositionObject;
 
     void Awake()
     {
@@ -174,8 +176,20 @@ public class PlayerSwitcher : MonoBehaviour
         next.gameObject.SetActive(true);
         next.canControl = false;
 
-        Vector3 facing = prev.transform.localScale.x >= 0 ? Vector3.right : Vector3.left;
-        Vector3 spawnPos = prev.transform.position - facing * switchOffset;
+        Vector3 spawnPos;
+
+        if (fixedPositionObject != null && fixedPositionObject.activeSelf)
+        {
+            // 고정 오브젝트가 켜져 있으면 현재 위치 유지
+            spawnPos = prev.transform.position;
+        }
+        else
+        {
+            // 기존 방식대로 offset 이동
+            Vector3 facing = prev.transform.localScale.x >= 0 ? Vector3.right : Vector3.left;
+            spawnPos = prev.transform.position - facing * switchOffset;
+        }
+
         next.transform.position = spawnPos;
 
         if (walkInRoutine != null) StopCoroutine(walkInRoutine);

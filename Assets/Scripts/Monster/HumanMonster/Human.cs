@@ -17,7 +17,7 @@ public class Human : Monster
     private float count = 0f;
     private bool isCast = false;
     private bool isTracking = false;
-    private bool isDead = false;
+    public bool isDead = false;
     [HideInInspector] public bool inStopDistance = false;
 
     private void Start()
@@ -99,7 +99,7 @@ public class Human : Monster
         }
     }
 
-    private IEnumerator DieAnimation()
+    public IEnumerator DieAnimation()
     {
         isDead = true;
         speed = 0f;

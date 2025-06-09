@@ -11,6 +11,12 @@ public class M_Rabbit : Animal
     bool isSkillCasting = false;
     bool isSkillPrepared = true;
 
+    [Header("Rabbit SFX")]
+    [SerializeField] private AudioClip dieClip;
+    [SerializeField] private AudioClip skillClip;
+    [SerializeField] private AudioClip rushClip;
+    [SerializeField] private AudioClip jumpClip;
+
     protected override void Update()
     {
         if (isDead) return;
@@ -22,7 +28,6 @@ public class M_Rabbit : Animal
 
         HandleMovement(distanceToTarget);
 
-        // 스킬 쿨타임 관리
         if (!isSkillPrepared)
         {
             skillCount += Time.deltaTime;
@@ -34,20 +39,17 @@ public class M_Rabbit : Animal
             }
         }
 
-        // 스킬 시전
         if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting && !isStun)
         {
             StartCoroutine(SkillCast());
         }
 
-        // 평타 시도 (스킬 쿨타임 중일 때만)
         if (!isSkillPrepared && !isSkillCasting && distanceToTarget < baseAtkDistance && !prepareAtk)
         {
             prepareAtk = true;
             StartCoroutine(AnimalBaseBasicAtk());
         }
 
-        // 사망
         if (hp <= 0 && !isDead)
         {
             StartCoroutine(DieAnimation());
@@ -91,6 +93,7 @@ public class M_Rabbit : Animal
         speed = 0f;
 
         animator.SetBool("isWalk", false);
+
         yield return new WaitForSeconds(skillCastingTime);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -109,6 +112,11 @@ public class M_Rabbit : Animal
     IEnumerator SkillAnimation()
     {
         animator.SetBool("isSkill", true);
+
+        // 스킬 사운드: 토끼 점프
+        if (jumpClip != null)
+            SoundManager.Instance.SFXPlay("토끼 점프", jumpClip);
+
         yield return new WaitForSeconds(skillAtkAnimationTime);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -120,10 +128,6 @@ public class M_Rabbit : Animal
             {
                 Debug.Log($"[스킬공격] {gameObject.name}이(가) {skillPower} 피해를 입힘");
                 PlayerTest.instance.GetAttacked2(atk, skillPower);
-            }
-            else
-            {
-                Debug.LogWarning("[Rabbit] PlayerTest.instance is null.");
             }
         }
 
@@ -141,6 +145,41 @@ public class M_Rabbit : Animal
 
     public override void Skill()
     {
-        // 더 이상 필요하지 않음 (SkillCheck 제거했기 때문에)
+        // 제거된 SkillCheck 로직 대체 불필요
+    }
+
+ IEnumerator AnimalBaseBasicAtk()
+    {
+        animator.SetBool("isAttack", true);
+
+        // 기본 공격 사운드: 스킬
+        if (skillClip != null)
+            SoundManager.Instance.SFXPlay("스킬", skillClip);
+
+        yield return new WaitForSeconds(baseAtkAnimationTime);
+
+        if (PlayerTest.instance != null)
+        {
+            PlayerTest.instance.GetAttacked(atk,skillPower);
+        }
+
+        animator.SetBool("isAttack", false);
+        prepareAtk = false;
+    }
+
+IEnumerator DieAnimation()
+    {
+        isDead = true;
+        speed = 0f;
+        animator.SetBool("isDie", true);
+
+        // 쓰러짐 + 죽음 사운드 재생
+        if (dieClip != null)
+            SoundManager.Instance.SFXPlay("die", dieClip);
+
+        yield return new WaitForSeconds(0.3f);
+        Destroy(hpBarInstance?.gameObject);
+        hpBarInstance = null;
+        Destroy(gameObject);
     }
 }

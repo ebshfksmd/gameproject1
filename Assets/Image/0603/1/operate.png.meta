@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: 8bc69180302d8384487069fb1c9e7405
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5228152416359313500
+    second: operate_0
+  - first:
+      213: 1471842068363115929
+    second: operate_1
+  - first:
+      213: -2081154680704632779
+    second: operate_2
+  - first:
+      213: 7476619852511737656
+    second: operate_3
+  - first:
+      213: -3280026455598863983
+    second: operate_4
+  - first:
+      213: 4918361375418919149
+    second: operate_5
+  - first:
+      213: 2961542592250493659
+    second: operate_6
+  - first:
+      213: -8990152976523583446
+    second: operate_7
+  - first:
+      213: -8420878632690108185
+    second: operate_8
+  - first:
+      213: 6679276010304880679
+    second: operate_9
+  - first:
+      213: -2955520660572817071
+    second: operate_10
+  - first:
+      213: 8321980745613047172
+    second: operate_11
+  - first:
+      213: 7081842336981743485
+    second: operate_12
+  - first:
+      213: -6580179789738804186
+    second: operate_13
+  - first:
+      213: 7606699268309571475
+    second: operate_14
+  - first:
+      213: -8457928295716133680
+    second: operate_15
+  - first:
+      213: 4393862374872191130
+    second: operate_16
+  - first:
+      213: -6401935356190183381
+    second: operate_17
+  - first:
+      213: 4427471721387406232
+    second: operate_18
+  - first:
+      213: -5262150594093363235
+    second: operate_19
+  - first:
+      213: 7439936116913019259
+    second: operate_20
+  - first:
+      213: 4870953428068112722
+    second: operate_21
+  - first:
+      213: -8710581915348146633
+    second: operate_22
+  - first:
+      213: 2199772213209922945
+    second: operate_23
+  - first:
+      213: -4471533747538045620
+    second: operate_24
+  - first:
+      213: 363345066539357595
+    second: operate_25
+  - first:
+      213: 92488382626297709
+    second: operate_26
+  - first:
+      213: -3995307595139259253
+    second: operate_27
+  - first:
+      213: -8057410657506583061
+    second: operate_28
+  - first:
+      213: 3439845195008582078
+    second: operate_29
+  - first:
+      213: -7119736976741564890
+    second: operate_30
+  - first:
+      213: -38995521214733974
+    second: operate_31
+  - first:
+      213: -3494500595469896238
+    second: operate_32
+  - first:
+      213: -2749725136541959595
+    second: operate_33
+  - first:
+      213: -6159726695680792565
+    second: operate_34
+  - first:
+      213: -4038857002062835048
+    second: operate_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: operate_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 745
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af8d47c31fd177b0800000000000000
+      internalID: -5228152416359313500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 739
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d724220980d6410800000000000000
+      internalID: 1471842068363115929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 739
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53875f528d04e13e0800000000000000
+      internalID: -2081154680704632779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 729
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837789d942a42c760800000000000000
+      internalID: 7476619852511737656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_4
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 729
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199652421510b72d0800000000000000
+      internalID: -3280026455598863983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_5
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 658
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de8a8d2cc97814440800000000000000
+      internalID: 4918361375418919149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 673
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdab746fb43891920800000000000000
+      internalID: 2961542592250493659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_7
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 614
+        width: 356
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2024edef7f8c3380800000000000000
+      internalID: -8990152976523583446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_8
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 661
+        width: 35
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e834d1df77032b80800000000000000
+      internalID: -8420878632690108185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 607
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720c20f942e81bc50800000000000000
+      internalID: 6679276010304880679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 607
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159ba344e91ebf6d0800000000000000
+      internalID: -2955520660572817071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_11
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 607
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485f7e9756d9d7370800000000000000
+      internalID: 8321980745613047172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 530
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d777e139512c74260800000000000000
+      internalID: 7081842336981743485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_13
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 521
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62cf96238518ea4a0800000000000000
+      internalID: -6580179789738804186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 521
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 397d0d8beac609960800000000000000
+      internalID: 7606699268309571475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_15
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 503
+        width: 120
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d46d1ee6076f9a80800000000000000
+      internalID: -8457928295716133680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_16
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 399
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a90163edc822afc30800000000000000
+      internalID: 4393862374872191130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_17
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 405
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20354366b1c727a0800000000000000
+      internalID: -6401935356190183381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_18
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 399
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8933266a21a817d30800000000000000
+      internalID: 4427471721387406232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_19
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 405
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddf447c2ae519f6b0800000000000000
+      internalID: -5262150594093363235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_20
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 399
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b791338da76ff3760800000000000000
+      internalID: 7439936116913019259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_21
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 383
+        width: 191
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 259987dd55a199340800000000000000
+      internalID: 4870953428068112722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_22
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 279
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7366bbc06ebcd1780800000000000000
+      internalID: -8710581915348146633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_23
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 279
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18df62b4c29278e10800000000000000
+      internalID: 2199772213209922945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_24
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 262
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45d2d07fbbe1f1c0800000000000000
+      internalID: -4471533747538045620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_25
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 172
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9518f5b96cda0500800000000000000
+      internalID: 363345066539357595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_26
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 160
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d677a48a1b5984100800000000000000
+      internalID: 92488382626297709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_27
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 140
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84ed4709e0dd88c0800000000000000
+      internalID: -3995307595139259253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_28
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 141
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed9fdd62b35e2090800000000000000
+      internalID: -8057410657506583061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_29
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 141
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb122d2daf8ccbf20800000000000000
+      internalID: 3439845195008582078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_30
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 141
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62efa1f01fc913d90800000000000000
+      internalID: -7119736976741564890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_31
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 163
+        width: 34
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a612a22b7c5757ff0800000000000000
+      internalID: -38995521214733974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_32
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 36
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d530ab193a018fc0800000000000000
+      internalID: -3494500595469896238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_33
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 42
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a34769e8307d9d0800000000000000
+      internalID: -2749725136541959595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_34
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 36
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b08a476b431448aa0800000000000000
+      internalID: -6159726695680792565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: operate_35
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 19
+        width: 120
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 892127594f813f7c0800000000000000
+      internalID: -4038857002062835048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      operate_0: -5228152416359313500
+      operate_1: 1471842068363115929
+      operate_10: -2955520660572817071
+      operate_11: 8321980745613047172
+      operate_12: 7081842336981743485
+      operate_13: -6580179789738804186
+      operate_14: 7606699268309571475
+      operate_15: -8457928295716133680
+      operate_16: 4393862374872191130
+      operate_17: -6401935356190183381
+      operate_18: 4427471721387406232
+      operate_19: -5262150594093363235
+      operate_2: -2081154680704632779
+      operate_20: 7439936116913019259
+      operate_21: 4870953428068112722
+      operate_22: -8710581915348146633
+      operate_23: 2199772213209922945
+      operate_24: -4471533747538045620
+      operate_25: 363345066539357595
+      operate_26: 92488382626297709
+      operate_27: -3995307595139259253
+      operate_28: -8057410657506583061
+      operate_29: 3439845195008582078
+      operate_3: 7476619852511737656
+      operate_30: -7119736976741564890
+      operate_31: -38995521214733974
+      operate_32: -3494500595469896238
+      operate_33: -2749725136541959595
+      operate_34: -6159726695680792565
+      operate_35: -4038857002062835048
+      operate_4: -3280026455598863983
+      operate_5: 4918361375418919149
+      operate_6: 2961542592250493659
+      operate_7: -8990152976523583446
+      operate_8: -8420878632690108185
+      operate_9: 6679276010304880679
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

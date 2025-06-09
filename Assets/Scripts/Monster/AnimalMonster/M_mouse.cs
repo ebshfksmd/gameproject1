@@ -11,6 +11,30 @@ public class M_mouse : Animal
     bool isSkillCasting = false;
     bool isSkillPrepared = true;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip crySFX;
+    [SerializeField] private AudioClip baseAtkSFX;
+    [SerializeField] private AudioClip skillSFX;
+
+    private bool hasPlayedCrySound = false;
+    private AudioSource sfxSource;
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        hp = 100;
+        atk = 150;
+        def = 0;
+        moveDistance = 5000f;
+        type = MonsterType.animal;
+
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.loop = false;
+        sfxSource.playOnAwake = false;
+        sfxSource.volume = 1f;
+    }
+
     protected override void Update()
     {
         if (isDead) return;
@@ -22,7 +46,6 @@ public class M_mouse : Animal
 
         HandleMovement(distanceToTarget);
 
-        // 스킬 쿨타임 관리
         if (!isSkillPrepared)
         {
             skillCount += Time.deltaTime;
@@ -34,7 +57,6 @@ public class M_mouse : Animal
             }
         }
 
-        // 스킬 우선 시전
         if (distanceToTarget < skillDistance && isSkillPrepared && !isSkillCasting && !isStun)
         {
             Debug.Log("[쥐] 스킬 시전 시작");
@@ -42,14 +64,12 @@ public class M_mouse : Animal
             return;
         }
 
-        // 기본 공격
         if (distanceToTarget < baseAtkDistance && !prepareAtk && !isSkillCasting && !isStun)
         {
             prepareAtk = true;
             StartCoroutine(AnimalBaseBasicAtk());
         }
 
-        // 사망 처리
         if (hp <= 0 && !isDead)
         {
             StartCoroutine(DieAnimation());
@@ -60,6 +80,13 @@ public class M_mouse : Animal
     {
         if (distanceToTarget < targetDistance && distanceToTarget > stopDistance)
         {
+            if (!hasPlayedCrySound && crySFX != null)
+            {
+                hasPlayedCrySound = true;
+                SoundManager.Instance.SFXPlay("MouseCry", crySFX);
+                Debug.Log("[M_mouse] 울음소리 SFX 재생됨");
+            }
+
             isTracking = true;
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
@@ -84,6 +111,30 @@ public class M_mouse : Animal
             isTracking = false;
             animator.SetBool("isWalk", false);
         }
+    }
+
+    IEnumerator AnimalBaseBasicAtk()
+    {
+        animator.SetBool("isAttack", true);
+
+        if (baseAtkSFX != null)
+            sfxSource.PlayOneShot(baseAtkSFX);
+
+        yield return new WaitForSeconds(baseAtkAnimationTime);
+
+        if (Vector3.Distance(transform.position, target.position) <= baseAtkDistance)
+        {
+            if (PlayerTest.instance != null)
+            {
+                Debug.Log($"[기본공격] {gameObject.name}이(가) {atk} 피해를 입힘");
+                PlayerTest.instance.GetAttacked2(atk, skillPower);
+            }
+        }
+
+        sfxSource.Stop();
+        animator.SetBool("isAttack", false);
+        yield return new WaitForSeconds(baseAtkCoolTime);
+        prepareAtk = false;
     }
 
     IEnumerator SkillCast()
@@ -111,6 +162,10 @@ public class M_mouse : Animal
     IEnumerator SkillAnimation()
     {
         animator.SetBool("isSkill", true);
+
+        if (skillSFX != null)
+            sfxSource.PlayOneShot(skillSFX);
+
         yield return new WaitForSeconds(skillAtkAnimationTime);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -127,17 +182,7 @@ public class M_mouse : Animal
             }
         }
 
+        sfxSource.Stop();
         animator.SetBool("isSkill", false);
-    }
-
-    public override void Awake()
-    {
-        base.Awake();
-
-        hp = 100;
-        atk = 150;
-        def = 0;
-        moveDistance = 5000f;
-        type = MonsterType.animal;
     }
 }

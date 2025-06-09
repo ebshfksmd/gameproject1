@@ -3,57 +3,60 @@ using UnityEngine;
 
 public class M_Centipede : Human
 {
-    //스킬 시전시간
+    // 스킬 관련
     float skillCastingTime = 6f;
-    //스킬 위력
     int skillPower = 2;
-
-    //스킬 쿨타임 카운트
     float skillCount = 0;
-
-    //스킬이 캐스팅되고있는지 확인
     bool isSkillCasting = false;
-
-
-    //스킬이 준비되었는지
     bool isSKillPrepare = true;
-
-    //스킬 범위
     float skillDistance = 3f;
 
-    //독 데미지
-    IEnumerator PoisonDmg()
+    // 사운드 클립
+    [Header("사운드 클립")]
+    public AudioClip basicSound;
+    public AudioClip baseAttackSound;
+    public AudioClip skillSound;
+
+    private bool isSkillCheckRunning = false;
+
+    public override void Awake()
     {
-        PlayerTest.instance.status = PlayerTest.Status.cantAtk;
-        //
-        for (int i = 0; i < 6; i++)
-        {
-            PlayerTest.instance.GetAttacked2(atk, skillPower);
-            yield return new WaitForSeconds(1f);
-
-        }
-        PlayerTest.instance.status = PlayerTest.Status.basic;
-
-
+        base.Awake();
+        hp = 300;
+        atk = 150;
+        def = 100;
+        type = MonsterType.human;
+        Skill();
     }
 
-    IEnumerator SkillAnimation()
+    // 스킬 검사 루프
+    IEnumerator SkillCheck()
     {
-        animator.SetBool("isSkill", true);
-        yield return new WaitForSeconds(skillAtkAnimationTime);
-        animator.SetBool("isSkill", false);
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-        if (distanceToTarget < skillDistance)
+        while (true)
         {
-            StartCoroutine(PoisonDmg());
-            StartCoroutine(PlayerSkillController.DisableAttackRoutine(6f));
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+            if (!isSKillPrepare)
+            {
+                skillCount += Time.deltaTime;
+                if (skillCount >= skillCoolTime)
+                {
+                    isSKillPrepare = true;
+                    skillCount = 0;
+                }
+            }
+
+            if (distanceToTarget < skillDistance && isSKillPrepare && !isSkillCasting)
+            {
+                isSkillCasting = true;
+                StartCoroutine(SkillCast());
+            }
+
+            yield return null;
         }
-        animator.SetBool("isWalk", true);
     }
 
-
-    //스킬 시전
+    // 스킬 시전
     IEnumerator SkillCast()
     {
         isSkillCasting = true;
@@ -69,47 +72,45 @@ public class M_Centipede : Human
         isSkillCasting = false;
     }
 
-
-
-
-    //스킬을 사용할 상황인지 판단하는 코루틴
-    System.Collections.IEnumerator SkillCheck()
+    // 스킬 애니메이션
+    IEnumerator SkillAnimation()
     {
-        while (true)
+        animator.SetBool("isSkill", true);
+
+        // 스킬 사운드 재생
+        if (skillSound != null)
+            SoundManager.Instance.SFXPlay("스킬", skillSound);
+
+        yield return new WaitForSeconds(skillAtkAnimationTime);
+        animator.SetBool("isSkill", false);
+
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (distanceToTarget < skillDistance)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-
-
-            //스킬 쿨타임이 다 돌지 않았을때
-            if (isSKillPrepare == false)
-            {
-                skillCount += Time.deltaTime;
-            }
-
-            //스킬쿨타임이 돌았을때
-            if (skillCount >= skillCoolTime)
-            {
-                isSKillPrepare = true;
-                skillCount = 0;
-            }
-
-            //플레이어가 범위안에 들어왔을때
-            if (distanceToTarget < skillDistance && isSKillPrepare && !isSkillCasting)
-            {
-                // 혹시라도 중복 진입할 수 있으므로 여기서도 한번 더 차단
-                isSkillCasting = true;
-                StartCoroutine(SkillCast());
-            }
-
-
-            yield return null;
+            StartCoroutine(PoisonDmg());
+            StartCoroutine(PlayerSkillController.DisableAttackRoutine(6f));
         }
 
-
+        animator.SetBool("isWalk", true);
     }
 
-    private bool isSkillCheckRunning = false;
+    // 지속 데미지
+    IEnumerator PoisonDmg()
+    {
+        PlayerTest.instance.status = PlayerTest.Status.cantAtk;
+
+        // 기본공격 사운드 재생
+        if (baseAttackSound != null)
+            SoundManager.Instance.SFXPlay("기본공격", baseAttackSound);
+
+        for (int i = 0; i < 6; i++)
+        {
+            PlayerTest.instance.GetAttacked2(atk, skillPower);
+            yield return new WaitForSeconds(1f);
+        }
+
+        PlayerTest.instance.status = PlayerTest.Status.basic;
+    }
 
     public override void Skill()
     {
@@ -120,19 +121,12 @@ public class M_Centipede : Human
         }
     }
 
-
-#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
-#pragma warning disable CS0114 
-    private void Awake()
-#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
-#pragma warning restore CS0114
+    // 일반 동작 사운드 재생 (선택적 사용 예시)
+    void Update()
     {
-        base.Awake();
-        hp = 300;
-        atk = 150;
-        def = 100;
-        type = MonsterType.human;
-
-        Skill();
+        if (!isDead && basicSound != null && !SoundManager.Instance.IsSFXPlaying(basicSound))
+        {
+            SoundManager.Instance.SFXPlay("기본", basicSound);
+        }
     }
 }
