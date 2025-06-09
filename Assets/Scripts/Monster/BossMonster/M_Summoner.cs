@@ -11,13 +11,18 @@ public class M_Summoner : Monster
 
     [SerializeField] private Transform spawnContainer; // 소환된 몬스터들의 부모 오브젝트
 
-    float baseAttackCoolTime = 4f;
     int baseAtkCount = 0;
     bool isDead = false;
     SpriteRenderer spr;
 
+
+    float tempSkillCoolTime;
+    float tempBaseAtkCoolTime;
+
     private void Start()
     {
+        tempSkillCoolTime=skillCoolTime;
+        tempBaseAtkCoolTime=baseAtkCoolTime;
         spr = GetComponent<SpriteRenderer>();
         StartCoroutine(WaitForPlayer());
     }
@@ -91,7 +96,7 @@ public class M_Summoner : Monster
                     baseAtkCount++;
                 }
 
-                yield return new WaitForSeconds(baseAttackCoolTime);
+                yield return new WaitForSeconds(baseAtkCoolTime);
             }
             else
             {
@@ -160,7 +165,8 @@ public class M_Summoner : Monster
                 canAtk = true;
             }
 
-            baseAttackCoolTime = hp < 30 ? 15f : 30f;
+            baseAtkCoolTime = hp < 30 ? tempBaseAtkCoolTime/2 : tempBaseAtkCoolTime;
+            skillCoolTime = hp < 30 ? tempSkillCoolTime / 2 : tempSkillCoolTime;
             moveDirection = transform.position.x > target.position.x ? 1 : -1;
 
             yield return null;
