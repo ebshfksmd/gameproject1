@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class M_Summoner : Monster
@@ -9,7 +9,7 @@ public class M_Summoner : Monster
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
 
-    [SerializeField] private Transform spawnContainer; // ¼ÒÈ¯µÈ ¸ó½ºÅÍµéÀÇ ºÎ¸ğ ¿ÀºêÁ§Æ®
+    [SerializeField] private Transform spawnContainer; // ì†Œí™˜ëœ ëª¬ìŠ¤í„°ë“¤ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸
 
     int baseAtkCount = 0;
     bool isDead = false;
@@ -21,8 +21,8 @@ public class M_Summoner : Monster
 
     private void Start()
     {
-        tempSkillCoolTime=skillCoolTime;
-        tempBaseAtkCoolTime=baseAtkCoolTime;
+        tempSkillCoolTime = skillCoolTime;
+        tempBaseAtkCoolTime = baseAtkCoolTime;
         spr = GetComponent<SpriteRenderer>();
         StartCoroutine(WaitForPlayer());
     }
@@ -153,19 +153,19 @@ public class M_Summoner : Monster
         while (true)
         {
             GameObject found = GameObject.FindGameObjectWithTag("Monster");
-
             if (found == null)
             {
                 spr.color = new Color(spr.color.r, spr.color.g, spr.color.b, 1f);
-                canAtk = false;
+                canAttacked = true;
             }
             else
             {
+
                 spr.color = new Color(spr.color.r, spr.color.g, spr.color.b, 0.5f);
-                canAtk = true;
+                canAttacked = false;
             }
 
-            baseAtkCoolTime = hp < 30 ? tempBaseAtkCoolTime/2 : tempBaseAtkCoolTime;
+            baseAtkCoolTime = hp < 30 ? tempBaseAtkCoolTime / 2 : tempBaseAtkCoolTime;
             skillCoolTime = hp < 30 ? tempSkillCoolTime / 2 : tempSkillCoolTime;
             moveDirection = transform.position.x > target.position.x ? 1 : -1;
 

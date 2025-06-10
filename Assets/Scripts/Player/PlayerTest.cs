@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -25,8 +26,15 @@ public class PlayerTest : MonoBehaviour
     public Status status = Status.basic;
     private PlayerSwitcher playerSwitcher;
 
+    public static readonly List<PlayerTest> AllPlayers = new List<PlayerTest>();
+
+    void OnDestroy()
+    {
+        AllPlayers.Remove(this);
+    }
     private void Awake()
     {
+        AllPlayers.Add(this);
         playerSwitcher = Object.FindFirstObjectByType<PlayerSwitcher>();
         instance = this;
         hp = maxHp;
@@ -113,4 +121,6 @@ public class PlayerTest : MonoBehaviour
         if (sprite1 != null) sprite1.color = new Color32(196, 250, 255, 255);
         if (sprite2 != null) sprite2.color = new Color32(196, 250, 255, 255);
     }
+
+
 }

@@ -17,5 +17,5 @@ MonoBehaviour:
   range: 0
   animationName: W
   castTime: 0
-  cooldown: 40
+  cooldown: 4
   healAmount: 25

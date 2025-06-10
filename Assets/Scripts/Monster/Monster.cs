@@ -24,7 +24,7 @@ public class Monster : MonoBehaviour
     [SerializeField] protected float skillCoolTime;
     //기절했는지 아닌지
     protected bool isStun = false;
-
+    protected bool canAttacked = true;
     public string PoolKey { get; set; }
 
     protected bool canAtk;
@@ -75,15 +75,19 @@ public class Monster : MonoBehaviour
         if (targetObj != null)
         {
             target = targetObj.transform;
+            Debug.Log($"[Monster] 타겟 설정 완료: {target.name}");
         }
-
+        else
+        {
+            Debug.LogWarning("[Monster] Player 태그를 가진 오브젝트를 찾을 수 없습니다.");
+        }
 
         monsterRenderer = GetComponentInChildren<Renderer>();
         if (monsterRenderer != null)
         {
             originalColor = monsterRenderer.material.color;
         }
-        if(uiCanvas != null)
+        if (uiCanvas != null)
         {
             InitializeHpBar();
         }
@@ -99,24 +103,31 @@ public class Monster : MonoBehaviour
             hpBarInstance.minValue = 0;
             hpBarInstance.value = hp;
         }
-
+        else
+        {
+            Debug.LogWarning("InitializeHpBar 실패: uiCanvas 또는 hpBar가 할당되지 않았습니다.");
+        }
     }
 
     public void GetAttacked(int dmg, int power)
     {
-        hp -= (dmg / (100 + def)) * power;
-
-        if (hpBarInstance != null)
-            hpBarInstance.value = hp;
-
-        StartCoroutine(HitAnimation());
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (canAttacked)
         {
-            Vector2 knockbackDir = new Vector2(moveDirection * -1, 1f).normalized;
-            rb.AddForce(knockbackDir * 5f, ForceMode2D.Impulse);
+            hp -= (dmg / (100 + def)) * power;
+
+            if (hpBarInstance != null)
+                hpBarInstance.value = hp;
+
+            StartCoroutine(HitAnimation());
+
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 knockbackDir = new Vector2(moveDirection * -1, 1f).normalized;
+                rb.AddForce(knockbackDir * 5f, ForceMode2D.Impulse);
+            }
         }
+
     }
 
     IEnumerator HitAnimation()
