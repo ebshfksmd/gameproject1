@@ -276,7 +276,7 @@ public class DialogueManager : MonoBehaviour
             if (objectToEnable != null)
                 objectToEnable.SetActive(true);
         }
-        else
+        else if (blackFadePanel != null)
         {
             StartCoroutine(FadeAndSwitchObjects());
         }

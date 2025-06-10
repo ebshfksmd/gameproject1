@@ -87,13 +87,6 @@ public class Player : MonoBehaviour
             else if (input < 0)
                 transform.localScale = new Vector3(-Scale, Scale, Scale);
         }
-        else
-        {
-            if (fixedPositionObject != null && fixedPositionObject.activeSelf)
-            {
-                transform.position = new Vector3(fixedX, transform.position.y, transform.position.z);
-            }
-        }
 
         bool isShift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         anim.SetBool("isWalking", input != 0);

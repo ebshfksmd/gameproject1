@@ -10,13 +10,13 @@ public class Human : Monster
 
     [Header("공격 설정")]
     [SerializeField] private int baseAttackPower;
-    [SerializeField] private float baseAtkDistance;
+    [SerializeField] protected float baseAtkDistance;
     [SerializeField] private float castingTime;
 
     private Vector3 startPos;
     private float count = 0f;
     private bool isCast = false;
-    private bool isTracking = false;
+    protected bool isTracking = false;
     public bool isDead = false;
     [HideInInspector] public bool inStopDistance = false;
 
@@ -90,7 +90,7 @@ public class Human : Monster
         }
     }
 
-    private void UpdateHpBar()
+    protected void UpdateHpBar()
     {
         if (hpBarInstance != null)
         {
