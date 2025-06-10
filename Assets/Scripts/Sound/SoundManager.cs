@@ -101,6 +101,25 @@ public class SoundManager : MonoBehaviour
                     }
                 }
             }
+            // 5. bgObjects[8]이 ON → bglist[8] 재생 (End)
+            if (bgObjects.Length > 8 && bgObjects[8] != null && bgObjects[8].activeSelf)
+            {
+                if (bglist.Length > 8 && bglist[8] != null && currentBGM != bglist[8])
+                {
+                    BgSoundPlay(bglist[8]);
+                    Debug.Log("[SoundManager] bgObjects[8] ON → bglist[8] (End) 재생됨: " + bglist[8].name);
+                }
+            }
+
+            // 6. bgObjects[9]이 ON → bglist[9] 재생 (GameOver)
+            if (bgObjects.Length > 9 && bgObjects[9] != null && bgObjects[9].activeSelf)
+            {
+                if (bglist.Length > 9 && bglist[9] != null && currentBGM != bglist[9])
+                {
+                    BgSoundPlay(bglist[9]);
+                    Debug.Log("[SoundManager] bgObjects[9] ON → bglist[9] (GameOver) 재생됨: " + bglist[9].name);
+                }
+            }
         }
 
         // 4. bgObjects[0]이 ON → bglist[0] 재생

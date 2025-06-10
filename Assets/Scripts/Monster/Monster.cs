@@ -75,12 +75,8 @@ public class Monster : MonoBehaviour
         if (targetObj != null)
         {
             target = targetObj.transform;
-            Debug.Log($"[Monster] 타겟 설정 완료: {target.name}");
         }
-        else
-        {
-            Debug.LogWarning("[Monster] Player 태그를 가진 오브젝트를 찾을 수 없습니다.");
-        }
+
 
         monsterRenderer = GetComponentInChildren<Renderer>();
         if (monsterRenderer != null)
@@ -103,10 +99,7 @@ public class Monster : MonoBehaviour
             hpBarInstance.minValue = 0;
             hpBarInstance.value = hp;
         }
-        else
-        {
-            Debug.LogWarning("InitializeHpBar 실패: uiCanvas 또는 hpBar가 할당되지 않았습니다.");
-        }
+
     }
 
     public void GetAttacked(int dmg, int power)

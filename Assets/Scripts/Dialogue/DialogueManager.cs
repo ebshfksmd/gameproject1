@@ -52,6 +52,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue Skip Object")]
     [SerializeField] private GameObject skipTriggerObject;
 
+    [Header("Collider 조절용")]
+    [SerializeField] private Collider2D skipButtonCollider;
+
     public float typingSpeed = 0.05f;
 
     private DialogueEntry[] dialogues;
@@ -131,17 +134,17 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         if (skipTriggerObject != null) skipTriggerObject.SetActive(true);
+        if (skipButtonCollider != null) skipButtonCollider.enabled = false;
 
         isDialogueFinished = false;
         isDialogueActive = true;
         currentLine = 0;
 
         if (player != null)
-        {
             player.canControl = false;
-        }
 
         PlayerSkillController.canAttack = false;
+
         nameText.text = "";
         dialogueText.text = "";
         dialogueText.ForceMeshUpdate();
@@ -238,9 +241,10 @@ public class DialogueManager : MonoBehaviour
         SetPanelVisible(false);
 
         if (objectToDisable != null) objectToDisable.SetActive(false);
-        if(skipTriggerObject!=null) skipTriggerObject.SetActive(false);
+        if (skipTriggerObject != null) skipTriggerObject.SetActive(false);
         if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(true);
         if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(true);
+        if (skipButtonCollider != null) skipButtonCollider.enabled = true;
 
         if (player != null)
         {
@@ -259,18 +263,17 @@ public class DialogueManager : MonoBehaviour
         dialogueText.ForceMeshUpdate();
 
         isDialogueFinished = true;
+
         if (dialogueJson != null && dialogueJson.name == "5_Floor_end")
         {
             Debug.Log("[EndDialogue] '5_Floor_end' 감지 → 오브젝트 전환 처리");
-
             if (nextObjectToActivate != null)
                 nextObjectToActivate.SetActive(true);
-
             if (thisObjectToDeactivate != null)
                 thisObjectToDeactivate.SetActive(false);
-
-            if(objectToDisable!= null) objectToDisable.SetActive(false);
+            if (objectToDisable != null) objectToDisable.SetActive(false);
         }
+
         if (dialogueJson != null && dialogueJson.name == "1Floor")
         {
             if (objectToEnable != null)
@@ -280,6 +283,7 @@ public class DialogueManager : MonoBehaviour
         {
             StartCoroutine(FadeAndSwitchObjects());
         }
+
         if (dialogueJson != null && dialogueJson.name == "Ending")
         {
             Debug.Log("[EndDialogue] Ending 대사 종료 → 씬 초기화");
