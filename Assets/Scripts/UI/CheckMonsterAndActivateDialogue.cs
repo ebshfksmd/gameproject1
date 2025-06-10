@@ -75,17 +75,38 @@ public class CheckForMonster : MonoBehaviour
         // 3. S 키 입력 처리 (조건: 대사 완료 + 특정 JSON 이름일 때만)
         if (isPlayerColliding && Input.GetKeyDown(KeyCode.S))
         {
-            if (dialogueManager != null &&
-                dialogueManager.IsDialogueFinished &&
-                dialogueManager.dialogueJson != null &&
-                (dialogueManager.dialogueJson.name == "Go_2Floor" ||
-                dialogueManager.dialogueJson.name == "Go_3Floor" ||
-                dialogueManager.dialogueJson.name == "Go_5Floor"))
+            if (dialogueManager == null)
             {
+                Debug.Log("dialogueManager is null.");
+            }
+            else if (!dialogueManager.IsDialogueFinished)
+            {
+                Debug.Log("Dialogue is not finished.");
+            }
+            else if (dialogueManager.dialogueJson == null)
+            {
+                Debug.Log("dialogueJson is null.");
+            }
+            else if (dialogueManager.dialogueJson.name != "Go_2Floor" &&
+                     dialogueManager.dialogueJson.name != "Go_3Floor" &&
+                     dialogueManager.dialogueJson.name != "Go_5Floor")
+            {
+                Debug.Log($"dialogueJson name is not one of 'Go_2Floor', 'Go_3Floor', or 'Go_5Floor'. Current name: {dialogueManager.dialogueJson.name}");
+            }
+            else
+            {
+                // If all conditions pass, execute the code block
                 if (postDialogueCanvas1 != null) postDialogueCanvas1.SetActive(true);
+                else Debug.Log("postDialogueCanvas1 is null.");
+
                 if (postDialogueCanvas2 != null) postDialogueCanvas2.SetActive(true);
+                else Debug.Log("postDialogueCanvas2 is null.");
+
                 if (object2 != null) object2.SetActive(false);
+                else Debug.Log("object2 is null.");
+
                 if (object3 != null) object3.SetActive(true);
+                else Debug.Log("object3 is null.");
             }
         }
     }

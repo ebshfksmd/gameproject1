@@ -18,8 +18,10 @@ MonoBehaviour:
   animationName: Q
   castTime: 0
   cooldown: 6
-  damage: 20
+  damage: 3000
+  power: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   effectPrefab: {fileID: 0}
+  isJER: 0

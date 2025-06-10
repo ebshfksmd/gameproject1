@@ -19,8 +19,8 @@ MonoBehaviour:
   castTime: 0
   cooldown: 60
   radius: 5
-  moveSpeedReducePercent: 0.3
-  defenseReduceAmount: 2
+  moveSpeedReducePercent: 0.209
+  defenseReduceAmount: 20
   duration: 5
   enemyLayer:
     serializedVersion: 2

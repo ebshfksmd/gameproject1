@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
-  range: 5
+  range: 2
   animationName: Q
   castTime: 0
   cooldown: 5
-  damage: 120000
-  power: 3
+  damage: 6000
+  power: 4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

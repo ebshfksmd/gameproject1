@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
-  range: 0
+  range: 10
   animationName: R
-  castTime: 0
+  castTime: 1
   cooldown: 5
-  range: 5
-  damage: 100
-  power: 3
+  damage: 5000
+  power: 10
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

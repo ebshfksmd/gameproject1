@@ -18,8 +18,8 @@ MonoBehaviour:
   animationName: attack
   castTime: 0
   cooldown: 0
-  damage: 10000
-  power: 3
+  damage: 6000
+  power: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

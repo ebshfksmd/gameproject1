@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
-  range: 0
+  range: 2
   animationName: E
-  castTime: 0
-  cooldown: 5
+  castTime: 1.5
+  cooldown: 50
   radius: 5
   moveSpeedReducePercent: 0.3
-  defenseReduceAmount: 2
+  defenseReduceAmount: 20
   duration: 5
   enemyLayer:
     serializedVersion: 2

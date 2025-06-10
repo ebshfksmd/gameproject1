@@ -9,6 +9,8 @@ public class M_Summoner : Monster
     [SerializeField] M_Centipede centipedePrefab;
     [SerializeField] M_Mantis mantisPrefab;
 
+    [SerializeField] private GameObject Map;
+
     [SerializeField] private Transform spawnContainer; // 소환된 몬스터들의 부모 오브젝트
 
     int baseAtkCount = 0;
@@ -187,6 +189,20 @@ public class M_Summoner : Monster
 
     Vector3 GetSpawnPosition()
     {
-        return new Vector3(target.position.x + Random.Range(-8, 8), 1, 0);
+        float x = 0f;
+
+        do
+        {
+            x = GetRandomX();
+        } while ((target.position.x + x < Map.transform.position.x - 50) || (target.position.x + x > Map.transform.position.x + 12));
+        return new Vector3(target.position.x + x, 1, 0);
     }
+
+    float GetRandomX()
+    {
+        return Random.Range(-8, 8);
+       
+    }
+
+    
 }

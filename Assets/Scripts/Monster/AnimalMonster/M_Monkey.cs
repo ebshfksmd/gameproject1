@@ -14,6 +14,8 @@ public class M_Monkey : Animal
     [SerializeField] private AudioClip skillSound;
     [SerializeField] private AudioClip idleLoopSound;
 
+    
+
     private void PlayIdleSound()
     {
         if (idleLoopSound != null)

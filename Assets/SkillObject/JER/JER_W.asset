@@ -18,8 +18,8 @@ MonoBehaviour:
   animationName: W
   castTime: 1
   cooldown: 30
-  damage: 30
-  power: 3
+  damage: 5000
+  power: 4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

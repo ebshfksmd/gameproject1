@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: 
   icon: {fileID: 0}
-  range: 5
+  range: 2
   animationName: Q
   castTime: 1
   cooldown: 3
   dashDuration: 0.2
-  dashDamage: 2000
+  dashDamage: 4000
   power: 3
   hitRadius: 1
   enemyLayer:
