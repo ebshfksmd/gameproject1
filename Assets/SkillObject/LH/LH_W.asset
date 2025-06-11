@@ -19,7 +19,7 @@ MonoBehaviour:
   castTime: 1
   cooldown: 7
   damage: 6000
-  power: 3
+  power: 30
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
